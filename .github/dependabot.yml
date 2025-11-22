@@ -9,7 +9,7 @@ updates:
       interval: "weekly"
       day: "monday"
       time: "09:00"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 10
     reviewers:
       - "better-organization/maintainers"
     assignees:
@@ -28,17 +28,6 @@ updates:
         update-types: ["version-update:semver-major"]
       - dependency-name: "react-dom"
         update-types: ["version-update:semver-major"]
-
-  # Enable security updates for npm
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    open-pull-requests-limit: 10
-    labels:
-      - "security"
-      - "dependencies"
-      - "automated"
 
   # Enable version updates for GitHub Actions
   - package-ecosystem: "github-actions"
