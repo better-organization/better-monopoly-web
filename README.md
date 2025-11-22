@@ -1,5 +1,10 @@
 # Better Monopoly Web
 
+[![CI/CD Pipeline](https://github.com/better-organization/better-monopoly-web/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/better-organization/better-monopoly-web/actions)
+[![Pull Request Checks](https://github.com/better-organization/better-monopoly-web/workflows/Pull%20Request%20Checks/badge.svg)](https://github.com/better-organization/better-monopoly-web/actions)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Node Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](package.json)
+
 A modern, React-based frontend for the Better Monopoly game built with Next.js, TypeScript, and Tailwind CSS.
 
 ## 🎮 About
@@ -212,6 +217,18 @@ Configure the backend URL via environment variables.
 - [ ] Set up E2E testing
 - [ ] Configure CI/CD pipeline
 
+## 🔄 CI/CD
+
+This project includes comprehensive GitHub Actions workflows for:
+- ✅ Automated testing and code quality checks
+- 🐳 Docker image building and publishing
+- 🔒 Security scanning with Trivy
+- 📊 Test coverage reporting
+- 🏷️ Automatic PR labeling
+- 🚀 Deployment automation
+
+See [CI/CD Documentation](.github/CICD.md) for details.
+
 ## 📚 Additional Resources
 
 - [Next.js Documentation](https://nextjs.org/docs)
@@ -219,6 +236,7 @@ Configure the backend URL via environment variables.
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Jest Documentation](https://jestjs.io/)
+- [CI/CD Setup Guide](.github/CICD.md)
 
 ## 📄 License
 

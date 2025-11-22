@@ -1,0 +1,71 @@
+name: Dependency Updates
+
+on:
+  schedule:
+    # Run weekly on Monday at 9 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  update-dependencies:
+    name: Update Dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'yarn'
+
+      - name: Check for outdated packages
+        id: outdated
+        run: |
+          yarn outdated --json > outdated.json || true
+          if [ -s outdated.json ]; then
+            echo "has_updates=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_updates=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update dependencies
+        if: steps.outdated.outputs.has_updates == 'true'
+        run: |
+          yarn upgrade-interactive --latest
+
+      - name: Run tests
+        if: steps.outdated.outputs.has_updates == 'true'
+        run: |
+          yarn install
+          yarn test
+          yarn build
+
+      - name: Create Pull Request
+        if: steps.outdated.outputs.has_updates == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: update dependencies'
+          title: '⬆️ Weekly Dependency Updates'
+          body: |
+            ## Automated Dependency Updates
+            
+            This PR contains weekly dependency updates.
+            
+            ### Changes
+            - Updated outdated dependencies to their latest versions
+            - All tests passing
+            - Build successful
+            
+            Please review the changes and merge if everything looks good.
+            
+            ---
+            *This PR was automatically created by the Dependency Updates workflow*
+          branch: chore/dependency-updates
+          base: develop
+          labels: dependencies, automated

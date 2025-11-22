@@ -1,0 +1,51 @@
+# Labeler configuration for auto-labeling PRs
+
+# Components
+components:
+  - src/components/**/*
+
+services:
+  - src/services/**/*
+
+types:
+  - src/types/**/*
+
+utils:
+  - src/utils/**/*
+
+# Pages
+pages:
+  - src/app/**/*
+
+# Tests
+tests:
+  - '**/__tests__/**/*'
+  - '**/*.test.*'
+  - '**/*.spec.*'
+
+# Configuration
+config:
+  - '*.config.*'
+  - '*.json'
+  - '.github/**/*'
+
+# Docker
+docker:
+  - Dockerfile
+  - docker-compose*.yml
+  - .dockerignore
+
+# Documentation
+documentation:
+  - '*.md'
+  - 'docs/**/*'
+
+# Dependencies
+dependencies:
+  - package.json
+  - yarn.lock
+
+# Styles
+styles:
+  - '**/*.css'
+  - tailwind.config.js

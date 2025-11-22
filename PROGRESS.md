@@ -276,4 +276,59 @@ docker system prune -a
 
 ---
 
-**Status:** Project initialized and ready for development! 🚀
+## CI/CD Setup
+
+### ✅ GitHub Actions Workflows Configured
+
+#### Main Workflows
+1. **CI/CD Pipeline** (`ci-cd.yml`)
+   - Code quality checks (ESLint, TypeScript)
+   - Test execution with coverage
+   - Build verification
+   - Docker image build and push to GHCR
+   - Security scanning with Trivy
+   - Dependency review for PRs
+
+2. **Pull Request Checks** (`pr-checks.yml`)
+   - PR size analysis
+   - Validation (lint, type-check, test, build)
+   - Automatic labeling by size and files changed
+
+3. **Code Review** (`code-review.yml`)
+   - ReviewDog for inline ESLint comments
+   - Test coverage reporting on PRs
+
+4. **Deployment** (`deploy.yml`)
+   - Manual deployment workflow
+   - Environment-specific deployments (production/staging)
+
+5. **Nightly Tests** (`nightly.yml`)
+   - Daily test runs at 2 AM UTC
+   - Multiple Node version testing (18, 20)
+   - Dependency auditing
+
+#### Configuration Files
+- `.github/labeler.yml` - Auto-labeling rules
+- `.github/PULL_REQUEST_TEMPLATE.md` - PR template
+- `.github/CICD.md` - Complete CI/CD documentation
+
+#### Features Implemented
+- ✅ Automated testing on push and PR
+- ✅ Code quality enforcement
+- ✅ Docker image publishing to GitHub Container Registry
+- ✅ Security vulnerability scanning
+- ✅ Test coverage reporting
+- ✅ PR auto-labeling
+- ✅ Multiple Node version testing
+- ✅ Dependency auditing
+
+#### Next Steps for CI/CD
+1. Add `NEXT_PUBLIC_BACKEND_API_URL` secret in GitHub repo settings
+2. Set up branch protection rules for `main` branch
+3. (Optional) Add Codecov token for enhanced coverage reporting
+4. Configure deployment targets in deploy workflow
+5. Set up notification channels for workflow failures
+
+---
+
+**Status:** Project fully initialized with CI/CD pipeline ready! 🚀

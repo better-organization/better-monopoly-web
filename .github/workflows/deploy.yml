@@ -1,0 +1,58 @@
+name: Deploy to Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - staging
+  release:
+    types: [published]
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  deploy:
+    name: Deploy to ${{ github.event.inputs.environment || 'production' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.event.inputs.environment || 'production' }}
+      url: ${{ steps.deploy.outputs.url }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build application
+        run: yarn build
+        env:
+          NEXT_PUBLIC_BACKEND_API_URL: ${{ secrets.NEXT_PUBLIC_BACKEND_API_URL != '' && secrets.NEXT_PUBLIC_BACKEND_API_URL || 'http://localhost:8080' }}
+          NODE_ENV: production
+
+      - name: Deploy to server
+        id: deploy
+        run: |
+          echo "Deployment logic here (e.g., SSH, SCP, or cloud provider CLI)"
+          echo "url=https://your-production-url.com" >> $GITHUB_OUTPUT
+        # Add your actual deployment commands here
+        # Example for AWS, Azure, GCP, or custom server deployment
+
+      - name: Notify deployment status
+        if: always()
+        run: |
+          echo "Deployment ${{ job.status }}"
+          # Add notification logic (Slack, Discord, email, etc.)
