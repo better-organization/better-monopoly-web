@@ -1,0 +1,19 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  output: 'standalone',
+  env: {
+    BACKEND_API_URL: process.env.BACKEND_API_URL,
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: `${process.env.BACKEND_API_URL || 'http://localhost:8080'}/:path*`,
+      },
+    ];
+  },
+};
+
+module.exports = nextConfig;

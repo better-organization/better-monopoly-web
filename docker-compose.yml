@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      - NODE_ENV=production
+      - BACKEND_API_URL=${BACKEND_API_URL:-http://backend:8080}
+    networks:
+      - monopoly-network
+    restart: unless-stopped
+
+networks:
+  monopoly-network:
+    external: true
