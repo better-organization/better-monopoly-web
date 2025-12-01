@@ -38,7 +38,7 @@ export function DiceRoller({ onRoll, currentPlayer, compact }: DiceRollerProps) 
   };
 
   const renderDie = (value: number) => {
-    const dots = [];
+    const dots: JSX.Element[] = [];
     const positions: { [key: number]: number[][] } = {
       1: [[50, 50]],
       2: [[25, 25], [75, 75]],
