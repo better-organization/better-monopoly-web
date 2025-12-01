@@ -82,7 +82,7 @@ describe('MonopolyBoard', () => {
     it('should apply correct grid template with corner and card sizes', () => {
       const { container } = render(<MonopolyBoard {...defaultProps} />);
 
-      const gridDiv = container.querySelector('.grid');
+      const gridDiv = container.querySelector('.grid') as HTMLElement;
       expect(gridDiv).toBeInTheDocument();
       const gridTemplateColumns = gridDiv?.style?.gridTemplateColumns;
       const gridTemplateRows = gridDiv?.style?.gridTemplateRows;
