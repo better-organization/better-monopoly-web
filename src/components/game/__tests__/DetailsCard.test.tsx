@@ -116,7 +116,7 @@ describe('DetailsCard', () => {
   describe('Corner card details', () => {
     it('should display name, action details, and corner-specific colors', () => {
       const cornerSpace = mockBoardSpaces.find((s) => s.cell_sub_type === 'Corner')!;
-      const { container } = render(<DetailsCard property={cornerSpace} {...defaultProps} />);
+      render(<DetailsCard property={cornerSpace} {...defaultProps} />);
 
       // Display corner name
       const cornerNames = screen.getAllByText(cornerSpace.name);

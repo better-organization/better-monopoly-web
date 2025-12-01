@@ -3,13 +3,19 @@
 exports[`ClubLogo Snapshots should match snapshot with custom styling 1`] = `
 <div>
   <div
-    class="custom-class relative flex items-center justify-center"
+    class="custom-class relative flex items-center justify-center w-full h-full"
     style="width: 80px; height: 80px;"
   >
     <img
       alt="Liverpool FC logo"
-      src="https://example.com/liverpool.png"
-      style="height: 100%; width: auto; object-fit: contain;"
+      data-nimg="1"
+      decoding="async"
+      height="100"
+      loading="lazy"
+      src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Fliverpool.png&w=256&q=75"
+      srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Fliverpool.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Fliverpool.png&w=256&q=75 2x"
+      style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+      width="100"
     />
   </div>
 </div>
@@ -53,12 +59,18 @@ exports[`ClubLogo Snapshots should match snapshot with fallback initials 1`] = `
 exports[`ClubLogo Snapshots should match snapshot with logo image 1`] = `
 <div>
   <div
-    class=" relative flex items-center justify-center"
+    class=" relative flex items-center justify-center w-full h-full"
   >
     <img
       alt="Fenerbahçe SK logo"
-      src="https://example.com/fenerbahce.png"
-      style="height: 100%; width: auto; object-fit: contain;"
+      data-nimg="1"
+      decoding="async"
+      height="100"
+      loading="lazy"
+      src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+      srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+      style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+      width="100"
     />
   </div>
 </div>

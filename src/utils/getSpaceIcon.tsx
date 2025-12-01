@@ -1,4 +1,5 @@
 import { Trophy, Zap, Gift, Heart, DollarSign, Ban } from 'lucide-react';
+import Image from 'next/image'
 import type { BoardSpace } from '@/types/game';
 
 interface GetIconOptions {
@@ -22,9 +23,11 @@ export function getSpaceIcon({
 
   if (customLogo && customLogo.startsWith('http')) {
     return (
-      <img
+      <Image
         src={customLogo}
         alt={space.name}
+        width={size}
+        height={size}
         className={className}
         style={{
           width: `${size}px`,

@@ -26,13 +26,19 @@ exports[`BoardSpace Snapshot Tests should match snapshot for bottom position 1`]
             style="height: 48px; padding-top: 4px; padding-bottom: 4px;"
           >
             <div
-              class=" relative flex items-center justify-center"
+              class=" relative flex items-center justify-center w-full h-full"
               style="height: 100%; width: auto;"
             >
               <img
                 alt="Fenerbahçe SK logo"
-                src="https://example.com/fenerbahce.png"
-                style="height: 100%; width: auto; object-fit: contain;"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+                style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+                width="100"
               />
             </div>
           </div>
@@ -223,13 +229,19 @@ exports[`BoardSpace Snapshot Tests should match snapshot for left position 1`] =
             style="height: 48px; padding-top: 4px; padding-bottom: 4px;"
           >
             <div
-              class=" relative flex items-center justify-center"
+              class=" relative flex items-center justify-center w-full h-full"
               style="height: 100%; width: auto;"
             >
               <img
                 alt="Fenerbahçe SK logo"
-                src="https://example.com/fenerbahce.png"
-                style="height: 100%; width: auto; object-fit: contain;"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+                style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+                width="100"
               />
             </div>
           </div>
@@ -287,13 +299,19 @@ exports[`BoardSpace Snapshot Tests should match snapshot for property space 1`] 
             style="height: 48px; padding-top: 4px; padding-bottom: 4px;"
           >
             <div
-              class=" relative flex items-center justify-center"
+              class=" relative flex items-center justify-center w-full h-full"
               style="height: 100%; width: auto;"
             >
               <img
                 alt="Fenerbahçe SK logo"
-                src="https://example.com/fenerbahce.png"
-                style="height: 100%; width: auto; object-fit: contain;"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+                style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+                width="100"
               />
             </div>
           </div>
@@ -351,13 +369,19 @@ exports[`BoardSpace Snapshot Tests should match snapshot for right position 1`] 
             style="height: 48px; padding-top: 4px; padding-bottom: 4px;"
           >
             <div
-              class=" relative flex items-center justify-center"
+              class=" relative flex items-center justify-center w-full h-full"
               style="height: 100%; width: auto;"
             >
               <img
                 alt="Fenerbahçe SK logo"
-                src="https://example.com/fenerbahce.png"
-                style="height: 100%; width: auto; object-fit: contain;"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+                style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+                width="100"
               />
             </div>
           </div>
@@ -487,13 +511,19 @@ exports[`BoardSpace Snapshot Tests should match snapshot for top position 1`] = 
             style="height: 48px; padding-top: 4px; padding-bottom: 4px;"
           >
             <div
-              class=" relative flex items-center justify-center"
+              class=" relative flex items-center justify-center w-full h-full"
               style="height: 100%; width: auto;"
             >
               <img
                 alt="Fenerbahçe SK logo"
-                src="https://example.com/fenerbahce.png"
-                style="height: 100%; width: auto; object-fit: contain;"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+                style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+                width="100"
               />
             </div>
           </div>
@@ -548,8 +578,14 @@ exports[`BoardSpace Snapshot Tests should match snapshot for transport space 1`]
           >
             <img
               alt="UEFA Champions League"
-              src="https://example.com/ucl.png"
-              style="width: 32px; height: 32px; object-fit: contain; filter: brightness(0) invert(1);"
+              data-nimg="1"
+              decoding="async"
+              height="32"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fexample.com%2Fucl.png&w=64&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Fucl.png&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Fucl.png&w=64&q=75 2x"
+              style="color: transparent; width: 32px; height: 32px; object-fit: contain; filter: brightness(0) invert(1);"
+              width="32"
             />
           </div>
         </div>
@@ -691,13 +727,19 @@ exports[`BoardSpace Snapshot Tests should match snapshot with multiple players 1
             style="height: 48px; padding-top: 4px; padding-bottom: 4px;"
           >
             <div
-              class=" relative flex items-center justify-center"
+              class=" relative flex items-center justify-center w-full h-full"
               style="height: 100%; width: auto;"
             >
               <img
                 alt="Fenerbahçe SK logo"
-                src="https://example.com/fenerbahce.png"
-                style="height: 100%; width: auto; object-fit: contain;"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+                style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+                width="100"
               />
             </div>
           </div>
@@ -776,13 +818,19 @@ exports[`BoardSpace Snapshot Tests should match snapshot with single player 1`] 
             style="height: 48px; padding-top: 4px; padding-bottom: 4px;"
           >
             <div
-              class=" relative flex items-center justify-center"
+              class=" relative flex items-center justify-center w-full h-full"
               style="height: 100%; width: auto;"
             >
               <img
                 alt="Fenerbahçe SK logo"
-                src="https://example.com/fenerbahce.png"
-                style="height: 100%; width: auto; object-fit: contain;"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+                style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+                width="100"
               />
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { Shield } from 'lucide-react';
+import Image from 'next/image'
 import { CSSProperties } from 'react';
 
 interface ClubLogoProps {
@@ -30,10 +31,12 @@ export function ClubLogo({
   // If we have a logo URL, use it
   if (logoUrl) {
     return (
-      <div className={`${className} relative flex items-center justify-center`} style={style}>
-        <img
+      <div className={`${className} relative flex items-center justify-center w-full h-full`} style={style}>
+        <Image
           src={logoUrl}
           alt={`${clubName} logo`}
+          width={100}
+          height={100}
           style={{ height: '100%', width: 'auto', objectFit: 'contain' }}
           onError={(e) => {
             // Fallback to initials badge on error
