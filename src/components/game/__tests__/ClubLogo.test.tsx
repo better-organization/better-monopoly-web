@@ -12,7 +12,7 @@ describe('ClubLogo', () => {
 
       const img = container.querySelector('img');
       expect(img).toBeInTheDocument();
-      expect(img).toHaveAttribute('src', 'https://example.com/fenerbahce.png');
+      expect(img).toHaveAttribute('src', 'http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75');
       expect(img).toHaveAttribute('alt', 'Fenerbahçe SK logo');
       expect(img).toHaveStyle({
         height: '100%',

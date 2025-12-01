@@ -102,12 +102,18 @@ exports[`DetailsCard Snapshots should match snapshot for property card 1`] = `
           style="width: 80px; height: 80px; margin-bottom: 12px;"
         >
           <div
-            class="w-full h-full relative flex items-center justify-center"
+            class="w-full h-full relative flex items-center justify-center w-full h-full"
           >
             <img
               alt="Fenerbahçe SK logo"
-              src="https://example.com/fenerbahce.png"
-              style="height: 100%; width: auto; object-fit: contain;"
+              data-nimg="1"
+              decoding="async"
+              height="100"
+              loading="lazy"
+              src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+              style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+              width="100"
             />
           </div>
         </div>
@@ -452,8 +458,14 @@ exports[`DetailsCard Snapshots should match snapshot for transport card 1`] = `
         >
           <img
             alt="UEFA Champions League"
-            src="https://example.com/ucl.png"
-            style="width: 80px; height: 80px; object-fit: contain;"
+            data-nimg="1"
+            decoding="async"
+            height="80"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fexample.com%2Fucl.png&w=256&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Fucl.png&w=96&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Fucl.png&w=256&q=75 2x"
+            style="color: transparent; width: 80px; height: 80px; object-fit: contain;"
+            width="80"
           />
         </div>
       </div>
@@ -612,8 +624,14 @@ exports[`DetailsCard Snapshots should match snapshot for utility card 1`] = `
         >
           <img
             alt="Broadcasting Rights"
-            src="https://example.com/broadcast.png"
-            style="width: 80px; height: 80px; object-fit: contain;"
+            data-nimg="1"
+            decoding="async"
+            height="80"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fexample.com%2Fbroadcast.png&w=256&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Fbroadcast.png&w=96&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Fbroadcast.png&w=256&q=75 2x"
+            style="color: transparent; width: 80px; height: 80px; object-fit: contain;"
+            width="80"
           />
         </div>
       </div>

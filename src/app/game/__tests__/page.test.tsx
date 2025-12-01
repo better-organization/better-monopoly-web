@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import GamePage from '../page';
 import * as gameConfig from '@/utils/gameConfig';
 import {
@@ -144,9 +144,6 @@ describe('GamePage', () => {
 
     it('should update player position when dice is rolled', () => {
       render(<GamePage />);
-
-      // Simulate dice roll with result of 5
-      const diceRollCallback = (gameConfig.getDynamicGameData as jest.Mock).mock.calls;
 
       // The component should be rendered
       expect(screen.getByText(/Manager 1/i)).toBeInTheDocument();
