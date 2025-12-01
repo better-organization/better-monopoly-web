@@ -2,7 +2,7 @@ name: Pull Request Checks
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [closed]
 
 env:
   NODE_VERSION: '18'
