@@ -19,11 +19,25 @@ const config: Config = {
     '!src/**/*.d.ts',
     '!src/**/*.stories.{js,jsx,ts,tsx}',
     '!src/**/__tests__/**',
+    '!src/__tests__/**',
   ],
   testMatch: [
     '**/__tests__/**/*.{js,jsx,ts,tsx}',
     '**/*.{spec,test}.{js,jsx,ts,tsx}',
   ],
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '/__tests__/fixtures/',
+    '/fixtures/',
+  ],
+  coverageThreshold: {
+    global: {
+      statements: 50,
+      branches: 50,
+      functions: 50,
+      lines: 50,
+    },
+  },
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
