@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import { Repeat } from 'lucide-react';
 
-export function TradePanel() {
+export const TradePanel = memo(function TradePanel() {
   return (
     <div className="bg-slate-800 rounded-lg border-2 border-slate-700 p-3">
       <div className="flex items-center gap-2 mb-3">
@@ -17,5 +18,4 @@ export function TradePanel() {
       </div>
     </div>
   );
-}
-
+});

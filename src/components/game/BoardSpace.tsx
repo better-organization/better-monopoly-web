@@ -176,7 +176,7 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
                       fontFamily: 'system-ui, -apple-system, sans-serif',
                       fontWeight: '700',
                       fontSize: '11px',
-                      color: countryTheme.primary,
+                      color: '#000000',
                       marginBottom: '4px'
                     }}
                   >
@@ -226,7 +226,7 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
                       fontFamily: 'system-ui, -apple-system, sans-serif',
                       fontWeight: '700',
                       fontSize: '11px',
-                      color: countryTheme.primary,
+                      color: '#000000',
                       marginTop: '4px'
                     }}
                   >
@@ -280,7 +280,7 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
                     fontFamily: 'system-ui, -apple-system, sans-serif',
                     fontWeight: '700',
                     fontSize: '11px',
-                    color: space.action_keyword === 'tax' ? '#B91C1C' : '#166534',
+                    color: '#000000',
                     marginBottom: '4px'
                   }}
                 >
@@ -310,7 +310,7 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
                     fontFamily: 'system-ui, -apple-system, sans-serif',
                     fontWeight: '700',
                     fontSize: '11px',
-                    color: space.action_keyword === 'tax' ? '#B91C1C' : '#166534',
+                    color: '#000000',
                     marginTop: '4px'
                   }}
                 >
