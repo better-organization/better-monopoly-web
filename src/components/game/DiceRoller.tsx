@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { Dices } from 'lucide-react';
 import type { Player } from '@/types/game';
 
@@ -8,7 +8,7 @@ interface DiceRollerProps {
   compact?: boolean;
 }
 
-export function DiceRoller({ onRoll, currentPlayer, compact }: DiceRollerProps) {
+export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, compact }: DiceRollerProps) {
   const [dice1, setDice1] = useState(1);
   const [dice2, setDice2] = useState(1);
   const [rolling, setRolling] = useState(false);
@@ -178,5 +178,4 @@ export function DiceRoller({ onRoll, currentPlayer, compact }: DiceRollerProps) 
       </button>
     </div>
   );
-}
-
+});

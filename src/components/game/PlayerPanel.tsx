@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { User, Coins } from 'lucide-react';
 import type { Player, GameTerms } from '@/types/game';
 
@@ -7,7 +8,7 @@ interface PlayerPanelProps {
   terms: GameTerms;
 }
 
-export function PlayerPanel({ players, currentPlayer, terms }: PlayerPanelProps) {
+export const PlayerPanel = memo(function PlayerPanel({ players, currentPlayer, terms }: PlayerPanelProps) {
   return (
     <div className="bg-slate-800 rounded-lg border-2 border-slate-700 p-3">
       <div className="flex items-center gap-2 mb-3">
@@ -56,5 +57,4 @@ export function PlayerPanel({ players, currentPlayer, terms }: PlayerPanelProps)
       </div>
     </div>
   );
-}
-
+});

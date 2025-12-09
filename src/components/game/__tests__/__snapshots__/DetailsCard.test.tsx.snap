@@ -171,7 +171,7 @@ exports[`DetailsCard Snapshots should match snapshot for property card 1`] = `
             Purchase Price
           </span>
           <span
-            class="text-green-900"
+            class="text-gray-900"
           >
             €
             60
@@ -197,7 +197,7 @@ exports[`DetailsCard Snapshots should match snapshot for property card 1`] = `
                 Bare Site Rent
               </span>
               <span
-                class="text-green-900"
+                class="text-gray-900"
               >
                 €
                 2
@@ -232,7 +232,7 @@ exports[`DetailsCard Snapshots should match snapshot for property card 1`] = `
                 Training Pitch
               </span>
               <span
-                class="text-green-900"
+                class="text-gray-900"
               >
                 €
                 10
@@ -268,7 +268,7 @@ exports[`DetailsCard Snapshots should match snapshot for property card 1`] = `
                 s
               </span>
               <span
-                class="text-green-900"
+                class="text-gray-900"
               >
                 €
                 30
@@ -304,7 +304,7 @@ exports[`DetailsCard Snapshots should match snapshot for property card 1`] = `
                 s
               </span>
               <span
-                class="text-green-900"
+                class="text-gray-900"
               >
                 €
                 90
@@ -340,7 +340,7 @@ exports[`DetailsCard Snapshots should match snapshot for property card 1`] = `
                 s
               </span>
               <span
-                class="text-green-900"
+                class="text-gray-900"
               >
                 €
                 160
@@ -390,7 +390,7 @@ exports[`DetailsCard Snapshots should match snapshot for property card 1`] = `
                 Youth Academy
               </span>
               <span
-                class="text-green-900"
+                class="text-gray-900"
               >
                 €
                 250
@@ -428,7 +428,7 @@ exports[`DetailsCard Snapshots should match snapshot for property card 1`] = `
              Value 
           </span>
           <span
-            class="text-green-900"
+            class="text-gray-900"
           >
             €
             30
