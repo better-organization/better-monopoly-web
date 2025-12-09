@@ -109,7 +109,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -155,7 +155,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -201,7 +201,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -279,7 +279,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     200
@@ -338,7 +338,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -401,7 +401,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     150
@@ -447,7 +447,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -493,7 +493,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -571,7 +571,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     200
@@ -727,7 +727,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -784,7 +784,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -832,7 +832,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -889,7 +889,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -937,7 +937,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -1011,7 +1011,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     150
@@ -1059,7 +1059,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -1148,7 +1148,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -1196,7 +1196,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -1253,7 +1253,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -1333,7 +1333,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -1390,7 +1390,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -1438,7 +1438,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -1495,7 +1495,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -1543,7 +1543,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -1600,7 +1600,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -1648,7 +1648,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -1737,7 +1737,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -2124,7 +2124,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -2170,7 +2170,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -2233,7 +2233,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     150
@@ -2279,7 +2279,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -2325,7 +2325,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -2403,7 +2403,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -2449,7 +2449,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -2495,7 +2495,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -2541,7 +2541,7 @@ exports[`MonopolyBoard Snapshots should match snapshot for full board layout 1`]
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -2702,7 +2702,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -2748,7 +2748,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -2794,7 +2794,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -2872,7 +2872,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     200
@@ -2918,7 +2918,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -2981,7 +2981,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     150
@@ -3027,7 +3027,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -3073,7 +3073,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -3151,7 +3151,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     200
@@ -3294,7 +3294,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -3351,7 +3351,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -3399,7 +3399,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -3456,7 +3456,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -3504,7 +3504,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -3578,7 +3578,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     150
@@ -3626,7 +3626,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -3715,7 +3715,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -3763,7 +3763,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -3820,7 +3820,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -3900,7 +3900,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -3957,7 +3957,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -4005,7 +4005,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -4062,7 +4062,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -4110,7 +4110,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -4167,7 +4167,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -4215,7 +4215,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -4304,7 +4304,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -4691,7 +4691,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -4737,7 +4737,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -4800,7 +4800,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     150
@@ -4846,7 +4846,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -4892,7 +4892,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -4970,7 +4970,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -5016,7 +5016,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -5062,7 +5062,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -5108,7 +5108,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with no players 1`] = `
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -5269,7 +5269,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -5315,7 +5315,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -5361,7 +5361,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -5439,7 +5439,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     200
@@ -5498,7 +5498,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -5561,7 +5561,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     150
@@ -5607,7 +5607,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -5653,7 +5653,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     100
@@ -5731,7 +5731,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                   style="padding: 4px 6px 6px 6px;"
                 >
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-bottom: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
                   >
                     €
                     200
@@ -5874,7 +5874,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -5931,7 +5931,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -5979,7 +5979,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -6036,7 +6036,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -6084,7 +6084,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -6158,7 +6158,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     150
@@ -6206,7 +6206,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -6295,7 +6295,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -6356,7 +6356,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -6413,7 +6413,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -6493,7 +6493,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -6550,7 +6550,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -6598,7 +6598,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -6655,7 +6655,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -6703,7 +6703,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -6760,7 +6760,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -6808,7 +6808,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -6897,7 +6897,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -7284,7 +7284,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -7330,7 +7330,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -7393,7 +7393,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     150
@@ -7439,7 +7439,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -7485,7 +7485,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -7563,7 +7563,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     200
@@ -7622,7 +7622,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -7668,7 +7668,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
@@ -7714,7 +7714,7 @@ exports[`MonopolyBoard Snapshots should match snapshot with players at different
                     </div>
                   </div>
                   <div
-                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(22, 101, 52); margin-top: 4px;"
+                    style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
                   >
                     €
                     100
