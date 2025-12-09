@@ -1,8 +1,9 @@
-import React from 'react';
+import {memo, useMemo} from 'react';
 import { BoardSpace } from './BoardSpace';
 import { DiceRoller } from './DiceRoller';
 import { FieldLines } from './FieldLines';
 import type { Player, BoardSpace as BoardSpaceType, GameTerms } from '@/types/game';
+import React from 'react';
 
 // Card dimensions in pixels
 // Cards: 70px × 120px (width × height)
@@ -27,7 +28,7 @@ interface MonopolyBoardProps {
   cornerColors: { [key: string]: { primary: string; secondary: string; gradient: string; logo: string | null; textColor: string } };
 }
 
-export function MonopolyBoard({
+export const MonopolyBoard = memo(function MonopolyBoard({
   onPropertyClick,
   players,
   terms,
@@ -39,19 +40,29 @@ export function MonopolyBoard({
   subTypeColors,
   cornerColors
 }: MonopolyBoardProps) {
+  // Memoize getPlayersAtPosition function to avoid recreating on every render
+  const getPlayersAtPosition = useMemo(() => {
+    return (positionIndex: number) => {
+      return players.filter(p => p.position === positionIndex);
+    };
+  }, [players]);
+
+  // Memoize board layout slices to avoid recalculating on every render
+  const boardLayout = useMemo(() => {
+    return {
+      topRow: boardSpaces.slice(1, 10), // indices 2-10
+      rightColumn: boardSpaces.slice(11, 20), // indices 12-20
+      bottomRow: boardSpaces.slice(21, 30).reverse(), // indices 30-22
+      leftColumn: boardSpaces.slice(31, 40).reverse() // indices 40-32
+    };
+  }, [boardSpaces]);
+
+  const { topRow, rightColumn, bottomRow, leftColumn } = boardLayout;
+
+  // Early return must come after all hooks
   if (boardSpaces.length !== 40) {
     return <div>empty board</div>
   }
-  const getPlayersAtPosition = (positionIndex: number) => {
-    return players.filter(p => p.position === positionIndex);
-  };
-
-  // Arrange spaces in board layout (clockwise from top left)
-  // Index 1 = top-left corner, indices 2-10 = top row, index 11 = top-right corner
-  const topRow = boardSpaces.slice(1, 10); // indices 2-10
-  const rightColumn = boardSpaces.slice(11, 20); // indices 12-20
-  const bottomRow = boardSpaces.slice(21, 30).reverse(); // indices 30-22
-  const leftColumn = boardSpaces.slice(31, 40).reverse(); // indices 40-32
 
   // Board dimensions calculation:
   // Width: CORNER + (9 × CARD_WIDTH) + CORNER = 120 + 630 + 120 = 870
@@ -241,4 +252,4 @@ export function MonopolyBoard({
       </div>
     </div>
   );
-}
+});

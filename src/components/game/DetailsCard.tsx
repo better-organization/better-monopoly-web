@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { X, Home, Building2 } from 'lucide-react';
 import { ClubLogo } from './ClubLogo';
 import { getSpaceIcon } from '@/utils/getSpaceIcon';
@@ -13,7 +14,7 @@ interface PropertyCardProps {
   cornerColors?: { [key: string]: { primary: string; secondary: string; gradient: string; logo: string | null; textColor: string } };
 }
 
-export function DetailsCard({
+export const DetailsCard = memo(function DetailsCard({
   property,
   onClose,
   terms,
@@ -143,7 +144,7 @@ export function DetailsCard({
           <div className="space-y-3">
             <div className="flex justify-between py-2 border-b border-gray-200">
               <span className="text-gray-700">Purchase Price</span>
-              <span className="text-green-900">{currencySymbol}{property.property_price}</span>
+              <span className="text-gray-900">{currencySymbol}{property.property_price}</span>
             </div>
 
             <div className="bg-green-50 p-4 rounded-lg border-2 border-green-200">
@@ -151,37 +152,37 @@ export function DetailsCard({
               <div className="space-y-1 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-700">{terms.property_rent}</span>
-                  <span className="text-green-900">{currencySymbol}{property.house_rent?.['0']}</span>
+                  <span className="text-gray-900">{currencySymbol}{property.house_rent?.['0']}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-700 flex items-center gap-1">
                     <Home className="w-3 h-3" /> 1 {terms.house}
                   </span>
-                  <span className="text-green-900">{currencySymbol}{property.house_rent?.['1']}</span>
+                  <span className="text-gray-900">{currencySymbol}{property.house_rent?.['1']}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-700 flex items-center gap-1">
                     <Home className="w-3 h-3" /> 2 {terms.house}s
                   </span>
-                  <span className="text-green-900">{currencySymbol}{property.house_rent?.['2']}</span>
+                  <span className="text-gray-900">{currencySymbol}{property.house_rent?.['2']}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-700 flex items-center gap-1">
                     <Home className="w-3 h-3" /> 3 {terms.house}s
                   </span>
-                  <span className="text-green-900">{currencySymbol}{property.house_rent?.['3']}</span>
+                  <span className="text-gray-900">{currencySymbol}{property.house_rent?.['3']}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-700 flex items-center gap-1">
                     <Home className="w-3 h-3" /> 4 {terms.house}s
                   </span>
-                  <span className="text-green-900">{currencySymbol}{property.house_rent?.['4']}</span>
+                  <span className="text-gray-900">{currencySymbol}{property.house_rent?.['4']}</span>
                 </div>
                 <div className="flex justify-between border-t border-green-300 pt-1 mt-1">
                   <span className="text-green-900 flex items-center gap-1">
                     <Building2 className="w-3 h-3" /> {terms.hotel}
                   </span>
-                  <span className="text-green-900">{currencySymbol}{property.house_rent?.['5']}</span>
+                  <span className="text-gray-900">{currencySymbol}{property.house_rent?.['5']}</span>
                 </div>
               </div>
             </div>
@@ -195,7 +196,7 @@ export function DetailsCard({
 
             <div className="flex justify-between py-2">
               <span className="text-gray-700">{terms.mortgage} Value </span>
-              <span className="text-green-900">{currencySymbol}{Math.floor(property.property_price * 0.5)}</span>
+              <span className="text-gray-900">{currencySymbol}{Math.floor(property.property_price * 0.5)}</span>
             </div>
           </div>
         )}
@@ -274,4 +275,4 @@ export function DetailsCard({
       </div>
     </div>
   );
-}
+});

@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { MessageCircle, Send } from 'lucide-react';
 import { useState } from 'react';
 
-export function ChatPanel() {
+export const ChatPanel = memo(function ChatPanel() {
   const [message, setMessage] = useState('');
 
   return (
@@ -33,5 +34,4 @@ export function ChatPanel() {
       </div>
     </div>
   );
-}
-
+});

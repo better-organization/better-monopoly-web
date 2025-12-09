@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { MonopolyBoard } from '@/components/game/MonopolyBoard';
 import { DetailsCard } from '@/components/game/DetailsCard';
 import { PlayerPanel } from '@/components/game/PlayerPanel';
@@ -12,7 +12,8 @@ import type { BoardSpace } from '@/types/game';
 
 export default function GamePage() {
   // Get static game configuration (doesn't change during gameplay)
-  const staticData = getStaticGameData();
+  // useMemo with empty deps ensures this is only called once on mount
+  const staticData = useMemo(() => getStaticGameData(), []);
 
   // Initialize dynamic state (changes during gameplay)
   const initialState = getDynamicGameData();
@@ -20,11 +21,12 @@ export default function GamePage() {
   const [currentPlayer, setCurrentPlayer] = useState(initialState.currentPlayer);
   const [players, setPlayers] = useState(initialState.players);
 
-  const handlePropertyClick = (property: BoardSpace) => {
+  // Memoize callbacks to prevent unnecessary re-renders of child components
+  const handlePropertyClick = useCallback((property: BoardSpace) => {
     setSelectedProperty(property);
-  };
+  }, []);
 
-  const handleDiceRoll = (total: number) => {
+  const handleDiceRoll = useCallback((total: number) => {
     setPlayers(prev => {
       const newPlayers = [...prev];
       const currentPos = newPlayers[currentPlayer].position;
@@ -38,7 +40,11 @@ export default function GamePage() {
     setTimeout(() => {
       setCurrentPlayer((prev) => (prev + 1) % players.length);
     }, 1000);
-  };
+  }, [currentPlayer, players.length]);
+
+  const handleClosePropertyCard = useCallback(() => {
+    setSelectedProperty(null);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4">
@@ -87,11 +93,11 @@ export default function GamePage() {
 
       {/* Property Card Modal */}
       {selectedProperty && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4" onClick={() => setSelectedProperty(null)}>
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4" onClick={handleClosePropertyCard}>
           <div onClick={(e) => e.stopPropagation()}>
             <DetailsCard
               property={selectedProperty}
-              onClose={() => setSelectedProperty(null)}
+              onClose={handleClosePropertyCard}
               terms={staticData.terms}
               currencySymbol={staticData.currency_symbol}
               logos={staticData.logos}

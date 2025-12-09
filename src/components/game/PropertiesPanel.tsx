@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Building2 } from 'lucide-react';
 import type { Player } from '@/types/game';
 
@@ -9,7 +10,7 @@ interface PropertiesPanelProps {
   subTypeColors?: { [key: string]: { primary: string; secondary: string; gradient: string; logo: string | null } };
 }
 
-export function PropertiesPanel({}: PropertiesPanelProps) {
+export const PropertiesPanel = memo(function PropertiesPanel({}: PropertiesPanelProps) {
   return (
     <div className="bg-slate-800 rounded-lg border-2 border-slate-700 p-3">
       <div className="flex items-center gap-2 mb-3">
@@ -22,5 +23,4 @@ export function PropertiesPanel({}: PropertiesPanelProps) {
       </div>
     </div>
   );
-}
-
+});
