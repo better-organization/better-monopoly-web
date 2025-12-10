@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  output: "standalone",
+  output: 'standalone',
   env: {
     BACKEND_API_URL: process.env.BACKEND_API_URL,
   },
@@ -13,7 +13,7 @@ const nextConfig = {
         destination: `${
           process.env.BACKEND_API_URL ||
           "https://better-monopoly-server-d57d.onrender.com"
-        }/:path*`,
+        }/api/:path*`,
       },
     ];
   },
