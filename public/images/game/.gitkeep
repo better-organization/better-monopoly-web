@@ -1,0 +1,27 @@
+# Game Assets Directory
+
+Place your Monopoly game-related images here:
+
+## Suggested Game Assets
+
+- `board.jpg/png` - Main game board image
+- `board-corners/` - Individual corner images
+- `properties/` - Property card images
+- `tokens/` - Player token/piece images
+  - `token-hat.png`
+  - `token-car.png`
+  - `token-dog.png`
+  - `token-shoe.png`
+- `dice/` - Dice images or sprites
+  - `dice-1.png` through `dice-6.png`
+- `money/` - Currency images
+  - `money-1.png`, `money-5.png`, etc.
+- `cards/` - Chance and Community Chest cards
+- `houses.png` - Green houses image
+- `hotels.png` - Red hotels image
+
+## Format Recommendations
+
+- Use PNG for detailed game assets with transparency
+- Use JPG for large background images like the board
+- Consider sprite sheets for animations (dice rolling, etc.)

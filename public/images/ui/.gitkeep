@@ -1,0 +1,27 @@
+# UI Assets Directory
+
+Place your user interface images here:
+
+## Suggested UI Assets
+
+- `backgrounds/` - Background images
+  - `landing-bg.jpg` - Landing page background
+  - `game-bg.jpg` - Game room background
+  - `pattern-green.png` - Green pattern texture
+- `buttons/` - Custom button images (if not using CSS)
+- `avatars/` - Default avatar images
+  - `avatar-placeholder.png`
+  - `default-user.svg`
+- `decorations/` - Decorative elements
+  - `border-gold.png`
+  - `frame-classic.png`
+- `loading/` - Loading animations
+  - `spinner.gif`
+  - `loading-dice.png`
+
+## Format Recommendations
+
+- Use JPG for photographic backgrounds
+- Use PNG for UI elements with transparency
+- Use SVG for simple decorative elements
+- Consider WebP format for better compression
