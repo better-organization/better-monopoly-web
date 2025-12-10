@@ -55,22 +55,6 @@ jobs:
       - name: Run tests
         run: yarn test
 
-      # Coverage reporting disabled per request
-      # - name: Upload coverage to Codecov
-      #   uses: codecov/codecov-action@v4
-      #   with:
-      #     file: ./coverage/coverage-final.json
-      #     flags: unittests
-      #     name: codecov-umbrella
-      #     fail_ci_if_error: false
-
-      # - name: Archive test results
-      #   if: always()
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: test-coverage
-      #     path: coverage/
-
   # Job 3: Build Application (no longer running, retained for reference)
   # build:
   #   name: Build Application
@@ -171,19 +155,19 @@ jobs:
   #     - name: Checkout code
   #       uses: actions/checkout@v4
 
-  #     - name: Run Trivy vulnerability scanner
-  #       uses: aquasecurity/trivy-action@master
-  #       with:
-  #         scan-type: 'fs'
-  #         scan-ref: '.'
-  #         format: 'sarif'
-  #         output: 'trivy-results.sarif'
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: "fs"
+          scan-ref: "."
+          format: "sarif"
+          output: "trivy-results.sarif"
 
-  #     - name: Upload Trivy results to GitHub Security
-  #       uses: github/codeql-action/upload-sarif@v3
-  #       if: always()
-  #       with:
-  #         sarif_file: 'trivy-results.sarif'
+      - name: Upload Trivy results to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: "trivy-results.sarif"
 
   # Job 6: Dependency Review (PRs only, disabled per request)
   # dependency-review:

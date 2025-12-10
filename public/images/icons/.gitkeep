@@ -1,0 +1,23 @@
+# Icons Directory
+
+Place your icon files here:
+
+## Suggested Icons
+
+- `logo.svg` - Main application logo
+- `logo-white.svg` - White version of logo
+- `favicon.ico` - Browser favicon
+- `apple-touch-icon.png` - iOS home screen icon
+- `logout.svg` - Logout icon
+- `login.svg` - Login icon
+- `settings.svg` - Settings gear icon
+- `home.svg` - Home/house icon
+- `game-controller.svg` - Gaming icon
+- `dice.svg` - Dice icon
+- `user.svg` - User profile icon
+
+## Format Recommendations
+
+- Use SVG for scalable icons
+- Use PNG with transparency for complex icons
+- Keep file sizes small (< 50KB for icons)

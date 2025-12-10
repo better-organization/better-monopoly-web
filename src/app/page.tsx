@@ -1,17 +1,24 @@
+"use client";
+
+import { useAuth } from "@/hooks/useAuth";
+import LandingPage from "@/components/LandingPage";
+import WelcomePage from "@/components/WelcomePage";
+
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-center font-mono text-sm">
-        <h1 className="text-4xl font-bold text-center mb-8">
-          Better Monopoly
-        </h1>
-        <p className="text-center text-lg mb-4">
-          Welcome to Better Monopoly - A modern take on the classic board game
-        </p>
-        <div className="text-center text-gray-600">
-          Frontend is running on port 8081
+  const { isAuthenticated, isLoading } = useAuth();
+
+  // Show loading spinner while checking authentication
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-white mb-4"></div>
+          <p className="text-white text-lg">Loading...</p>
         </div>
       </div>
-    </main>
-  );
+    );
+  }
+
+  // Render appropriate page based on authentication status
+  return isAuthenticated ? <WelcomePage /> : <LandingPage />;
 }
