@@ -5,39 +5,11 @@ on:
     types: [opened, synchronize, reopened]
 
 env:
-  NODE_VERSION: '18'
+  NODE_VERSION: "18"
 
 jobs:
-  pr-info:
-    name: PR Information
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Get PR details
-        id: pr-details
-        run: |
-          echo "PR #${{ github.event.pull_request.number }}"
-          echo "From: ${{ github.event.pull_request.head.ref }}"
-          echo "To: ${{ github.event.pull_request.base.ref }}"
-          echo "Author: ${{ github.event.pull_request.user.login }}"
-
-      - name: Check PR size
-        run: |
-          FILES_CHANGED=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | wc -l)
-          LINES_CHANGED=$(git diff --shortstat ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | awk '{print $4+$6}')
-          echo "Files changed: $FILES_CHANGED"
-          echo "Lines changed: $LINES_CHANGED"
-          
-          if [ "$LINES_CHANGED" -gt 1000 ]; then
-            echo "⚠️ Large PR detected ($LINES_CHANGED lines). Consider breaking it down."
-          fi
-
   validate-pr:
-    name: Validate PR
+    name: Validate Pull Request
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -47,63 +19,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'yarn'
+          cache: "yarn"
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Lint check
+      - name: Run lint
         run: yarn lint
 
-      - name: Type check
+      - name: Run type check
         run: yarn type-check
 
       - name: Run tests
         run: yarn test
-
-      - name: Build check
-        run: yarn build
-        env:
-          NEXT_PUBLIC_BACKEND_API_URL: http://localhost:8080
-
-  auto-label:
-    name: Auto Label PR
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      contents: read
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Label PR based on size
-        uses: actions/labeler@v5
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Add size label
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const { data: files } = await github.rest.pulls.listFiles({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.issue.number,
-            });
-            
-            const additions = files.reduce((acc, file) => acc + file.additions, 0);
-            const deletions = files.reduce((acc, file) => acc + file.deletions, 0);
-            const changes = additions + deletions;
-            
-            let sizeLabel = 'size/XS';
-            if (changes > 500) sizeLabel = 'size/XL';
-            else if (changes > 250) sizeLabel = 'size/L';
-            else if (changes > 100) sizeLabel = 'size/M';
-            else if (changes > 30) sizeLabel = 'size/S';
-            
-            await github.rest.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              labels: [sizeLabel]
-            });
