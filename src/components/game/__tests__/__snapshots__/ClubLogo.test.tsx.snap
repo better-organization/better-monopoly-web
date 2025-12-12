@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClubLogo Snapshots should match snapshot with custom styling 1`] = `
+<div>
+  <div
+    class="custom-class relative flex items-center justify-center w-full h-full"
+    style="width: 80px; height: 80px;"
+  >
+    <img
+      alt="Liverpool FC logo"
+      data-nimg="1"
+      decoding="async"
+      height="100"
+      loading="lazy"
+      src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Fliverpool.png&w=256&q=75"
+      srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Fliverpool.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Fliverpool.png&w=256&q=75 2x"
+      style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+      width="100"
+    />
+  </div>
+</div>
+`;
+
+exports[`ClubLogo Snapshots should match snapshot with fallback initials 1`] = `
+<div>
+  <div
+    class=" w-full h-full flex items-center justify-center"
+  >
+    <div
+      class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-800 rounded-full border-2 border-gray-500 shadow-inner relative"
+    >
+      <svg
+        class="lucide lucide-shield w-4 h-4 text-gray-400 absolute opacity-30"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+        />
+      </svg>
+      <span
+        class="text-[10px] z-10 text-white"
+        style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700;"
+      >
+        AF
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ClubLogo Snapshots should match snapshot with logo image 1`] = `
+<div>
+  <div
+    class=" relative flex items-center justify-center w-full h-full"
+  >
+    <img
+      alt="Fenerbahçe SK logo"
+      data-nimg="1"
+      decoding="async"
+      height="100"
+      loading="lazy"
+      src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+      srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+      style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+      width="100"
+    />
+  </div>
+</div>
+`;

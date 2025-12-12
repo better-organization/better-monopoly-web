@@ -1,0 +1,876 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BoardSpace Snapshot Tests should match snapshot for bottom position 1`] = `
+<div>
+  <div
+    class="relative"
+    id="board-space-2"
+  >
+    <div
+      class=""
+      style="width: 70px; height: 120px;"
+    >
+      <div
+        class="w-full h-full bg-gradient-to-b from-white to-gray-50 border-2 cursor-pointer hover:shadow-xl transition-all duration-200 flex flex-col relative overflow-hidden rounded-sm"
+        style="border-color: #fdb913;"
+      >
+        <div
+          class="w-full h-[35%] flex items-center justify-center relative overflow-hidden"
+          style="border-bottom: 2px solid #FDB913;"
+        >
+          <div
+            class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),transparent)]"
+          />
+          <div
+            class="relative z-10 flex items-center justify-center "
+            style="height: 48px; padding-top: 4px; padding-bottom: 4px;"
+          >
+            <div
+              class=" relative flex items-center justify-center w-full h-full"
+              style="height: 100%; width: auto;"
+            >
+              <img
+                alt="Fenerbahçe SK logo"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+                style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+                width="100"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col items-center justify-between bg-white "
+          style="padding: 6px 8px 8px 8px;"
+        >
+          <div
+            class="flex-1 flex items-center justify-center w-full"
+          >
+            <div
+              class="text-center uppercase tracking-tight leading-tight"
+              style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 9px; color: rgb(17, 24, 39); padding-left: 4px; padding-right: 4px;"
+            >
+              Fenerbahçe SK
+            </div>
+          </div>
+          <div
+            style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
+          >
+            €
+            60
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BoardSpace Snapshot Tests should match snapshot for card space 1`] = `
+<div>
+  <div
+    class="relative"
+    id="board-space-3"
+  >
+    <div
+      class="rotate-180"
+      style="width: 70px; height: 120px;"
+    >
+      <div
+        class="w-full h-full bg-gradient-to-b from-gray-50 to-white border-2 cursor-pointer hover:shadow-lg transition-all duration-150 flex flex-col relative overflow-hidden rounded-sm"
+        style="border-color: #fb923c;"
+      >
+        <div
+          class="w-full h-[35%] flex-shrink-0 flex items-center justify-center border-b-2 rotate-180"
+          style="border-color: #fb923c;"
+        >
+          <div
+            class="text-white"
+          >
+            <svg
+              class="lucide lucide-gift w-8 h-8"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                height="4"
+                rx="1"
+                width="18"
+                x="3"
+                y="8"
+              />
+              <path
+                d="M12 8v13"
+              />
+              <path
+                d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"
+              />
+              <path
+                d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col items-center justify-between rotate-180"
+          style="padding: 4px 6px 6px 6px;"
+        >
+          <div
+            class="flex-1 flex flex-col items-center justify-center w-full"
+          >
+            <div
+              class="text-center uppercase tracking-tighter leading-tight text-[9px] text-gray-900"
+              style="padding-left: 2px; padding-right: 2px;"
+            >
+              CLUB FUNDS
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BoardSpace Snapshot Tests should match snapshot for corner space 1`] = `
+<div>
+  <div
+    class="relative"
+    id="board-space-1"
+  >
+    <div
+      class="border-2 cursor-pointer hover:shadow-xl transition-all duration-150 flex items-center justify-center relative overflow-hidden rounded-sm"
+      style="width: 120px; height: 120px; padding: 8px; border-color: #22c55e;"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"
+      />
+      <div
+        class="relative z-10 text-center w-full"
+      >
+        <div
+          class="flex justify-center"
+          style="margin-bottom: 8px; color: rgb(255, 255, 255);"
+        >
+          <svg
+            class="lucide lucide-ban w-8 h-8"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="10"
+            />
+            <path
+              d="m4.9 4.9 14.2 14.2"
+            />
+          </svg>
+        </div>
+        <div
+          class="uppercase tracking-tight leading-tight text-[11px]"
+          style="padding-left: 4px; padding-right: 4px; color: rgb(255, 255, 255); font-weight: 700;"
+        >
+          SEASON KICK-OFF
+        </div>
+        <div
+          class="text-[8px] leading-tight"
+          style="margin-top: 4px; color: rgb(255, 255, 255); opacity: 0.9;"
+        >
+          Collect €200 salary
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BoardSpace Snapshot Tests should match snapshot for left position 1`] = `
+<div>
+  <div
+    class="relative"
+    id="board-space-2"
+  >
+    <div
+      class="rotate-90"
+      style="width: 70px; height: 120px;"
+    >
+      <div
+        class="w-full h-full bg-gradient-to-b from-white to-gray-50 border-2 cursor-pointer hover:shadow-xl transition-all duration-200 flex flex-col relative overflow-hidden rounded-sm"
+        style="border-color: #fdb913;"
+      >
+        <div
+          class="w-full h-[35%] flex items-center justify-center relative overflow-hidden"
+          style="border-bottom: 2px solid #FDB913;"
+        >
+          <div
+            class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),transparent)]"
+          />
+          <div
+            class="relative z-10 flex items-center justify-center "
+            style="height: 48px; padding-top: 4px; padding-bottom: 4px;"
+          >
+            <div
+              class=" relative flex items-center justify-center w-full h-full"
+              style="height: 100%; width: auto;"
+            >
+              <img
+                alt="Fenerbahçe SK logo"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+                style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+                width="100"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col items-center justify-between bg-white "
+          style="padding: 6px 8px 8px 8px;"
+        >
+          <div
+            class="flex-1 flex items-center justify-center w-full"
+          >
+            <div
+              class="text-center uppercase tracking-tight leading-tight"
+              style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 9px; color: rgb(17, 24, 39); padding-left: 4px; padding-right: 4px;"
+            >
+              Fenerbahçe SK
+            </div>
+          </div>
+          <div
+            style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
+          >
+            €
+            60
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BoardSpace Snapshot Tests should match snapshot for property space 1`] = `
+<div>
+  <div
+    class="relative"
+    id="board-space-2"
+  >
+    <div
+      class="rotate-180"
+      style="width: 70px; height: 120px;"
+    >
+      <div
+        class="w-full h-full bg-gradient-to-b from-white to-gray-50 border-2 cursor-pointer hover:shadow-xl transition-all duration-200 flex flex-col relative overflow-hidden rounded-sm"
+        style="border-color: #fdb913;"
+      >
+        <div
+          class="w-full h-[35%] flex items-center justify-center relative overflow-hidden"
+          style="border-bottom: 2px solid #FDB913;"
+        >
+          <div
+            class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),transparent)]"
+          />
+          <div
+            class="relative z-10 flex items-center justify-center rotate-180"
+            style="height: 48px; padding-top: 4px; padding-bottom: 4px;"
+          >
+            <div
+              class=" relative flex items-center justify-center w-full h-full"
+              style="height: 100%; width: auto;"
+            >
+              <img
+                alt="Fenerbahçe SK logo"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+                style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+                width="100"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col items-center justify-between bg-white rotate-180"
+          style="padding: 6px 8px 8px 8px;"
+        >
+          <div
+            style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
+          >
+            €
+            60
+          </div>
+          <div
+            class="flex-1 flex items-center justify-center w-full"
+          >
+            <div
+              class="text-center uppercase tracking-tight leading-tight"
+              style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 9px; color: rgb(17, 24, 39); padding-left: 4px; padding-right: 4px;"
+            >
+              Fenerbahçe SK
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BoardSpace Snapshot Tests should match snapshot for right position 1`] = `
+<div>
+  <div
+    class="relative"
+    id="board-space-2"
+  >
+    <div
+      class="-rotate-90"
+      style="width: 70px; height: 120px;"
+    >
+      <div
+        class="w-full h-full bg-gradient-to-b from-white to-gray-50 border-2 cursor-pointer hover:shadow-xl transition-all duration-200 flex flex-col relative overflow-hidden rounded-sm"
+        style="border-color: #fdb913;"
+      >
+        <div
+          class="w-full h-[35%] flex items-center justify-center relative overflow-hidden"
+          style="border-bottom: 2px solid #FDB913;"
+        >
+          <div
+            class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),transparent)]"
+          />
+          <div
+            class="relative z-10 flex items-center justify-center "
+            style="height: 48px; padding-top: 4px; padding-bottom: 4px;"
+          >
+            <div
+              class=" relative flex items-center justify-center w-full h-full"
+              style="height: 100%; width: auto;"
+            >
+              <img
+                alt="Fenerbahçe SK logo"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+                style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+                width="100"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col items-center justify-between bg-white "
+          style="padding: 6px 8px 8px 8px;"
+        >
+          <div
+            class="flex-1 flex items-center justify-center w-full"
+          >
+            <div
+              class="text-center uppercase tracking-tight leading-tight"
+              style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 9px; color: rgb(17, 24, 39); padding-left: 4px; padding-right: 4px;"
+            >
+              Fenerbahçe SK
+            </div>
+          </div>
+          <div
+            style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-top: 4px;"
+          >
+            €
+            60
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BoardSpace Snapshot Tests should match snapshot for tax space 1`] = `
+<div>
+  <div
+    class="relative"
+    id="board-space-5"
+  >
+    <div
+      class="rotate-180"
+      style="width: 70px; height: 120px;"
+    >
+      <div
+        class="w-full h-full bg-gradient-to-b from-gray-50 to-white border-2 cursor-pointer hover:shadow-lg transition-all duration-150 flex flex-col relative overflow-hidden rounded-sm"
+        style="border-color: rgb(156, 163, 175);"
+      >
+        <div
+          class="w-full h-[35%] flex-shrink-0 flex items-center justify-center border-b-2 rotate-180"
+          style="border-color: rgb(156, 163, 175);"
+        >
+          <div
+            class="text-white"
+          >
+            <svg
+              class="lucide lucide-dollar-sign w-8 h-8"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="12"
+                x2="12"
+                y1="2"
+                y2="22"
+              />
+              <path
+                d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col items-center justify-between rotate-180"
+          style="padding: 4px 6px 6px 6px;"
+        >
+          <div
+            style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
+          >
+            €
+            200
+          </div>
+          <div
+            class="flex-1 flex flex-col items-center justify-center w-full"
+          >
+            <div
+              class="text-center uppercase tracking-tighter leading-tight text-[9px] text-gray-900"
+              style="padding-left: 2px; padding-right: 2px;"
+            >
+              FOUL PLAY SANCTION
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BoardSpace Snapshot Tests should match snapshot for top position 1`] = `
+<div>
+  <div
+    class="relative"
+    id="board-space-2"
+  >
+    <div
+      class="rotate-180"
+      style="width: 70px; height: 120px;"
+    >
+      <div
+        class="w-full h-full bg-gradient-to-b from-white to-gray-50 border-2 cursor-pointer hover:shadow-xl transition-all duration-200 flex flex-col relative overflow-hidden rounded-sm"
+        style="border-color: #fdb913;"
+      >
+        <div
+          class="w-full h-[35%] flex items-center justify-center relative overflow-hidden"
+          style="border-bottom: 2px solid #FDB913;"
+        >
+          <div
+            class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),transparent)]"
+          />
+          <div
+            class="relative z-10 flex items-center justify-center rotate-180"
+            style="height: 48px; padding-top: 4px; padding-bottom: 4px;"
+          >
+            <div
+              class=" relative flex items-center justify-center w-full h-full"
+              style="height: 100%; width: auto;"
+            >
+              <img
+                alt="Fenerbahçe SK logo"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+                style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+                width="100"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col items-center justify-between bg-white rotate-180"
+          style="padding: 6px 8px 8px 8px;"
+        >
+          <div
+            style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
+          >
+            €
+            60
+          </div>
+          <div
+            class="flex-1 flex items-center justify-center w-full"
+          >
+            <div
+              class="text-center uppercase tracking-tight leading-tight"
+              style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 9px; color: rgb(17, 24, 39); padding-left: 4px; padding-right: 4px;"
+            >
+              Fenerbahçe SK
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BoardSpace Snapshot Tests should match snapshot for transport space 1`] = `
+<div>
+  <div
+    class="relative"
+    id="board-space-6"
+  >
+    <div
+      class="rotate-180"
+      style="width: 70px; height: 120px;"
+    >
+      <div
+        class="w-full h-full bg-gradient-to-b from-gray-50 to-white border-2 cursor-pointer hover:shadow-lg transition-all duration-150 flex flex-col relative overflow-hidden rounded-sm"
+        style="border-color: #0066cc;"
+      >
+        <div
+          class="w-full h-[35%] flex-shrink-0 flex items-center justify-center border-b-2 rotate-180"
+          style="border-color: #0066cc;"
+        >
+          <div
+            class="text-white"
+          >
+            <img
+              alt="UEFA Champions League"
+              data-nimg="1"
+              decoding="async"
+              height="32"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fexample.com%2Fucl.png&w=64&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Fucl.png&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Fucl.png&w=64&q=75 2x"
+              style="color: transparent; width: 32px; height: 32px; object-fit: contain; filter: brightness(0) invert(1);"
+              width="32"
+            />
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col items-center justify-between rotate-180"
+          style="padding: 4px 6px 6px 6px;"
+        >
+          <div
+            style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
+          >
+            €
+            200
+          </div>
+          <div
+            class="flex-1 flex flex-col items-center justify-center w-full"
+          >
+            <div
+              class="text-center uppercase tracking-tighter leading-tight text-[9px] text-gray-900"
+              style="padding-left: 2px; padding-right: 2px;"
+            >
+              UEFA Champions League
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BoardSpace Snapshot Tests should match snapshot for utility space 1`] = `
+<div>
+  <div
+    class="relative"
+    id="board-space-7"
+  >
+    <div
+      class="rotate-180"
+      style="width: 70px; height: 120px;"
+    >
+      <div
+        class="w-full h-full bg-gradient-to-b from-white to-gray-50 border-2 cursor-pointer hover:shadow-xl transition-all duration-200 flex flex-col relative overflow-hidden rounded-sm"
+        style="border-color: #c8102e;"
+      >
+        <div
+          class="w-full h-[35%] flex items-center justify-center relative overflow-hidden"
+          style="border-bottom: 2px solid #C8102E;"
+        >
+          <div
+            class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),transparent)]"
+          />
+          <div
+            class="relative z-10 flex items-center justify-center rotate-180"
+            style="height: 48px; padding-top: 4px; padding-bottom: 4px;"
+          >
+            <div
+              class=" w-full h-full flex items-center justify-center"
+              style="height: 100%; width: auto;"
+            >
+              <div
+                class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-800 rounded-full border-2 border-gray-500 shadow-inner relative"
+              >
+                <svg
+                  class="lucide lucide-shield w-4 h-4 text-gray-400 absolute opacity-30"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+                  />
+                </svg>
+                <span
+                  class="text-[10px] z-10 text-white"
+                  style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700;"
+                >
+                  P7
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col items-center justify-between bg-white rotate-180"
+          style="padding: 6px 8px 8px 8px;"
+        >
+          <div
+            style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
+          >
+            €
+            100
+          </div>
+          <div
+            class="flex-1 flex items-center justify-center w-full"
+          >
+            <div
+              class="text-center uppercase tracking-tight leading-tight"
+              style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 9px; color: rgb(17, 24, 39); padding-left: 4px; padding-right: 4px;"
+            >
+              Property 7
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BoardSpace Snapshot Tests should match snapshot with multiple players 1`] = `
+<div>
+  <div
+    class="relative"
+    id="board-space-2"
+  >
+    <div
+      class="rotate-180"
+      style="width: 70px; height: 120px;"
+    >
+      <div
+        class="w-full h-full bg-gradient-to-b from-white to-gray-50 border-2 cursor-pointer hover:shadow-xl transition-all duration-200 flex flex-col relative overflow-hidden rounded-sm"
+        style="border-color: #fdb913;"
+      >
+        <div
+          class="w-full h-[35%] flex items-center justify-center relative overflow-hidden"
+          style="border-bottom: 2px solid #FDB913;"
+        >
+          <div
+            class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),transparent)]"
+          />
+          <div
+            class="relative z-10 flex items-center justify-center rotate-180"
+            style="height: 48px; padding-top: 4px; padding-bottom: 4px;"
+          >
+            <div
+              class=" relative flex items-center justify-center w-full h-full"
+              style="height: 100%; width: auto;"
+            >
+              <img
+                alt="Fenerbahçe SK logo"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+                style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+                width="100"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col items-center justify-between bg-white rotate-180"
+          style="padding: 6px 8px 8px 8px;"
+        >
+          <div
+            style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
+          >
+            €
+            60
+          </div>
+          <div
+            class="flex-1 flex items-center justify-center w-full"
+          >
+            <div
+              class="text-center uppercase tracking-tight leading-tight"
+              style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 9px; color: rgb(17, 24, 39); padding-left: 4px; padding-right: 4px;"
+            >
+              Fenerbahçe SK
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="absolute inset-0 pointer-events-none flex items-center justify-center rotate-180"
+    >
+      <div
+        class="flex justify-center flex-wrap"
+        style="gap: 6px;"
+      >
+        <div
+          class="rounded-full border-2 border-white shadow-lg"
+          style="width: 22px; height: 22px; background-color: rgb(255, 0, 0);"
+        />
+        <div
+          class="rounded-full border-2 border-white shadow-lg"
+          style="width: 22px; height: 22px; background-color: rgb(0, 255, 0);"
+        />
+        <div
+          class="rounded-full border-2 border-white shadow-lg"
+          style="width: 22px; height: 22px; background-color: rgb(0, 0, 255);"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BoardSpace Snapshot Tests should match snapshot with single player 1`] = `
+<div>
+  <div
+    class="relative"
+    id="board-space-2"
+  >
+    <div
+      class="rotate-180"
+      style="width: 70px; height: 120px;"
+    >
+      <div
+        class="w-full h-full bg-gradient-to-b from-white to-gray-50 border-2 cursor-pointer hover:shadow-xl transition-all duration-200 flex flex-col relative overflow-hidden rounded-sm"
+        style="border-color: #fdb913;"
+      >
+        <div
+          class="w-full h-[35%] flex items-center justify-center relative overflow-hidden"
+          style="border-bottom: 2px solid #FDB913;"
+        >
+          <div
+            class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),transparent)]"
+          />
+          <div
+            class="relative z-10 flex items-center justify-center rotate-180"
+            style="height: 48px; padding-top: 4px; padding-bottom: 4px;"
+          >
+            <div
+              class=" relative flex items-center justify-center w-full h-full"
+              style="height: 100%; width: auto;"
+            >
+              <img
+                alt="Fenerbahçe SK logo"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Ffenerbahce.png&w=256&q=75 2x"
+                style="color: transparent; height: 100%; width: auto; object-fit: contain;"
+                width="100"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col items-center justify-between bg-white rotate-180"
+          style="padding: 6px 8px 8px 8px;"
+        >
+          <div
+            style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 11px; color: rgb(0, 0, 0); margin-bottom: 4px;"
+          >
+            €
+            60
+          </div>
+          <div
+            class="flex-1 flex items-center justify-center w-full"
+          >
+            <div
+              class="text-center uppercase tracking-tight leading-tight"
+              style="font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 9px; color: rgb(17, 24, 39); padding-left: 4px; padding-right: 4px;"
+            >
+              Fenerbahçe SK
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="absolute inset-0 pointer-events-none flex items-center justify-center rotate-180"
+    >
+      <div
+        class="flex justify-center flex-wrap"
+        style="gap: 6px;"
+      >
+        <div
+          class="rounded-full border-2 border-white shadow-lg"
+          style="width: 22px; height: 22px; background-color: rgb(255, 0, 0);"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

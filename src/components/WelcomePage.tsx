@@ -1,4 +1,5 @@
 import { useAuth, removeAccessTokenCookie } from "@/hooks/useAuth";
+import Link from "next/link";
 
 export default function WelcomePage() {
   const { accessToken } = useAuth();
@@ -90,12 +91,12 @@ export default function WelcomePage() {
               Jump into a random game with other players looking for a quick
               match.
             </p>
-            <button
-              className="bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-3 rounded-lg font-medium transition-colors"
-              disabled
+            <Link
+                href="/game"
+                className="bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-lg hover:from-green-700 hover:to-green-800 transition-all shadow-lg font-semibold text-lg"
             >
-              Coming Soon
-            </button>
+              Play Football Monopoly ⚽
+            </Link>
           </div>
         </div>
 
