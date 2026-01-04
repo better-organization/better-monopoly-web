@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { MonopolyBoard } from '@/components/game/MonopolyBoard';
 import { DetailsCard } from '@/components/game/DetailsCard';
 import { PlayerPanel } from '@/components/game/PlayerPanel';
@@ -8,18 +8,31 @@ import { ChatPanel } from '@/components/game/ChatPanel';
 import { TradePanel } from '@/components/game/TradePanel';
 import { PropertiesPanel } from '@/components/game/PropertiesPanel';
 import { getStaticGameData, getDynamicGameData } from '@/utils/gameConfig';
-import type { BoardSpace } from '@/types/game';
+import type {BoardSpace, Player} from '@/types/game';
 
 export default function GamePage() {
   // Get static game configuration (doesn't change during gameplay)
-  // useMemo with empty deps ensures this is only called once on mount
-  const staticData = useMemo(() => getStaticGameData(), []);
+  // Now using async fetch with useEffect
+  const [staticData, setStaticData] = useState<Awaited<ReturnType<typeof getStaticGameData>> | null>(null);
+  const [dynamicData, setDynamicData] = useState<ReturnType<typeof getDynamicGameData> | null>(null);
 
   // Initialize dynamic state (changes during gameplay)
-  const initialState = getDynamicGameData();
-  const [selectedProperty, setSelectedProperty] = useState<BoardSpace | null>(initialState.selectedProperty);
-  const [currentPlayer, setCurrentPlayer] = useState(initialState.currentPlayer);
-  const [players, setPlayers] = useState(initialState.players);
+  const [selectedProperty, setSelectedProperty] = useState<BoardSpace | null>();
+  const [currentPlayer, setCurrentPlayer] = useState<number>(1);
+  const [players, setPlayers] = useState<Player[]>([]);
+
+  useEffect(() => {
+    getStaticGameData().then(setStaticData);
+    setDynamicData(getDynamicGameData());
+  }, []);
+
+  useEffect(() => {
+    if (dynamicData) {
+      setSelectedProperty(dynamicData?.selectedProperty);
+      setPlayers(dynamicData?.players);
+      setCurrentPlayer(dynamicData?.currentPlayer)
+    }
+  }, [dynamicData]);
 
   // Memoize callbacks to prevent unnecessary re-renders of child components
   const handlePropertyClick = useCallback((property: BoardSpace) => {
@@ -45,6 +58,11 @@ export default function GamePage() {
   const handleClosePropertyCard = useCallback(() => {
     setSelectedProperty(null);
   }, []);
+
+  // Render loading state until staticData is loaded
+  if (!staticData) {
+    return <div className="flex items-center justify-center min-h-screen text-white">Loading game data...</div>;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4">
