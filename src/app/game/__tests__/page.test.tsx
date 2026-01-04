@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import GamePage from '../page';
 import * as gameConfig from '@/utils/gameConfig';
 import {
@@ -14,54 +14,80 @@ describe('GamePage', () => {
   beforeEach(() => {
     jest.clearAllMocks();
 
-    // Setup default mocks
-    (gameConfig.getStaticGameData as jest.Mock).mockReturnValue(mockStaticGameData);
+    // Setup default mocks - getStaticGameData is now async
+    (gameConfig.getStaticGameData as jest.Mock).mockResolvedValue(mockStaticGameData);
     (gameConfig.getDynamicGameData as jest.Mock).mockReturnValue(mockDynamicGameData);
   });
 
   describe('Initial rendering', () => {
-    it('should render the game page', () => {
+    it('should render the game page', async () => {
       render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       expect(screen.getByText(/Manager 1/i)).toBeInTheDocument();
     });
 
-    it('should load static game data on mount', () => {
+    it('should load static game data on mount', async () => {
       render(<GamePage />);
 
-      expect(gameConfig.getStaticGameData).toHaveBeenCalledTimes(1);
+      await waitFor(() => {
+        expect(gameConfig.getStaticGameData).toHaveBeenCalledTimes(1);
+      });
     });
 
-    it('should load dynamic game data on mount', () => {
+    it('should load dynamic game data on mount', async () => {
       render(<GamePage />);
 
-      expect(gameConfig.getDynamicGameData).toHaveBeenCalledTimes(1);
+      await waitFor(() => {
+        expect(gameConfig.getDynamicGameData).toHaveBeenCalledTimes(1);
+      });
     });
 
-    it('should render MonopolyBoard component', () => {
+    it('should render MonopolyBoard component', async () => {
       const { container } = render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       // MonopolyBoard should render board spaces
       expect(container.querySelector('.bg-gradient-to-br')).toBeInTheDocument();
     });
 
-    it('should render all side panels', () => {
+    it('should render all side panels', async () => {
       render(<GamePage />);
 
-      // Check for panel components (they should render)
-      expect(screen.getByText(/Manager 1/i)).toBeInTheDocument();
+      // Wait for loading to complete and check for panel components
+      await waitFor(() => {
+        expect(screen.getByText(/Manager 1/i)).toBeInTheDocument();
+      });
     });
 
-    it('should initialize with no selected property', () => {
+    it('should initialize with no selected property', async () => {
       const { container } = render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       // DetailsCard modal should not be visible initially
       const modal = container.querySelector('.fixed.inset-0');
       expect(modal).not.toBeInTheDocument();
     });
 
-    it('should initialize with first player as current player', () => {
+    it('should initialize with first player as current player', async () => {
       render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       // First player (Manager 1) should be the current player
       expect(screen.getByText(/Manager 1/i)).toBeInTheDocument();
@@ -69,8 +95,13 @@ describe('GamePage', () => {
   });
 
   describe('Property selection', () => {
-    it('should open DetailsCard modal when property is clicked', () => {
+    it('should open DetailsCard modal when property is clicked', async () => {
       const { container } = render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       // Click on a board space
       const propertyElement = screen.getByText(mockBoardSpaces[1].name);
@@ -81,8 +112,13 @@ describe('GamePage', () => {
       expect(modal).toBeInTheDocument();
     });
 
-    it('should display correct property details in modal', () => {
+    it('should display correct property details in modal', async () => {
       render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       const testSpace = mockBoardSpaces[1];
       const propertyElement = screen.getByText(testSpace.name);
@@ -93,8 +129,13 @@ describe('GamePage', () => {
       expect(propertyNames.length).toBeGreaterThan(1);
     });
 
-    it('should close modal when backdrop is clicked', () => {
+    it('should close modal when backdrop is clicked', async () => {
       const { container } = render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       // Open modal
       const propertyElement = screen.getByText(mockBoardSpaces[1].name);
@@ -111,8 +152,13 @@ describe('GamePage', () => {
       expect(modal).not.toBeInTheDocument();
     });
 
-    it('should not close modal when card content is clicked', () => {
+    it('should not close modal when card content is clicked', async () => {
       const { container } = render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       // Open modal
       const propertyElement = screen.getByText(mockBoardSpaces[1].name);
@@ -142,14 +188,19 @@ describe('GamePage', () => {
       jest.useRealTimers();
     });
 
-    it('should update player position when dice is rolled', () => {
+    it('should update player position when dice is rolled', async () => {
       render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       // The component should be rendered
       expect(screen.getByText(/Manager 1/i)).toBeInTheDocument();
     });
 
-    it('should handle position wraparound when position exceeds 40', () => {
+    it('should handle position wraparound when position exceeds 40', async () => {
       // Setup player at position 38
       const modifiedDynamicData = {
         ...mockDynamicGameData,
@@ -163,6 +214,11 @@ describe('GamePage', () => {
 
       const { rerender } = render(<GamePage />);
 
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
+
       // Player should be at position 38
       expect(screen.getByText(/Manager 1/i)).toBeInTheDocument();
 
@@ -174,6 +230,11 @@ describe('GamePage', () => {
     it('should advance to next player after dice roll with delay', async () => {
       render(<GamePage />);
 
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
+
       // Current player should be Manager 1 (index 0)
       expect(screen.getByText(/Manager 1/i)).toBeInTheDocument();
 
@@ -184,8 +245,13 @@ describe('GamePage', () => {
       expect(screen.getByText(/Manager 1/i)).toBeInTheDocument();
     });
 
-    it('should cycle through all players', () => {
+    it('should cycle through all players', async () => {
       const { rerender } = render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       // Start with player 0
       expect(screen.getByText(/Manager 1/i)).toBeInTheDocument();
@@ -202,8 +268,13 @@ describe('GamePage', () => {
   });
 
   describe('Player state management', () => {
-    it('should maintain player money across renders', () => {
+    it('should maintain player money across renders', async () => {
       const { rerender } = render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       expect(screen.getByText(/Manager 1/i)).toBeInTheDocument();
 
@@ -211,8 +282,13 @@ describe('GamePage', () => {
       expect(screen.getByText(/Manager 1/i)).toBeInTheDocument();
     });
 
-    it('should track all players on the board', () => {
+    it('should track all players on the board', async () => {
       render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       // All 4 mock players should be tracked
       mockDynamicGameData.players.forEach((player) => {
@@ -222,8 +298,13 @@ describe('GamePage', () => {
   });
 
   describe('Component integration', () => {
-    it('should pass correct props to MonopolyBoard', () => {
+    it('should pass correct props to MonopolyBoard', async () => {
       render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       // Board should receive board spaces
       mockStaticGameData.cells.slice(0, 10).forEach((space) => {
@@ -232,15 +313,25 @@ describe('GamePage', () => {
       });
     });
 
-    it('should pass currency symbol to board and cards', () => {
+    it('should pass currency symbol to board and cards', async () => {
       render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       // Currency symbol should be used (€)
       expect(mockStaticGameData.currency_symbol).toBe('€');
     });
 
-    it('should pass game terms to components', () => {
+    it('should pass game terms to components', async () => {
       render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       // Terms should be passed (Manager instead of Player)
       screen.getAllByText(/Manager/i).forEach((managerDiv) => {
@@ -248,8 +339,13 @@ describe('GamePage', () => {
       })
     });
 
-    it('should pass theme colors to board', () => {
+    it('should pass theme colors to board', async () => {
       const { container } = render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       // Board should have styling applied
       expect(container.querySelector('.bg-gradient-to-br')).toBeInTheDocument();
@@ -257,16 +353,26 @@ describe('GamePage', () => {
   });
 
   describe('Responsive layout', () => {
-    it('should render all three panel sections', () => {
+    it('should render all three panel sections', async () => {
       const { container } = render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       // Should have three main sections (left panel, board, right panel)
       const panels = container.querySelectorAll('.order-1, .order-2, .order-3');
       expect(panels.length).toBeGreaterThan(0);
     });
 
-    it('should apply correct ordering classes for mobile and desktop', () => {
+    it('should apply correct ordering classes for mobile and desktop', async () => {
       const { container } = render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       // Check for responsive order classes
       const orderedElements = container.querySelectorAll('[class*="order-"]');
@@ -275,46 +381,92 @@ describe('GamePage', () => {
   });
 
   describe('Edge cases', () => {
-    it('should handle empty static data gracefully', () => {
-      (gameConfig.getStaticGameData as jest.Mock).mockReturnValue({
+    it('should handle empty static data gracefully', async () => {
+      (gameConfig.getStaticGameData as jest.Mock).mockResolvedValue({
         ...mockStaticGameData,
         cells: [],
       });
 
       const { container } = render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
+
       expect(container).toBeInTheDocument();
     });
 
-    it('should handle single player', () => {
+    it('should handle single player', async () => {
       (gameConfig.getDynamicGameData as jest.Mock).mockReturnValue({
         ...mockDynamicGameData,
         players: [mockDynamicGameData.players[0]],
       });
 
       render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
+
       expect(screen.getByText(/Manager 1/i)).toBeInTheDocument();
     });
 
-    it('should handle missing theme colors', () => {
-      (gameConfig.getStaticGameData as jest.Mock).mockReturnValue({
+    it('should handle missing theme colors', async () => {
+      (gameConfig.getStaticGameData as jest.Mock).mockResolvedValue({
         ...mockStaticGameData,
         subTypeColors: {},
         cornerColors: {},
       });
 
       const { container } = render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
+
       expect(container).toBeInTheDocument();
+    });
+
+    it('should display loading state while fetching static data', async () => {
+      // Mock delayed resolution
+      (gameConfig.getStaticGameData as jest.Mock).mockImplementation(
+        () => new Promise((resolve) => setTimeout(() => resolve(mockStaticGameData), 100))
+      );
+
+      render(<GamePage />);
+
+      // Should show loading initially
+      expect(screen.getByText(/Loading game data/i)).toBeInTheDocument();
+
+      // Wait for data to load
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      }, { timeout: 3000 });
     });
   });
 
   describe('Snapshots', () => {
-    it('should match snapshot for initial game state', () => {
+    it('should match snapshot for initial game state', async () => {
       const { container } = render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
+
       expect(container).toMatchSnapshot();
     });
 
-    it('should match snapshot with property modal open', () => {
+    it('should match snapshot with property modal open', async () => {
       const { container } = render(<GamePage />);
+
+      // Wait for loading to complete
+      await waitFor(() => {
+        expect(screen.queryByText(/Loading game data/i)).not.toBeInTheDocument();
+      });
 
       const propertyElement = screen.getByText(mockBoardSpaces[1].name);
       fireEvent.click(propertyElement);

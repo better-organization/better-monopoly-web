@@ -1,4 +1,5 @@
 import { gameData } from '@/data/gameData';
+import { gameService } from '@/services/gameService';
 import type { Player, BoardSpace, GameTerms } from '@/types/game';
 
 // ==================== INTERFACES ====================
@@ -38,9 +39,23 @@ export interface DynamicGameData {
 /**
  * Get all static game configuration data
  * This includes terms, currency, logos, colors, and board spaces that don't change during gameplay
+ * Fetches from backend API with fallback to local data
  */
-export function getStaticGameData(): StaticGameData {
-  return gameData;
+export async function getStaticGameData(
+  boardId: string = gameData.id,
+  version: string = gameData.version
+): Promise<StaticGameData> {
+  try {
+    const data = await gameService.getStaticGameData(boardId, version);
+    data.subTypeColors = gameData.subTypeColors;
+    data.cornerColors = gameData.cornerColors;
+    data.logos = gameData.logos;
+    return data;
+  } catch (error) {
+    // Fallback to local game data if API call fails
+    console.warn('Failed to fetch static game data from backend, using local fallback:', error);
+    return gameData;
+  }
 }
 
 // ==================== DYNAMIC DATA ====================
@@ -74,8 +89,8 @@ export function getInitialPlayers(): Player[] {
 /**
  * @deprecated Use getStaticGameData() instead
  */
-export function getGameConfig() {
-  return getStaticGameData();
+export async function getGameConfig(): Promise<StaticGameData> {
+  return await getStaticGameData();
 }
 
 /**
@@ -96,9 +111,9 @@ export function getMockGameState() {
  * Get all game data (static config + dynamic state)
  * Useful for initializing the complete game
  */
-export function getInitialGameData(): { static: StaticGameData; dynamic: DynamicGameData } {
+export async function getInitialGameData(): Promise<{ static: StaticGameData; dynamic: DynamicGameData }> {
   return {
-    static: getStaticGameData(),
+    static: await getStaticGameData(),
     dynamic: getDynamicGameData(),
   };
 }
