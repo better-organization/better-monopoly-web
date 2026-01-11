@@ -1,14 +1,16 @@
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Button from "@/components/Button";
 import AuthModal from "@/components/AuthModal";
 import { setAccessTokenCookie } from "@/hooks/useAuth";
 
 export default function LandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const router = useRouter();
 
   const handleAuthenticate = (token: string) => {
     setAccessTokenCookie(token);
-    window.location.reload();
+    router.push("/");
   };
 
   return (
@@ -52,7 +54,7 @@ export default function LandingPage() {
             size="large"
             className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-green-800 min-w-[160px]"
           >
-            Getting Started
+            Lets Login Now
           </Button>
         </div>
 
