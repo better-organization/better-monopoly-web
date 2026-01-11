@@ -8,7 +8,7 @@ import { ChatPanel } from '@/components/game/ChatPanel';
 import { TradePanel } from '@/components/game/TradePanel';
 import { PropertiesPanel } from '@/components/game/PropertiesPanel';
 import { getStaticGameData, getDynamicGameData } from '@/utils/gameConfig';
-import type {BoardSpace, Player} from '@/types/game';
+import type { BoardSpace, Player } from '@/types/game';
 
 export default function GamePage() {
   // Get static game configuration (doesn't change during gameplay)
@@ -39,7 +39,7 @@ export default function GamePage() {
     setSelectedProperty(property);
   }, []);
 
-  const handleDiceRoll = useCallback((total: number) => {
+  const handleDiceRoll = useCallback((total: number, dice1: number, dice2: number) => {
     setPlayers(prev => {
       const newPlayers = [...prev];
       const currentPos = newPlayers[currentPlayer].position;

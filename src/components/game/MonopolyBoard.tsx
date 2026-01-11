@@ -1,4 +1,4 @@
-import {memo, useMemo} from 'react';
+import { memo, useMemo } from 'react';
 import { BoardSpace } from './BoardSpace';
 import { DiceRoller } from './DiceRoller';
 import { FieldLines } from './FieldLines';
@@ -20,7 +20,7 @@ interface MonopolyBoardProps {
   players: Player[];
   terms: GameTerms;
   currencySymbol: string;
-  onDiceRoll: (total: number) => void;
+  onDiceRoll: (total: number, dice1: number, dice2: number) => void;
   currentPlayer: number;
   boardSpaces: BoardSpaceType[];
   logos: { [key: string]: string };
