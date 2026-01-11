@@ -60,4 +60,16 @@ export const gameService = {
   getStaticGameData: async (boardId: string, version: string): Promise<StaticGameData> => {
     return apiClient.get<StaticGameData>(`/api/game/board/${boardId}/version/${version}`);
   },
+
+  // Roll dice
+  rollDice: async (gameId: string, playerId: string): Promise<{
+    success: boolean;
+    data: {
+      dice: [number, number];
+      total: number;
+      timestamp: string;
+    };
+  }> => {
+    return apiClient.post(`/api/game/roll-dice`, { gameId, playerId });
+  },
 };
