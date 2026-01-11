@@ -1,18 +1,18 @@
 "use client";
 
+import LandingPage from "@/components/LandingPage";
 import { useAuth } from "@/hooks/useAuth";
-import WelcomePage from "@/components/WelcomePage";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-export default function Home() {
+export default function LoginPage() {
   const { isAuthenticated, isLoading } = useAuth();
   const router = useRouter();
 
-  // Redirect to login if not authenticated
+  // Redirect to home if already authenticated
   useEffect(() => {
-    if (!isLoading && !isAuthenticated) {
-      router.push("/login");
+    if (!isLoading && isAuthenticated) {
+      router.push("/");
     }
   }, [isAuthenticated, isLoading, router]);
 
@@ -29,7 +29,7 @@ export default function Home() {
   }
 
   // Show loading if redirecting
-  if (!isAuthenticated) {
+  if (isAuthenticated) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
         <div className="text-center">
@@ -40,5 +40,6 @@ export default function Home() {
     );
   }
 
-  return <WelcomePage />;
+  return <LandingPage />;
 }
+

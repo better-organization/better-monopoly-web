@@ -91,9 +91,6 @@ export default function AuthModal({
       onAuthenticate("logged-in");
       setLoginForm({ userId: "", password: "" });
       handleClose();
-      if (typeof window !== "undefined") {
-        window.location.reload();
-      }
     } catch (error) {
       console.error("Login failed:", error);
       alert(
