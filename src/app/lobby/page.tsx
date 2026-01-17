@@ -62,7 +62,7 @@ export default function LobbyPage() {
     // Set up polling interval
     const intervalId = setInterval(() => {
       getRoomStatus();
-    }, 12000);
+    }, 5000);
 
     // Cleanup function - runs when component unmounts
     return () => {
