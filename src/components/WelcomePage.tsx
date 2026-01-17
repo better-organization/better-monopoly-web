@@ -1,24 +1,36 @@
 import { useAuth, removeAccessTokenCookie } from "@/hooks/useAuth";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useState } from "react";
+import { JoinRoomDialog } from "./JoinRoomDialog";
+import {roomService} from "@/services/roomService";
 
 export default function WelcomePage() {
-  const { accessToken } = useAuth();
   const router = useRouter();
+  const [joinDialogOpen, setJoinDialogOpen] = useState(false);
 
   const handleLogout = () => {
     removeAccessTokenCookie();
     router.push("/login");
   };
 
-  const handleCreateRoom = () => {
-    // TODO: Implement create room functionality
-    alert("Create room feature coming soon!");
+  const handleCreateRoom = async () => {
+    const roomResponse = await roomService.createRoom();
+
+    if (roomResponse && roomResponse.roomCode) {
+      console.log("Room created with ID:", roomResponse.roomCode);
+      router.push(`/lobby`);
+      return;
+    }
+
+    alert("Room creation failed. Please try again.");
   };
 
-  const handleJoinRoom = () => {
-    // TODO: Implement join room functionality
-    alert("Join room feature coming soon!");
+  const handleJoinRoom = (roomCode: string) => {
+    // TODO: Implement API call to join room and validate code
+    console.log("Joining room:", roomCode);
+    // Navigate to lobby with room data
+    router.push(`/lobby?roomCode=${roomCode}&isHost=false`);
   };
 
   const handleQuickPlay = () => {
@@ -70,7 +82,6 @@ export default function WelcomePage() {
             {/* Create Room Card */}
             <div
               className="bg-blue-600/20 hover:bg-blue-600/30 transition-colors border border-blue-500/30 rounded-lg cursor-pointer group backdrop-blur-sm min-h-[280px]"
-              onClick={handleCreateRoom}
             >
               <div className="p-6 space-y-6 pb-4">
                 <div className="w-16 h-16 rounded-2xl bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors mx-auto">
@@ -84,12 +95,12 @@ export default function WelcomePage() {
               <div className="pt-2 p-6">
                 <button
                   className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-                  onClick={(e) => {
+                  onClick={async (e) => {
                     e.stopPropagation();
-                    handleCreateRoom();
+                    await handleCreateRoom()
                   }}
                 >
-                  Coming Soon
+                  Create Room
                 </button>
               </div>
             </div>
@@ -97,7 +108,7 @@ export default function WelcomePage() {
             {/* Join Room Card */}
             <div
               className="bg-blue-600/20 hover:bg-blue-600/30 transition-colors border border-blue-500/30 rounded-lg cursor-pointer group backdrop-blur-sm min-h-[280px]"
-              onClick={handleJoinRoom}
+              onClick={() => setJoinDialogOpen(true)}
             >
               <div className="p-6 space-y-6 pb-4">
                 <div className="w-16 h-16 rounded-2xl bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors mx-auto">
@@ -113,10 +124,10 @@ export default function WelcomePage() {
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors border border-blue-500/50"
                   onClick={(e) => {
                     e.stopPropagation();
-                    handleJoinRoom();
+                    setJoinDialogOpen(true);
                   }}
                 >
-                  Coming Soon
+                  Join Room
                 </button>
               </div>
             </div>
@@ -150,6 +161,13 @@ export default function WelcomePage() {
           </div>
         </div>
       </div>
+
+      {/* Dialogs */}
+      <JoinRoomDialog
+        open={joinDialogOpen}
+        onOpenChange={setJoinDialogOpen}
+        onJoinRoom={handleJoinRoom}
+      />
     </div>
   );
 }
