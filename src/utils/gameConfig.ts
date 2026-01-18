@@ -24,6 +24,10 @@ export interface StaticGameData {
   cornerColors: { [key: string]: { primary: string; secondary: string; gradient: string; logo: string | null; textColor: string } };
 }
 
+export interface StaticGameDataResponse {
+  data: StaticGameData;
+}
+
 /**
  * Interface for dynamic game state
  * All data that changes during gameplay
@@ -46,7 +50,8 @@ export async function getStaticGameData(
   version: string = gameData.version
 ): Promise<StaticGameData> {
   try {
-    const data = await gameService.getStaticGameData(boardId, version);
+    const staticGameDataResponse = await gameService.getStaticGameData(boardId, version);
+    const data: StaticGameData = staticGameDataResponse.data;
     data.subTypeColors = gameData.subTypeColors;
     data.cornerColors = gameData.cornerColors;
     data.logos = gameData.logos;

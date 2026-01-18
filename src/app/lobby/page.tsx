@@ -3,25 +3,26 @@
 import { removeAccessTokenCookie } from "@/hooks/useAuth";
 import { useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
-import { roomService, roomStatusResponse } from "@/services/roomService";
+import { roomService, IRoomStatusResponse, IRoomStatus } from "@/services/roomService";
 
 export default function LobbyPage() {
   const router = useRouter();
 
   const [copied, setCopied] = useState(false);
-  const [roomStatus, setRoomStatus] = useState<roomStatusResponse>({
+  const [roomStatus, setRoomStatus] = useState<IRoomStatus>({
+    user: "",
     roomId: "",
     roomCode: "",
-    players: [],
+    players: []
   });
-  const [isHost, setIsHost] = useState<boolean>(true);
+  const [isHost, setIsHost] = useState<boolean>(false);
   const loading = useRef<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   
   // Use ref to track if component is mounted to avoid state updates after unmount
   const count = useRef(1);
 
-  const sameRoomStatus = (status: roomStatusResponse) => {
+  const sameRoomStatus = (status: IRoomStatus) => {
     return (
       status.roomId === roomStatus.roomId &&
       status.roomCode === roomStatus.roomCode &&
@@ -31,7 +32,8 @@ export default function LobbyPage() {
 
   const getRoomStatus = async () => {
     try {
-      const response = await roomService.getRoomStatus();
+      const responseBody = await roomService.getRoomStatus();
+      const response = responseBody.data;
       count.current += 1;
 
       // Only update state if room status has changed
@@ -40,6 +42,7 @@ export default function LobbyPage() {
       console.log({"timestamp": new Date().toISOString(), "count": count.current});
       if (!isSameRoomStatus) {
         setRoomStatus(response);
+        setIsHost(response.user === response.players[0]);
         setError(null);
         loading.current = false;
         console.log("Called setLoading(false)");
@@ -259,7 +262,7 @@ export default function LobbyPage() {
                     <div className="flex-1">
                       <div className="font-medium text-white">
                         {participant}
-                        { index === 0 && (
+                        { roomStatus.user === participant && (
                           <span className="text-white/50 ml-2">(You)</span>
                         )}
                       </div>

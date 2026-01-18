@@ -17,8 +17,8 @@ export default function WelcomePage() {
   const handleCreateRoom = async () => {
     const roomResponse = await roomService.createRoom();
 
-    if (roomResponse && roomResponse.roomCode) {
-      console.log("Room created with ID:", roomResponse.roomCode);
+    if (roomResponse && roomResponse.data.roomCode) {
+      console.log("Room created with ID:", roomResponse.data.roomCode);
       router.push(`/lobby`);
       return;
     }
@@ -26,11 +26,15 @@ export default function WelcomePage() {
     alert("Room creation failed. Please try again.");
   };
 
-  const handleJoinRoom = (roomCode: string) => {
-    // TODO: Implement API call to join room and validate code
-    console.log("Joining room:", roomCode);
-    // Navigate to lobby with room data
-    router.push(`/lobby?roomCode=${roomCode}&isHost=false`);
+  const handleJoinRoom = async (roomCode: string) => {
+    const joinResponse = await roomService.joinRoom(roomCode);
+
+    if (joinResponse.success) {
+      console.log("Joined room with code:", roomCode);
+      router.push(`/lobby`);
+    } else {
+      alert("Failed to join room. Please check the room code and try again.");
+    }
   };
 
   const handleQuickPlay = () => {
