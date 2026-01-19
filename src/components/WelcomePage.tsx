@@ -1,4 +1,4 @@
-import { useAuth, removeAccessTokenCookie } from "@/hooks/useAuth";
+import { removeAccessTokenCookie } from "@/hooks/useAuth";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";

@@ -1,5 +1,5 @@
 import { apiClient } from './api';
-import type {StaticGameData, StaticGameDataResponse} from '@/utils/gameConfig';
+import type { StaticGameDataResponse} from '@/utils/gameConfig';
 
 // Game related types
 export interface Game {
@@ -58,6 +58,6 @@ export const gameService = {
 
   // Get static game data (board configuration)
   getStaticGameData: async (boardId: string, version: string): Promise<StaticGameDataResponse> => {
-    return apiClient.get<StaticGameData>(`/api/game/board/${boardId}/version/${version}`);
+    return apiClient.get<StaticGameDataResponse>(`/api/game/board/${boardId}/version/${version}`);
   },
 };

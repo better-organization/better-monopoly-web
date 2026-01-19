@@ -3,7 +3,7 @@
 import { removeAccessTokenCookie } from "@/hooks/useAuth";
 import { useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
-import { roomService, IRoomStatusResponse, IRoomStatus } from "@/services/roomService";
+import { roomService, IRoomStatus } from "@/services/roomService";
 
 export default function LobbyPage() {
   const router = useRouter();
