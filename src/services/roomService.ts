@@ -7,10 +7,18 @@ export interface ICreateRoomResponse {
     }
 }
 
+export enum RoomState {
+    WAITING = 'WAITING',
+    IN_GAME = 'IN_GAME',
+    FINISHED = 'FINISHED',
+}
+
 export interface IRoomStatus {
     roomId: string;
     roomCode: string;
     players: string[];
+    maxPlayers: number;
+    roomState: string;
     user: string;
 }
 
@@ -18,7 +26,7 @@ export interface IRoomStatusResponse {
     data: IRoomStatus;
 }
 
-export interface IRoomJoinResponse {
+export interface ISuccessResponse {
     success: boolean;
     message: string;
 }
@@ -36,6 +44,10 @@ export const roomService = {
 
     // join a room
     joinRoom : async (roomCode: string) => {
-        return apiClient.post<IRoomJoinResponse>(`/api/room/join`, {roomCode});
+        return apiClient.post<ISuccessResponse>(`/api/room/join`, {roomCode});
+    },
+
+    startGame : async () => {
+        return apiClient.post<ISuccessResponse>('/api/room/start');
     }
 }
