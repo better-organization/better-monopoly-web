@@ -3,7 +3,7 @@
 import { removeAccessTokenCookie } from "@/hooks/useAuth";
 import { useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
-import { roomService, IRoomStatus } from "@/services/roomService";
+import {roomService, IRoomStatus, RoomState} from "@/services/roomService";
 
 export default function LobbyPage() {
   const router = useRouter();
@@ -13,6 +13,8 @@ export default function LobbyPage() {
     user: "",
     roomId: "",
     roomCode: "",
+    maxPlayers: 0,
+    roomState: RoomState.WAITING,
     players: []
   });
   const [isHost, setIsHost] = useState<boolean>(false);
@@ -35,12 +37,14 @@ export default function LobbyPage() {
       const responseBody = await roomService.getRoomStatus();
       const response = responseBody.data;
       count.current += 1;
-
       // Only update state if room status has changed
       const isSameRoomStatus = sameRoomStatus(response);
       console.log("Is same room status as before?", isSameRoomStatus);
       console.log({"timestamp": new Date().toISOString(), "count": count.current});
       if (!isSameRoomStatus) {
+        if (response.roomState === RoomState.IN_GAME) {
+          router.push('/game')
+        }
         setRoomStatus(response);
         setIsHost(response.user === response.players[0]);
         setError(null);
@@ -88,8 +92,14 @@ export default function LobbyPage() {
     router.push("/");
   };
 
-  const handleStartRoom = () => {
+  const handleStartRoom = async () => {
     // No need to manually clear interval - useEffect cleanup handles it
+    const response = await roomService.startGame();
+    if (!response.success) {
+      alert(response.message);
+      return;
+    }
+
     router.push("/game");
   };
 
