@@ -4,6 +4,7 @@ import { removeAccessTokenCookie } from "@/hooks/useAuth";
 import { useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import {roomService, IRoomStatus, RoomState} from "@/services/roomService";
+import Countdown from "@/components/Countdown";
 
 export default function LobbyPage() {
   const router = useRouter();
@@ -20,7 +21,8 @@ export default function LobbyPage() {
   const [isHost, setIsHost] = useState<boolean>(false);
   const loading = useRef<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  
+  const [countdown, setCountdown] = useState<number | null>(null);
+
   // Use ref to track if component is mounted to avoid state updates after unmount
   const count = useRef(1);
 
@@ -41,10 +43,11 @@ export default function LobbyPage() {
       const isSameRoomStatus = sameRoomStatus(response);
       console.log("Is same room status as before?", isSameRoomStatus);
       console.log({"timestamp": new Date().toISOString(), "count": count.current});
+      if (response.roomState === RoomState.IN_GAME && countdown === null) {
+        setCountdown(3);
+      }
+
       if (!isSameRoomStatus) {
-        if (response.roomState === RoomState.IN_GAME) {
-          router.push('/game')
-        }
         setRoomStatus(response);
         setIsHost(response.user === response.players[0]);
         setError(null);
@@ -77,6 +80,22 @@ export default function LobbyPage() {
     };
   }); // Empty dependency array = run once on mount
 
+  // Handle countdown timer
+  useEffect(() => {
+    if (countdown === null) return;
+
+    if (countdown === 0) {
+      router.push('/game');
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setCountdown(countdown - 1);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [countdown, router]);
+
   const handleLogout = () => {
     removeAccessTokenCookie();
     router.push("/login");
@@ -99,8 +118,6 @@ export default function LobbyPage() {
       alert(response.message);
       return;
     }
-
-    router.push("/game");
   };
 
   console.log("Render cycle - loading:", loading, "error:", error, "roomStatus:", roomStatus);
@@ -142,6 +159,11 @@ export default function LobbyPage() {
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      {/* Countdown Overlay */}
+      {countdown !== null && countdown > 0 && (
+        <Countdown count={countdown} />
+      )}
+
       {/* Navbar */}
       <nav className="border-b border-white/10 bg-slate-900/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
