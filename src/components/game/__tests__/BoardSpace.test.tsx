@@ -12,6 +12,7 @@ describe('BoardSpace', () => {
     subTypeColors: mockSubTypeColors,
     cornerColors: mockCornerColors,
     players: [] as Player[],
+    colors: [],
   };
 
   beforeEach(() => {
@@ -229,7 +230,13 @@ describe('BoardSpace', () => {
       // Test with players present
       mockOnClick.mockClear();
       const players: Player[] = [
-        { id: 1, name: 'Player 1', color: '#FF0000', position: 2, money: 1500 }
+        { property_owns: [],
+          utility_owns: [],
+          transport_owns: [],
+          player_turn: 1,
+          player_id: 'Test Player',
+          position: 1,
+          player_money: 1500, }
       ];
       rerender(
         <BoardSpace
@@ -391,7 +398,13 @@ describe('BoardSpace', () => {
 
     it('should match snapshot with single player', () => {
       const players: Player[] = [
-        { id: 1, name: 'Player 1', color: '#FF0000', position: 2, money: 1500 }
+        { property_owns: [],
+          utility_owns: [],
+          transport_owns: [],
+          player_turn: 1,
+          player_id: 'Test Player',
+          position: 1,
+          player_money: 1500, }
       ];
       const { container } = render(
         <BoardSpace
@@ -405,9 +418,27 @@ describe('BoardSpace', () => {
 
     it('should match snapshot with multiple players', () => {
       const players: Player[] = [
-        { id: 1, name: 'Player 1', color: '#FF0000', position: 2, money: 1500 },
-        { id: 2, name: 'Player 2', color: '#00FF00', position: 2, money: 1500 },
-        { id: 3, name: 'Player 3', color: '#0000FF', position: 2, money: 1500 }
+        { property_owns: [],
+          utility_owns: [],
+          transport_owns: [],
+          player_turn: 0,
+          player_id: 'Player 1',
+          position: 1,
+          player_money: 1500, },
+        { property_owns: [],
+          utility_owns: [],
+          transport_owns: [],
+          player_turn: 1,
+          player_id: 'Player 2',
+          position: 1,
+          player_money: 1500, },
+        { property_owns: [],
+          utility_owns: [],
+          transport_owns: [],
+          player_turn: 2,
+          player_id: 'Player 3',
+          position: 1,
+          player_money: 1500, }
       ];
       const { container } = render(
         <BoardSpace

@@ -6,10 +6,12 @@ interface PlayerPanelProps {
   players: Player[];
   currentPlayer: number;
   terms: GameTerms;
+  colors: string[];
+  yourOrder: number;
 }
 
-export const PlayerPanel = memo(function PlayerPanel({ players, currentPlayer, terms }: PlayerPanelProps) {
-  return (
+export const PlayerPanel = memo(function PlayerPanel({ players, currentPlayer, terms, colors, yourOrder }: PlayerPanelProps) {
+    return (
     <div className="bg-slate-800 rounded-lg border-2 border-slate-700 p-3">
       <div className="flex items-center gap-2 mb-3">
         <User className="w-5 h-5 text-blue-400" />
@@ -19,7 +21,7 @@ export const PlayerPanel = memo(function PlayerPanel({ players, currentPlayer, t
       <div className="space-y-2">
         {players.map((player, index) => (
           <div
-            key={player.id}
+            key={player.player_turn + 1}
             className={`p-2.5 rounded border transition-all ${
               index === currentPlayer
                 ? 'border-blue-500 bg-blue-950/30 shadow-lg shadow-blue-500/20'
@@ -29,20 +31,20 @@ export const PlayerPanel = memo(function PlayerPanel({ players, currentPlayer, t
             <div className="flex items-center gap-2">
               <div
                 className="w-8 h-8 rounded-full border-2 border-white shadow-lg flex-shrink-0"
-                style={{ backgroundColor: player.color }}
+                style={{ backgroundColor: colors[index] }}
               />
               <div className="flex-1 min-w-0">
                 <p className={`truncate text-sm ${
                   index === currentPlayer ? 'text-blue-200' : 'text-slate-300'
                 }`}>
-                  {player.name}
+                  {player.player_id} {index === yourOrder ? '(You)' : ''}
                 </p>
                 <div className="flex items-center gap-1 mt-0.5">
                   <Coins className="w-3.5 h-3.5 text-yellow-500" />
                   <p className={`text-xs ${
                     index === currentPlayer ? 'text-yellow-400' : 'text-slate-400'
                   }`}>
-                    €{player.money}
+                    €{player.player_money}
                   </p>
                 </div>
               </div>

@@ -205,8 +205,24 @@ describe('GamePage', () => {
       const modifiedDynamicData = {
         ...mockDynamicGameData,
         players: [
-          { id: 1, name: 'Manager 1', position: 38, money: 1500, color: '#FF0000' },
-          { id: 2, name: 'Manager 2', position: 1, money: 1500, color: '#0000FF' },
+          {
+            player_turn: 1,
+            player_id: 'Manager 1',
+            position: 6,
+            player_money: 1500,
+            property_owns: [],
+            utility_owns: [],
+            transport_owns: []
+          },
+          {
+            player_turn: 2,
+            player_id: 'Manager 2',
+            position: 10,
+            player_money: 1300,
+            property_owns: [],
+            utility_owns: [],
+            transport_owns: []
+          },
         ],
       };
 
@@ -292,7 +308,7 @@ describe('GamePage', () => {
 
       // All 4 mock players should be tracked
       mockDynamicGameData.players.forEach((player) => {
-        expect(screen.getByText(new RegExp(player.name, 'i'))).toBeInTheDocument();
+        expect(screen.getByText(new RegExp(player.player_id, 'i'))).toBeInTheDocument();
       });
     });
   });

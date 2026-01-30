@@ -18,6 +18,8 @@ const BOARD_SIZE = CORNER_SIZE + (9 * CARD_WIDTH) + CORNER_SIZE + 25;  // 870px
 interface MonopolyBoardProps {
   onPropertyClick: (property: BoardSpaceType) => void;
   players: Player[];
+  isYourTurn: boolean;
+  colors: string[];
   terms: GameTerms;
   currencySymbol: string;
   onDiceRoll: (total: number, dice1: number, dice2: number) => void;
@@ -31,6 +33,8 @@ interface MonopolyBoardProps {
 export const MonopolyBoard = memo(function MonopolyBoard({
   onPropertyClick,
   players,
+  colors,
+  isYourTurn,
   terms,
   currencySymbol,
   onDiceRoll,
@@ -87,7 +91,8 @@ export const MonopolyBoard = memo(function MonopolyBoard({
           <div className="flex items-center justify-center">
             <BoardSpace
               space={boardSpaces[0]}
-              players={getPlayersAtPosition(1)}
+              colors={colors}
+              players={getPlayersAtPosition(0)}
               onClick={() => onPropertyClick(boardSpaces[0])}
               isCorner={true}
               position="top"
@@ -102,6 +107,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
             <div key={space.index}>
               <BoardSpace
                 space={space}
+                colors={colors}
                 players={getPlayersAtPosition(space.index)}
                 onClick={() => onPropertyClick(space)}
                 position="top"
@@ -116,6 +122,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
           <div className="flex items-center justify-center">
             <BoardSpace
               space={boardSpaces[10]}
+              colors={colors}
               players={getPlayersAtPosition(11)}
               onClick={() => onPropertyClick(boardSpaces[10])}
               isCorner={true}
@@ -135,6 +142,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
               <div key={`left-${rowIndex}`} className="flex items-center justify-center">
                 <BoardSpace
                   space={leftColumn[rowIndex]}
+                  colors={colors}
                   players={getPlayersAtPosition(leftColumn[rowIndex].index)}
                   onClick={() => onPropertyClick(leftColumn[rowIndex])}
                   position="left"
@@ -155,6 +163,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
               <div key={`right-${rowIndex}`} className="flex items-center justify-center">
                 <BoardSpace
                   space={rightColumn[rowIndex]}
+                  colors={colors}
                   players={getPlayersAtPosition(rightColumn[rowIndex].index)}
                   onClick={() => onPropertyClick(rightColumn[rowIndex])}
                   position="right"
@@ -193,13 +202,12 @@ export const MonopolyBoard = memo(function MonopolyBoard({
 
               {/* Dice Roller - positioned in lower center */}
               <div className="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-auto z-20">
-                <div className="shadow-[0_12px_24px_rgba(0,0,0,0.6)]">
-                  <DiceRoller
-                    onRoll={onDiceRoll}
-                    currentPlayer={players[currentPlayer]}
-                    compact={true}
-                  />
-                </div>
+                <DiceRoller
+                  onRoll={onDiceRoll}
+                  currentPlayer={players[currentPlayer]}
+                  compact={true}
+                  isYourTurn={isYourTurn}
+                />
               </div>
             </div>
           </div>
@@ -208,6 +216,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
           <div className="flex items-center justify-center">
             <BoardSpace
               space={boardSpaces[30]}
+              colors={colors}
               players={getPlayersAtPosition(31)}
               onClick={() => onPropertyClick(boardSpaces[30])}
               isCorner={true}
@@ -223,6 +232,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
             <div key={space.index}>
               <BoardSpace
                 space={space}
+                colors={colors}
                 players={getPlayersAtPosition(space.index)}
                 onClick={() => onPropertyClick(space)}
                 position="bottom"
@@ -237,6 +247,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
           <div className="flex items-center justify-center">
             <BoardSpace
               space={boardSpaces[20]}
+              colors={colors}
               players={getPlayersAtPosition(21)}
               onClick={() => onPropertyClick(boardSpaces[20])}
               isCorner={true}

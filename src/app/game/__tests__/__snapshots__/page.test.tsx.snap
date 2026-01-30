@@ -165,23 +165,6 @@ exports[`GamePage Snapshots should match snapshot for initial game state 1`] = `
                         </div>
                       </div>
                     </div>
-                    <div
-                      class="absolute inset-0 pointer-events-none flex items-center justify-center rotate-180"
-                    >
-                      <div
-                        class="flex justify-center flex-wrap"
-                        style="gap: 8px;"
-                      >
-                        <div
-                          class="rounded-full border-2 border-white shadow-lg"
-                          style="width: 28px; height: 28px; background-color: rgb(255, 0, 0);"
-                        />
-                        <div
-                          class="rounded-full border-2 border-white shadow-lg"
-                          style="width: 28px; height: 28px; background-color: rgb(0, 0, 255);"
-                        />
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <div>
@@ -464,7 +447,7 @@ exports[`GamePage Snapshots should match snapshot for initial game state 1`] = `
                       >
                         <div
                           class="rounded-full border-2 border-white shadow-lg"
-                          style="width: 22px; height: 22px; background-color: rgb(0, 255, 0);"
+                          style="width: 22px; height: 22px; background-color: rgb(255, 255, 0);"
                         />
                       </div>
                     </div>
@@ -874,7 +857,7 @@ exports[`GamePage Snapshots should match snapshot for initial game state 1`] = `
                       >
                         <div
                           class="rounded-full border-2 border-white shadow-lg"
-                          style="width: 28px; height: 28px; background-color: rgb(255, 255, 0);"
+                          style="width: 28px; height: 28px;"
                         />
                       </div>
                     </div>
@@ -2312,103 +2295,99 @@ exports[`GamePage Snapshots should match snapshot for initial game state 1`] = `
                       class="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-auto z-20"
                     >
                       <div
-                        class="shadow-[0_12px_24px_rgba(0,0,0,0.6)]"
+                        class="text-center bg-transparent"
                       >
                         <div
-                          class="text-center"
+                          class="flex gap-3 justify-center mb-3"
                         >
-                          <div
-                            class="flex gap-3 justify-center mb-3"
+                          <svg
+                            class=" drop-shadow-2xl"
+                            height="60"
+                            viewBox="0 0 100 100"
+                            width="60"
                           >
-                            <svg
-                              class=" drop-shadow-2xl"
-                              height="60"
-                              viewBox="0 0 100 100"
-                              width="60"
-                            >
-                              <rect
-                                fill="#ffffff"
-                                height="90"
-                                rx="15"
-                                stroke="#fbbf24"
-                                stroke-width="4"
-                                width="90"
-                                x="5"
-                                y="5"
-                              />
-                              <circle
-                                cx="50%"
-                                cy="50%"
-                                fill="#15803d"
-                                r="10%"
-                              />
-                            </svg>
-                            <svg
-                              class=" drop-shadow-2xl"
-                              height="60"
-                              viewBox="0 0 100 100"
-                              width="60"
-                            >
-                              <rect
-                                fill="#ffffff"
-                                height="90"
-                                rx="15"
-                                stroke="#fbbf24"
-                                stroke-width="4"
-                                width="90"
-                                x="5"
-                                y="5"
-                              />
-                              <circle
-                                cx="50%"
-                                cy="50%"
-                                fill="#15803d"
-                                r="10%"
-                              />
-                            </svg>
-                          </div>
-                          <button
-                            class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg flex items-center gap-2 mx-auto text-sm"
+                            <rect
+                              fill="#ffffff"
+                              height="90"
+                              rx="15"
+                              stroke="#fbbf24"
+                              stroke-width="4"
+                              width="90"
+                              x="5"
+                              y="5"
+                            />
+                            <circle
+                              cx="50%"
+                              cy="50%"
+                              fill="#15803d"
+                              r="10%"
+                            />
+                          </svg>
+                          <svg
+                            class=" drop-shadow-2xl"
+                            height="60"
+                            viewBox="0 0 100 100"
+                            width="60"
                           >
-                            <svg
-                              class="lucide lucide-dices w-4 h-4"
-                              fill="none"
-                              height="24"
-                              stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              viewBox="0 0 24 24"
-                              width="24"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <rect
-                                height="12"
-                                rx="2"
-                                ry="2"
-                                width="12"
-                                x="2"
-                                y="10"
-                              />
-                              <path
-                                d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6"
-                              />
-                              <path
-                                d="M6 18h.01"
-                              />
-                              <path
-                                d="M10 14h.01"
-                              />
-                              <path
-                                d="M15 6h.01"
-                              />
-                              <path
-                                d="M18 9h.01"
-                              />
-                            </svg>
-                            Roll the dice
-                          </button>
+                            <rect
+                              fill="#ffffff"
+                              height="90"
+                              rx="15"
+                              stroke="#fbbf24"
+                              stroke-width="4"
+                              width="90"
+                              x="5"
+                              y="5"
+                            />
+                            <circle
+                              cx="50%"
+                              cy="50%"
+                              fill="#15803d"
+                              r="10%"
+                            />
+                          </svg>
                         </div>
+                        <button
+                          class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg flex items-center gap-2 mx-auto text-sm"
+                        >
+                          <svg
+                            class="lucide lucide-dices w-4 h-4"
+                            fill="none"
+                            height="24"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              height="12"
+                              rx="2"
+                              ry="2"
+                              width="12"
+                              x="2"
+                              y="10"
+                            />
+                            <path
+                              d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6"
+                            />
+                            <path
+                              d="M6 18h.01"
+                            />
+                            <path
+                              d="M10 14h.01"
+                            />
+                            <path
+                              d="M15 6h.01"
+                            />
+                            <path
+                              d="M18 9h.01"
+                            />
+                          </svg>
+                          Your turn
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -3082,6 +3061,7 @@ exports[`GamePage Snapshots should match snapshot for initial game state 1`] = `
                         class="truncate text-sm text-blue-200"
                       >
                         Manager 1
+                         
                       </p>
                       <div
                         class="flex items-center gap-1 mt-0.5"
@@ -3147,6 +3127,8 @@ exports[`GamePage Snapshots should match snapshot for initial game state 1`] = `
                         class="truncate text-sm text-slate-300"
                       >
                         Manager 2
+                         
+                        (You)
                       </p>
                       <div
                         class="flex items-center gap-1 mt-0.5"
@@ -3205,6 +3187,7 @@ exports[`GamePage Snapshots should match snapshot for initial game state 1`] = `
                         class="truncate text-sm text-slate-300"
                       >
                         Manager 3
+                         
                       </p>
                       <div
                         class="flex items-center gap-1 mt-0.5"
@@ -3263,6 +3246,7 @@ exports[`GamePage Snapshots should match snapshot for initial game state 1`] = `
                         class="truncate text-sm text-slate-300"
                       >
                         Manager 4
+                         
                       </p>
                       <div
                         class="flex items-center gap-1 mt-0.5"
@@ -3579,23 +3563,6 @@ exports[`GamePage Snapshots should match snapshot with property modal open 1`] =
                         </div>
                       </div>
                     </div>
-                    <div
-                      class="absolute inset-0 pointer-events-none flex items-center justify-center rotate-180"
-                    >
-                      <div
-                        class="flex justify-center flex-wrap"
-                        style="gap: 8px;"
-                      >
-                        <div
-                          class="rounded-full border-2 border-white shadow-lg"
-                          style="width: 28px; height: 28px; background-color: rgb(255, 0, 0);"
-                        />
-                        <div
-                          class="rounded-full border-2 border-white shadow-lg"
-                          style="width: 28px; height: 28px; background-color: rgb(0, 0, 255);"
-                        />
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <div>
@@ -3878,7 +3845,7 @@ exports[`GamePage Snapshots should match snapshot with property modal open 1`] =
                       >
                         <div
                           class="rounded-full border-2 border-white shadow-lg"
-                          style="width: 22px; height: 22px; background-color: rgb(0, 255, 0);"
+                          style="width: 22px; height: 22px; background-color: rgb(255, 255, 0);"
                         />
                       </div>
                     </div>
@@ -4288,7 +4255,7 @@ exports[`GamePage Snapshots should match snapshot with property modal open 1`] =
                       >
                         <div
                           class="rounded-full border-2 border-white shadow-lg"
-                          style="width: 28px; height: 28px; background-color: rgb(255, 255, 0);"
+                          style="width: 28px; height: 28px;"
                         />
                       </div>
                     </div>
@@ -5726,103 +5693,99 @@ exports[`GamePage Snapshots should match snapshot with property modal open 1`] =
                       class="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-auto z-20"
                     >
                       <div
-                        class="shadow-[0_12px_24px_rgba(0,0,0,0.6)]"
+                        class="text-center bg-transparent"
                       >
                         <div
-                          class="text-center"
+                          class="flex gap-3 justify-center mb-3"
                         >
-                          <div
-                            class="flex gap-3 justify-center mb-3"
+                          <svg
+                            class=" drop-shadow-2xl"
+                            height="60"
+                            viewBox="0 0 100 100"
+                            width="60"
                           >
-                            <svg
-                              class=" drop-shadow-2xl"
-                              height="60"
-                              viewBox="0 0 100 100"
-                              width="60"
-                            >
-                              <rect
-                                fill="#ffffff"
-                                height="90"
-                                rx="15"
-                                stroke="#fbbf24"
-                                stroke-width="4"
-                                width="90"
-                                x="5"
-                                y="5"
-                              />
-                              <circle
-                                cx="50%"
-                                cy="50%"
-                                fill="#15803d"
-                                r="10%"
-                              />
-                            </svg>
-                            <svg
-                              class=" drop-shadow-2xl"
-                              height="60"
-                              viewBox="0 0 100 100"
-                              width="60"
-                            >
-                              <rect
-                                fill="#ffffff"
-                                height="90"
-                                rx="15"
-                                stroke="#fbbf24"
-                                stroke-width="4"
-                                width="90"
-                                x="5"
-                                y="5"
-                              />
-                              <circle
-                                cx="50%"
-                                cy="50%"
-                                fill="#15803d"
-                                r="10%"
-                              />
-                            </svg>
-                          </div>
-                          <button
-                            class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg flex items-center gap-2 mx-auto text-sm"
+                            <rect
+                              fill="#ffffff"
+                              height="90"
+                              rx="15"
+                              stroke="#fbbf24"
+                              stroke-width="4"
+                              width="90"
+                              x="5"
+                              y="5"
+                            />
+                            <circle
+                              cx="50%"
+                              cy="50%"
+                              fill="#15803d"
+                              r="10%"
+                            />
+                          </svg>
+                          <svg
+                            class=" drop-shadow-2xl"
+                            height="60"
+                            viewBox="0 0 100 100"
+                            width="60"
                           >
-                            <svg
-                              class="lucide lucide-dices w-4 h-4"
-                              fill="none"
-                              height="24"
-                              stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              viewBox="0 0 24 24"
-                              width="24"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <rect
-                                height="12"
-                                rx="2"
-                                ry="2"
-                                width="12"
-                                x="2"
-                                y="10"
-                              />
-                              <path
-                                d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6"
-                              />
-                              <path
-                                d="M6 18h.01"
-                              />
-                              <path
-                                d="M10 14h.01"
-                              />
-                              <path
-                                d="M15 6h.01"
-                              />
-                              <path
-                                d="M18 9h.01"
-                              />
-                            </svg>
-                            Roll the dice
-                          </button>
+                            <rect
+                              fill="#ffffff"
+                              height="90"
+                              rx="15"
+                              stroke="#fbbf24"
+                              stroke-width="4"
+                              width="90"
+                              x="5"
+                              y="5"
+                            />
+                            <circle
+                              cx="50%"
+                              cy="50%"
+                              fill="#15803d"
+                              r="10%"
+                            />
+                          </svg>
                         </div>
+                        <button
+                          class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg flex items-center gap-2 mx-auto text-sm"
+                        >
+                          <svg
+                            class="lucide lucide-dices w-4 h-4"
+                            fill="none"
+                            height="24"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              height="12"
+                              rx="2"
+                              ry="2"
+                              width="12"
+                              x="2"
+                              y="10"
+                            />
+                            <path
+                              d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6"
+                            />
+                            <path
+                              d="M6 18h.01"
+                            />
+                            <path
+                              d="M10 14h.01"
+                            />
+                            <path
+                              d="M15 6h.01"
+                            />
+                            <path
+                              d="M18 9h.01"
+                            />
+                          </svg>
+                          Your turn
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -6496,6 +6459,7 @@ exports[`GamePage Snapshots should match snapshot with property modal open 1`] =
                         class="truncate text-sm text-blue-200"
                       >
                         Manager 1
+                         
                       </p>
                       <div
                         class="flex items-center gap-1 mt-0.5"
@@ -6561,6 +6525,8 @@ exports[`GamePage Snapshots should match snapshot with property modal open 1`] =
                         class="truncate text-sm text-slate-300"
                       >
                         Manager 2
+                         
+                        (You)
                       </p>
                       <div
                         class="flex items-center gap-1 mt-0.5"
@@ -6619,6 +6585,7 @@ exports[`GamePage Snapshots should match snapshot with property modal open 1`] =
                         class="truncate text-sm text-slate-300"
                       >
                         Manager 3
+                         
                       </p>
                       <div
                         class="flex items-center gap-1 mt-0.5"
@@ -6677,6 +6644,7 @@ exports[`GamePage Snapshots should match snapshot with property modal open 1`] =
                         class="truncate text-sm text-slate-300"
                       >
                         Manager 4
+                         
                       </p>
                       <div
                         class="flex items-center gap-1 mt-0.5"

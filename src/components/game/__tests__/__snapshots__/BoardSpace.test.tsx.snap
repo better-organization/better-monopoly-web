@@ -776,15 +776,15 @@ exports[`BoardSpace Snapshot Tests should match snapshot with multiple players 1
       >
         <div
           class="rounded-full border-2 border-white shadow-lg"
-          style="width: 22px; height: 22px; background-color: rgb(255, 0, 0);"
+          style="width: 22px; height: 22px;"
         />
         <div
           class="rounded-full border-2 border-white shadow-lg"
-          style="width: 22px; height: 22px; background-color: rgb(0, 255, 0);"
+          style="width: 22px; height: 22px;"
         />
         <div
           class="rounded-full border-2 border-white shadow-lg"
-          style="width: 22px; height: 22px; background-color: rgb(0, 0, 255);"
+          style="width: 22px; height: 22px;"
         />
       </div>
     </div>
@@ -867,7 +867,7 @@ exports[`BoardSpace Snapshot Tests should match snapshot with single player 1`] 
       >
         <div
           class="rounded-full border-2 border-white shadow-lg"
-          style="width: 22px; height: 22px; background-color: rgb(255, 0, 0);"
+          style="width: 22px; height: 22px;"
         />
       </div>
     </div>

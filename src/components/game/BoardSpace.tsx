@@ -1,16 +1,12 @@
 import { memo } from 'react';
 import { ClubLogo } from './ClubLogo';
 import { getSpaceIcon } from '@/utils/getSpaceIcon';
-import type { BoardSpace as BoardSpaceType, GameTerms } from '@/types/game';
-
-interface Player {
-  id: number;
-  color: string;
-}
+import type {BoardSpace as BoardSpaceType, GameTerms, Player} from '@/types/game';
 
 interface BoardSpaceProps {
   space: BoardSpaceType;
   players: Player[];
+  colors: string[];
   onClick: () => void;
   isCorner?: boolean;
   position?: 'top' | 'right' | 'bottom' | 'left';
@@ -328,10 +324,12 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
 // Dynamic player overlay component - only re-renders when players change
 export function PlayerOverlay({
   players,
+  colors,
   position = 'top',
   isCorner = false
 }: {
   players: Player[];
+  colors: string[]
   position?: 'top' | 'right' | 'bottom' | 'left';
   isCorner?: boolean;
 }) {
@@ -355,9 +353,9 @@ export function PlayerOverlay({
       <div className="flex justify-center flex-wrap" style={{ gap }}>
         {players.map((player) => (
           <div
-            key={player.id}
+            key={player.player_id}
             className="rounded-full border-2 border-white shadow-lg"
-            style={{ ...playerSize, backgroundColor: player.color }}
+            style={{ ...playerSize, backgroundColor: colors[player.player_turn] }}
           />
         ))}
       </div>
@@ -368,6 +366,7 @@ export function PlayerOverlay({
 // Main BoardSpace component - wrapper that combines static card and dynamic players
 export function BoardSpace({
   space,
+  colors,
   players,
   onClick,
   isCorner = false,
@@ -395,6 +394,7 @@ export function BoardSpace({
       {/* Dynamic layer - player positions */}
       <PlayerOverlay
         players={players}
+        colors={colors}
         position={position}
         isCorner={isCorner}
       />
