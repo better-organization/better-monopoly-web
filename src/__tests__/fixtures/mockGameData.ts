@@ -167,10 +167,42 @@ export const mockBoardSpaces: BoardSpace[] = Array.from({ length: 40 }, (_, i) =
  * Mock players for testing
  */
 export const mockPlayers: Player[] = [
-  { id: 1, name: 'Manager 1', position: 1, money: 1500, color: '#FF0000' },
-  { id: 2, name: 'Manager 2', position: 1, money: 1500, color: '#0000FF' },
-  { id: 3, name: 'Manager 3', position: 5, money: 1200, color: '#00FF00' },
-  { id: 4, name: 'Manager 4', position: 11, money: 1800, color: '#FFFF00' },
+  {
+    player_turn: 1,
+    player_id: 'Manager 1',
+    position: 1,
+    player_money: 1500,
+    property_owns: [],
+    utility_owns: [],
+    transport_owns: []
+  },
+  {
+    player_turn: 2,
+    player_id: 'Manager 2',
+    position: 1,
+    player_money: 1500,
+    property_owns: [],
+    utility_owns: [],
+    transport_owns: []
+  },
+  {
+    player_turn: 3,
+    player_id: 'Manager 3',
+    position: 5,
+    player_money: 1200,
+    property_owns: [],
+    utility_owns: [],
+    transport_owns: []
+  },
+  {
+    player_turn: 4,
+    player_id: 'Manager 4',
+    position: 11,
+    player_money: 1800,
+    property_owns: [],
+    utility_owns: [],
+    transport_owns: []
+  },
 ];
 
 /**
@@ -305,7 +337,8 @@ export const mockStaticGameData = {
  */
 export const mockDynamicGameData = {
   selectedProperty: null,
-  currentPlayer: 0,
+  current_turn: 0,
   players: mockPlayers,
+  you: 'Manager 1',
 };
 

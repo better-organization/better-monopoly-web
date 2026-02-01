@@ -7,10 +7,10 @@ interface DiceRollerProps {
   onRoll: (total: number, dice1: number, dice2: number) => void;
   currentPlayer: Player;
   compact?: boolean;
-  gameId?: string; // Optional for now, can be made required when game management is implemented
+  isYourTurn: boolean;
 }
 
-export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, compact, gameId }: DiceRollerProps) {
+export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, compact, isYourTurn }: DiceRollerProps) {
   const [dice1, setDice1] = useState(1);
   const [dice2, setDice2] = useState(1);
   const [rolling, setRolling] = useState(false);
@@ -41,11 +41,7 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, comp
 
     for (let attempt = 1; attempt <= maxRetries; attempt++) {
       try {
-        // Call backend API to roll dice
-        const mockGameId = gameId || 'game-1';
-        const mockPlayerId = currentPlayer.id.toString();
-
-        const response = await gameService.rollDice(mockGameId, mockPlayerId);
+        const response = await gameService.rollDice();
 
         // Always wait 1 second for animation to complete
         await new Promise(resolve => setTimeout(resolve, 1000));
@@ -128,7 +124,7 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, comp
 
   if (compact) {
     return (
-      <div className="text-center">
+      <div className="text-center bg-transparent">
         {/* Success Message */}
         {message && (
           <div className="mb-3 px-3 py-1.5 bg-green-600 text-white text-xs rounded-md shadow-lg animate-pulse">
@@ -185,18 +181,18 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, comp
 
         <button
           onClick={rollDice}
-          disabled={rolling}
+          disabled={rolling || !isYourTurn}
           className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg flex items-center gap-2 mx-auto text-sm"
         >
           <Dices className="w-4 h-4" />
-          {rolling ? 'Rolling...' : 'Roll the dice'}
+          {rolling ? 'Rolling...' : `${isYourTurn ? 'Your turn' : 'Opponents turn'}`}
         </button>
       </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-xl p-6 border-4 border-green-600">
+    <div className="bg-transparent rounded-lg shadow-xl p-6 border-4 border-green-600">
       <div className="flex items-center justify-center gap-2 mb-4">
         <Dices className="w-6 h-6 text-green-700" />
         <h3 className="text-green-900">Roll Dice</h3>
@@ -262,10 +258,10 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, comp
 
       <button
         onClick={rollDice}
-        disabled={rolling}
+        disabled={rolling || !isYourTurn}
         className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-3 rounded-lg hover:from-green-700 hover:to-green-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
       >
-        {rolling ? 'Rolling...' : `Roll for ${currentPlayer.name}`}
+        {rolling ? 'Rolling...' : `Roll for ${currentPlayer.player_id}`}
       </button>
     </div>
   );

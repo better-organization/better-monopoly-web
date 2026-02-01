@@ -1,9 +1,11 @@
 export interface Player {
-  id: number;
-  name: string;
+  player_id: string;
+  player_turn: number;
   position: number;
-  money: number;
-  color: string;
+  player_money: number;
+  property_owns: string[];
+  utility_owns: string[];
+  transport_owns: string[];
 }
 
 export interface BoardSpace {

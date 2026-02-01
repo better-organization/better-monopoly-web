@@ -9,17 +9,20 @@ jest.mock('@/services/gameService');
 describe('DiceRoller', () => {
     const mockOnRoll = jest.fn();
     const mockPlayer: Player = {
-        id: 1,
-        name: 'Test Player',
+        property_owns: [],
+        utility_owns: [],
+        transport_owns: [],
+        player_turn: 1,
+        player_id: 'Test Player',
         position: 1,
-        money: 1500,
-        color: '#FF0000',
+        player_money: 1500,
     };
 
     const defaultProps = {
         onRoll: mockOnRoll,
         currentPlayer: mockPlayer,
         compact: true,
+        isYourTurn: true,
     };
 
     beforeEach(() => {
@@ -36,7 +39,7 @@ describe('DiceRoller', () => {
         it('should render dice roller with roll button', () => {
             render(<DiceRoller {...defaultProps} />);
 
-            expect(screen.getByRole('button', { name: /roll the dice/i })).toBeInTheDocument();
+            expect(screen.getByRole('button', { name: /your turn/i })).toBeInTheDocument();
         });
 
         it('should render two dice SVGs', () => {
@@ -50,14 +53,14 @@ describe('DiceRoller', () => {
         it('should render in compact mode when compact prop is true', () => {
             const { container } = render(<DiceRoller {...defaultProps} compact={true} />);
 
-            expect(screen.getByText(/roll the dice/i)).toBeInTheDocument();
+            expect(screen.getByText(/your turn/i)).toBeInTheDocument();
             expect(container.querySelector('.text-center')).toBeInTheDocument();
         });
 
         it('should render in full mode when compact prop is false', () => {
             render(<DiceRoller {...defaultProps} compact={false} />);
 
-            expect(screen.getByText(`Roll for ${mockPlayer.name}`)).toBeInTheDocument();
+            expect(screen.getByText(`Roll for ${mockPlayer.player_id}`)).toBeInTheDocument();
             expect(screen.getByText(/Roll Dice/i)).toBeInTheDocument();
         });
     });
@@ -77,14 +80,14 @@ describe('DiceRoller', () => {
 
             render(<DiceRoller {...defaultProps} />);
 
-            const rollButton = screen.getByRole('button', { name: /roll the dice/i });
+            const rollButton = screen.getByRole('button', { name: /your turn/i });
             fireEvent.click(rollButton);
 
             // Complete the 1-second animation delay
             await jest.advanceTimersByTimeAsync(1000);
 
             await waitFor(() => {
-                expect(gameService.rollDice).toHaveBeenCalledWith('game-1', '1');
+                expect(gameService.rollDice).toHaveBeenCalledWith();
                 expect(mockOnRoll).toHaveBeenCalledWith(7, 4, 3);
                 // Check success message appears
                 expect(screen.getByText(/Rolled 4 and 3 = 7!/i)).toBeInTheDocument();
@@ -105,7 +108,7 @@ describe('DiceRoller', () => {
 
             render(<DiceRoller {...defaultProps} />);
 
-            const rollButton = screen.getByRole('button', { name: /roll the dice/i });
+            const rollButton = screen.getByRole('button', { name: /your turn/i });
             fireEvent.click(rollButton);
 
             // Button should be disabled while rolling
@@ -118,30 +121,6 @@ describe('DiceRoller', () => {
                 expect(rollButton).not.toBeDisabled();
             });
         });
-
-        it('should use provided gameId when available', async () => {
-            const mockResponse = {
-                success: true,
-                data: {
-                    dice: [2, 6] as [number, number],
-                    total: 8,
-                    timestamp: '2026-01-11T13:42:00.064Z',
-                },
-            };
-
-            (gameService.rollDice as jest.Mock).mockResolvedValue(mockResponse);
-
-            render(<DiceRoller {...defaultProps} gameId="custom-game-123" />);
-
-            const rollButton = screen.getByRole('button', { name: /roll the dice/i });
-            fireEvent.click(rollButton);
-
-            jest.advanceTimersByTime(1000);
-
-            await waitFor(() => {
-                expect(gameService.rollDice).toHaveBeenCalledWith('custom-game-123', '1');
-            });
-        });
     });
 
     describe('Retry Logic', () => {
@@ -151,7 +130,7 @@ describe('DiceRoller', () => {
 
             render(<DiceRoller {...defaultProps} />);
 
-            const rollButton = screen.getByRole('button', { name: /roll the dice/i });
+            const rollButton = screen.getByRole('button', { name: /your turn/i });
             fireEvent.click(rollButton);
 
             // Run all timers to complete all retry attempts
@@ -168,7 +147,7 @@ describe('DiceRoller', () => {
 
             render(<DiceRoller {...defaultProps} />);
 
-            const rollButton = screen.getByRole('button', { name: /roll the dice/i });
+            const rollButton = screen.getByRole('button', { name: /your turn/i });
             fireEvent.click(rollButton);
 
             await jest.runAllTimersAsync();
@@ -185,7 +164,7 @@ describe('DiceRoller', () => {
 
             render(<DiceRoller {...defaultProps} />);
 
-            const rollButton = screen.getByRole('button', { name: /roll the dice/i });
+            const rollButton = screen.getByRole('button', { name: /your turn/i });
             fireEvent.click(rollButton);
 
             await jest.runAllTimersAsync();
@@ -213,7 +192,7 @@ describe('DiceRoller', () => {
 
             render(<DiceRoller {...defaultProps} />);
 
-            const rollButton = screen.getByRole('button', { name: /roll the dice/i });
+            const rollButton = screen.getByRole('button', { name: /your turn/i });
             fireEvent.click(rollButton);
 
             // Run all timers to complete retry attempts
@@ -241,7 +220,7 @@ describe('DiceRoller', () => {
 
             render(<DiceRoller {...defaultProps} />);
 
-            const rollButton = screen.getByRole('button', { name: /roll the dice/i });
+            const rollButton = screen.getByRole('button', { name: /your turn/i });
             fireEvent.click(rollButton);
 
             // Should still be rolling initially
@@ -273,7 +252,7 @@ describe('DiceRoller', () => {
 
             render(<DiceRoller {...defaultProps} />);
 
-            const rollButton = screen.getByRole('button', { name: /roll the dice/i });
+            const rollButton = screen.getByRole('button', { name: /your turn/i });
             fireEvent.click(rollButton);
 
             await waitFor(() => {
@@ -288,7 +267,7 @@ describe('DiceRoller', () => {
 
             render(<DiceRoller {...defaultProps} />);
 
-            const rollButton = screen.getByRole('button', { name: /roll the dice/i });
+            const rollButton = screen.getByRole('button', { name: /your turn/i });
             fireEvent.click(rollButton);
         });
 
@@ -306,7 +285,7 @@ describe('DiceRoller', () => {
 
             render(<DiceRoller {...defaultProps} />);
 
-            const rollButton = screen.getByRole('button', { name: /roll the dice/i });
+            const rollButton = screen.getByRole('button', { name: /your turn/i });
 
             // Click multiple times rapidly
             fireEvent.click(rollButton);

@@ -33,9 +33,14 @@ export interface StaticGameDataResponse {
  * All data that changes during gameplay
  */
 export interface DynamicGameData {
-  selectedProperty: BoardSpace | null;
-  currentPlayer: number;
+  colors: string[];
   players: Player[];
+  you: string;
+  current_turn: number;
+}
+
+export interface DynamicGameDataResponse{
+  data: DynamicGameData;
 }
 
 // ==================== STATIC DATA ====================
@@ -69,56 +74,47 @@ export async function getStaticGameData(
  * Get initial dynamic game state (mocked for development)
  * This includes all data that changes during gameplay
  */
-export function getDynamicGameData(): DynamicGameData {
-  return {
-    selectedProperty: null,
-    currentPlayer: 0,
-    players: getInitialPlayers(),
-  };
+export async function getDynamicGameData(): Promise<DynamicGameData> {
+  try {
+    const dynamicGameDataResponse = await gameService.getDynamicGameData();
+    const dynamicGameData: DynamicGameData = dynamicGameDataResponse.data;
+    dynamicGameData.colors = ['#FF0000', '#0000FF', '#00FF00', '#FFFF00'];
+    return dynamicGameData;
+  } catch {
+    return {
+      current_turn: 0,
+      you: "Manager 1",
+      colors: ['#FF0000', '#0000FF', '#00FF00', '#FFFF00'],
+      players: getInitialPlayers()
+    }
+  }
 }
 
-/**
- * Get initial players state (mocked for development)
- */
 export function getInitialPlayers(): Player[] {
   return [
-    { id: 1, name: 'Manager 1', position: 1, money: 1500, color: '#FF0000' },
-    { id: 2, name: 'Manager 2', position: 1, money: 1500, color: '#0000FF' },
-    { id: 3, name: 'Manager 3', position: 1, money: 1500, color: '#00FF00' },
-    { id: 4, name: 'Manager 4', position: 1, money: 1500, color: '#FFFF00' },
+    {
+      player_turn: 1, player_id: 'Manager 1', position: 1, player_money: 1500,
+      property_owns: [],
+      utility_owns: [],
+      transport_owns: []
+    },
+    {
+      player_turn: 2, player_id: 'Manager 2', position: 1, player_money: 1500,
+      property_owns: [],
+      utility_owns: [],
+      transport_owns: []
+    },
+    {
+      player_turn: 3, player_id: 'Manager 3', position: 1, player_money: 1500,
+      property_owns: [],
+      utility_owns: [],
+      transport_owns: []
+    },
+    {
+      player_turn: 4, player_id: 'Manager 4', position: 1, player_money: 1500,
+      property_owns: [],
+      utility_owns: [],
+      transport_owns: []
+    },
   ];
-}
-
-// ==================== LEGACY / CONVENIENCE ====================
-
-/**
- * @deprecated Use getStaticGameData() instead
- */
-export async function getGameConfig(): Promise<StaticGameData> {
-  return await getStaticGameData();
-}
-
-/**
- * @deprecated Use getInitialPlayers() instead
- */
-export function getMockPlayers(): Player[] {
-  return getInitialPlayers();
-}
-
-/**
- * @deprecated Use getDynamicGameData() instead
- */
-export function getMockGameState() {
-  return getDynamicGameData();
-}
-
-/**
- * Get all game data (static config + dynamic state)
- * Useful for initializing the complete game
- */
-export async function getInitialGameData(): Promise<{ static: StaticGameData; dynamic: DynamicGameData }> {
-  return {
-    static: await getStaticGameData(),
-    dynamic: getDynamicGameData(),
-  };
 }

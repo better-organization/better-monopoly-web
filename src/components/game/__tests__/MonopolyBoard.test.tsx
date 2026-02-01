@@ -39,6 +39,8 @@ describe('MonopolyBoard', () => {
   const defaultProps = {
     onPropertyClick: mockOnPropertyClick,
     players: mockPlayers,
+    isYourTurn: true,
+    colors: [],
     terms: mockGameTerms,
     currencySymbol: '€',
     onDiceRoll: mockOnDiceRoll,
@@ -217,7 +219,13 @@ describe('MonopolyBoard', () => {
 
     it('should handle player at position 0', () => {
       const playersAtZero: Player[] = [
-        { id: 1, name: 'Player 1', position: 0, money: 1500, color: '#FF0000' },
+        { property_owns: [],
+          utility_owns: [],
+          transport_owns: [],
+          player_turn: 0,
+          player_id: 'Player 1',
+          position: 1,
+          player_money: 1500, },
       ];
 
       const { container } = render(<MonopolyBoard {...defaultProps} players={playersAtZero} />);
@@ -227,7 +235,13 @@ describe('MonopolyBoard', () => {
 
     it('should handle player at position greater than board size', () => {
       const playersOutOfBounds: Player[] = [
-        { id: 1, name: 'Player 1', position: 50, money: 1500, color: '#FF0000' },
+        { property_owns: [],
+          utility_owns: [],
+          transport_owns: [],
+          player_turn: 0,
+          player_id: 'Player 1',
+          position: 1,
+          player_money: 1500, },
       ];
 
       const { container } = render(
@@ -246,9 +260,27 @@ describe('MonopolyBoard', () => {
 
     it('should match snapshot with players at different positions', () => {
       const playersScattered: Player[] = [
-        { id: 1, name: 'Player 1', position: 5, money: 1500, color: '#FF0000' },
-        { id: 2, name: 'Player 2', position: 15, money: 1200, color: '#0000FF' },
-        { id: 3, name: 'Player 3', position: 25, money: 800, color: '#00FF00' },
+        { property_owns: [],
+          utility_owns: [],
+          transport_owns: [],
+          player_turn: 0,
+          player_id: 'Player 1',
+          position: 1,
+          player_money: 1500, },
+        { property_owns: [],
+          utility_owns: [],
+          transport_owns: [],
+          player_turn: 1,
+          player_id: 'Player 2',
+          position: 1,
+          player_money: 1500, },
+        { property_owns: [],
+          utility_owns: [],
+          transport_owns: [],
+          player_turn: 2,
+          player_id: 'Player 3',
+          position: 1,
+          player_money: 1500, }
       ];
 
       const { container } = render(<MonopolyBoard {...defaultProps} players={playersScattered} />);

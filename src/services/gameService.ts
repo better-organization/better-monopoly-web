@@ -1,5 +1,5 @@
 import { apiClient } from './api';
-import type { StaticGameDataResponse} from '@/utils/gameConfig';
+import type {DynamicGameData, DynamicGameDataResponse, StaticGameDataResponse} from '@/utils/gameConfig';
 
 // Game related types
 export interface Game {
@@ -61,15 +61,21 @@ export const gameService = {
     return apiClient.get<StaticGameDataResponse>(`/api/game/board/${boardId}/version/${version}`);
   },
 
+  // Get static game data (board configuration)
+  getDynamicGameData: async (): Promise<DynamicGameDataResponse> => {
+    return apiClient.get<DynamicGameDataResponse>(`/api/game/state`);
+  },
+
   // Roll dice
-  rollDice: async (gameId: string, playerId: string): Promise<{
+  rollDice: async (): Promise<{
     success: boolean;
     data: {
       dice: [number, number];
       total: number;
       timestamp: string;
+      double: boolean;
     };
   }> => {
-    return apiClient.post(`/api/game/roll-dice`, { gameId, playerId });
+    return apiClient.post(`/api/game/roll-dice`);
   },
 };
