@@ -57,8 +57,8 @@ export const gameService = {
   },
 
   // Get static game data (board configuration)
-  getStaticGameData: async (boardId: string, version: string): Promise<StaticGameDataResponse> => {
-    return apiClient.get<StaticGameDataResponse>(`/api/game/board/${boardId}/version/${version}`);
+  getStaticGameData: async (): Promise<StaticGameDataResponse> => {
+    return apiClient.get<StaticGameDataResponse>(`/api/game/board`);
   },
 
   // Get static game data (board configuration)
