@@ -50,12 +50,9 @@ export interface DynamicGameDataResponse{
  * This includes terms, currency, logos, colors, and board spaces that don't change during gameplay
  * Fetches from backend API with fallback to local data
  */
-export async function getStaticGameData(
-  boardId: string = gameData.id,
-  version: string = gameData.version
-): Promise<StaticGameData> {
+export async function getStaticGameData(): Promise<StaticGameData> {
   try {
-    const staticGameDataResponse = await gameService.getStaticGameData(boardId, version);
+    const staticGameDataResponse = await gameService.getStaticGameData();
     const data: StaticGameData = staticGameDataResponse.data;
     data.subTypeColors = gameData.subTypeColors;
     data.cornerColors = gameData.cornerColors;

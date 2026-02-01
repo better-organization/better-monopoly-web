@@ -47,7 +47,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
   // Memoize getPlayersAtPosition function to avoid recreating on every render
   const getPlayersAtPosition = useMemo(() => {
     return (positionIndex: number) => {
-      return players.filter(p => p.position === positionIndex);
+      return players.filter(p => p.position + 1 === positionIndex);
     };
   }, [players]);
 
@@ -92,7 +92,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
             <BoardSpace
               space={boardSpaces[0]}
               colors={colors}
-              players={getPlayersAtPosition(0)}
+              players={getPlayersAtPosition(1)}
               onClick={() => onPropertyClick(boardSpaces[0])}
               isCorner={true}
               position="top"
