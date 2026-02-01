@@ -232,6 +232,23 @@ exports[`GamePage Snapshots should match snapshot for initial game state 1`] = `
                         </div>
                       </div>
                     </div>
+                    <div
+                      class="absolute inset-0 pointer-events-none flex items-center justify-center rotate-180"
+                    >
+                      <div
+                        class="flex justify-center flex-wrap"
+                        style="gap: 6px;"
+                      >
+                        <div
+                          class="rounded-full border-2 border-white shadow-lg"
+                          style="width: 22px; height: 22px; background-color: rgb(0, 0, 255);"
+                        />
+                        <div
+                          class="rounded-full border-2 border-white shadow-lg"
+                          style="width: 22px; height: 22px; background-color: rgb(0, 255, 0);"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -438,19 +455,6 @@ exports[`GamePage Snapshots should match snapshot for initial game state 1`] = `
                         </div>
                       </div>
                     </div>
-                    <div
-                      class="absolute inset-0 pointer-events-none flex items-center justify-center rotate-180"
-                    >
-                      <div
-                        class="flex justify-center flex-wrap"
-                        style="gap: 6px;"
-                      >
-                        <div
-                          class="rounded-full border-2 border-white shadow-lg"
-                          style="width: 22px; height: 22px; background-color: rgb(255, 255, 0);"
-                        />
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <div>
@@ -507,6 +511,19 @@ exports[`GamePage Snapshots should match snapshot for initial game state 1`] = `
                             </div>
                           </div>
                         </div>
+                      </div>
+                    </div>
+                    <div
+                      class="absolute inset-0 pointer-events-none flex items-center justify-center rotate-180"
+                    >
+                      <div
+                        class="flex justify-center flex-wrap"
+                        style="gap: 6px;"
+                      >
+                        <div
+                          class="rounded-full border-2 border-white shadow-lg"
+                          style="width: 22px; height: 22px; background-color: rgb(255, 255, 0);"
+                        />
                       </div>
                     </div>
                   </div>
@@ -848,19 +865,6 @@ exports[`GamePage Snapshots should match snapshot for initial game state 1`] = `
                         </div>
                       </div>
                     </div>
-                    <div
-                      class="absolute inset-0 pointer-events-none flex items-center justify-center rotate-180"
-                    >
-                      <div
-                        class="flex justify-center flex-wrap"
-                        style="gap: 8px;"
-                      >
-                        <div
-                          class="rounded-full border-2 border-white shadow-lg"
-                          style="width: 28px; height: 28px;"
-                        />
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <div
@@ -1000,6 +1004,19 @@ exports[`GamePage Snapshots should match snapshot for initial game state 1`] = `
                             100
                           </div>
                         </div>
+                      </div>
+                    </div>
+                    <div
+                      class="absolute inset-0 pointer-events-none flex items-center justify-center rotate-90"
+                    >
+                      <div
+                        class="flex justify-center flex-wrap"
+                        style="gap: 6px;"
+                      >
+                        <div
+                          class="rounded-full border-2 border-white shadow-lg"
+                          style="width: 22px; height: 22px;"
+                        />
                       </div>
                     </div>
                   </div>
@@ -3630,6 +3647,23 @@ exports[`GamePage Snapshots should match snapshot with property modal open 1`] =
                         </div>
                       </div>
                     </div>
+                    <div
+                      class="absolute inset-0 pointer-events-none flex items-center justify-center rotate-180"
+                    >
+                      <div
+                        class="flex justify-center flex-wrap"
+                        style="gap: 6px;"
+                      >
+                        <div
+                          class="rounded-full border-2 border-white shadow-lg"
+                          style="width: 22px; height: 22px; background-color: rgb(0, 0, 255);"
+                        />
+                        <div
+                          class="rounded-full border-2 border-white shadow-lg"
+                          style="width: 22px; height: 22px; background-color: rgb(0, 255, 0);"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -3836,19 +3870,6 @@ exports[`GamePage Snapshots should match snapshot with property modal open 1`] =
                         </div>
                       </div>
                     </div>
-                    <div
-                      class="absolute inset-0 pointer-events-none flex items-center justify-center rotate-180"
-                    >
-                      <div
-                        class="flex justify-center flex-wrap"
-                        style="gap: 6px;"
-                      >
-                        <div
-                          class="rounded-full border-2 border-white shadow-lg"
-                          style="width: 22px; height: 22px; background-color: rgb(255, 255, 0);"
-                        />
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <div>
@@ -3905,6 +3926,19 @@ exports[`GamePage Snapshots should match snapshot with property modal open 1`] =
                             </div>
                           </div>
                         </div>
+                      </div>
+                    </div>
+                    <div
+                      class="absolute inset-0 pointer-events-none flex items-center justify-center rotate-180"
+                    >
+                      <div
+                        class="flex justify-center flex-wrap"
+                        style="gap: 6px;"
+                      >
+                        <div
+                          class="rounded-full border-2 border-white shadow-lg"
+                          style="width: 22px; height: 22px; background-color: rgb(255, 255, 0);"
+                        />
                       </div>
                     </div>
                   </div>
@@ -4246,19 +4280,6 @@ exports[`GamePage Snapshots should match snapshot with property modal open 1`] =
                         </div>
                       </div>
                     </div>
-                    <div
-                      class="absolute inset-0 pointer-events-none flex items-center justify-center rotate-180"
-                    >
-                      <div
-                        class="flex justify-center flex-wrap"
-                        style="gap: 8px;"
-                      >
-                        <div
-                          class="rounded-full border-2 border-white shadow-lg"
-                          style="width: 28px; height: 28px;"
-                        />
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <div
@@ -4398,6 +4419,19 @@ exports[`GamePage Snapshots should match snapshot with property modal open 1`] =
                             100
                           </div>
                         </div>
+                      </div>
+                    </div>
+                    <div
+                      class="absolute inset-0 pointer-events-none flex items-center justify-center rotate-90"
+                    >
+                      <div
+                        class="flex justify-center flex-wrap"
+                        style="gap: 6px;"
+                      >
+                        <div
+                          class="rounded-full border-2 border-white shadow-lg"
+                          style="width: 22px; height: 22px;"
+                        />
                       </div>
                     </div>
                   </div>
