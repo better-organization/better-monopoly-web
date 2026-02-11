@@ -1,4 +1,5 @@
 import type { BoardSpace, Player, GameTerms } from '@/types/game';
+import {DynamicGameData} from "@/utils/gameConfig";
 
 /**
  * Mock board spaces covering all cell types for testing
@@ -335,10 +336,15 @@ export const mockStaticGameData = {
 /**
  * Mock dynamic game data for testing
  */
-export const mockDynamicGameData = {
-  selectedProperty: null,
-  current_turn: 0,
+export const mockDynamicGameData: DynamicGameData = {
   players: mockPlayers,
   you: 'Manager 1',
+  phase: 'ROLL_DICE',
+  turn: {
+    currentPlayerIndex: 0,
+    round: 1,
+  },
+  lastDice: undefined,
+  allowedActions: ["ROLL_DICE"]
 };
 

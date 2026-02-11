@@ -51,10 +51,6 @@ export const gameService = {
     return apiClient.post<Game>(`/games/${gameId}/move`, { playerId, action });
   },
 
-  // End turn
-  endTurn: async (gameId: string, playerId: string): Promise<Game> => {
-    return apiClient.post<Game>(`/games/${gameId}/end-turn`, { playerId });
-  },
 
   // Get static game data (board configuration)
   getStaticGameData: async (): Promise<StaticGameDataResponse> => {
@@ -64,6 +60,11 @@ export const gameService = {
   // Get static game data (board configuration)
   getDynamicGameData: async (): Promise<DynamicGameDataResponse> => {
     return apiClient.get<DynamicGameDataResponse>(`/api/game/state`);
+  },
+
+  // End turn
+  endTurn: async (): Promise<Game> => {
+    return apiClient.post<Game>(`/api/game/end-turn`);
   },
 
   // Roll dice

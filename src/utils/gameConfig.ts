@@ -1,6 +1,6 @@
 import { gameData } from '@/data/gameData';
 import { gameService } from '@/services/gameService';
-import type { Player, BoardSpace, GameTerms } from '@/types/game';
+import type { Player, BoardSpace, GameTerms, GameState } from '@/types/game';
 
 // ==================== INTERFACES ====================
 
@@ -32,11 +32,8 @@ export interface StaticGameDataResponse {
  * Interface for dynamic game state
  * All data that changes during gameplay
  */
-export interface DynamicGameData {
-  colors: string[];
-  players: Player[];
-  you: string;
-  current_turn: number;
+export interface DynamicGameData extends GameState {
+  you?: string;
 }
 
 export interface DynamicGameDataResponse{
@@ -74,15 +71,17 @@ export async function getStaticGameData(): Promise<StaticGameData> {
 export async function getDynamicGameData(): Promise<DynamicGameData> {
   try {
     const dynamicGameDataResponse = await gameService.getDynamicGameData();
-    const dynamicGameData: DynamicGameData = dynamicGameDataResponse.data;
-    dynamicGameData.colors = ['#FF0000', '#0000FF', '#00FF00', '#FFFF00'];
-    return dynamicGameData;
+    return dynamicGameDataResponse.data;
   } catch {
     return {
-      current_turn: 0,
-      you: "Manager 1",
-      colors: ['#FF0000', '#0000FF', '#00FF00', '#FFFF00'],
-      players: getInitialPlayers()
+      phase: 'waiting_for_roll',
+      players: getInitialPlayers(),
+      turn: {
+        currentPlayerIndex: 0,
+        round: 1
+      },
+      lastDice: undefined,
+      allowedActions: ['roll_dice'],
     }
   }
 }

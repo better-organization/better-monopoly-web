@@ -1,13 +1,15 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { DiceRoller } from '../DiceRoller';
+import {DiceRoller, DiceRollerProps} from '../DiceRoller';
 import { gameService } from '@/services/gameService';
 import type { Player } from '@/types/game';
+import {DiceRoll} from "@/types";
 
 // Mock the gameService
 jest.mock('@/services/gameService');
 
 describe('DiceRoller', () => {
     const mockOnRoll = jest.fn();
+    const mockOnEndTurn = jest.fn();
     const mockPlayer: Player = {
         property_owns: [],
         utility_owns: [],
@@ -18,11 +20,13 @@ describe('DiceRoller', () => {
         player_money: 1500,
     };
 
-    const defaultProps = {
+    const defaultProps: DiceRollerProps = {
         onRoll: mockOnRoll,
+        onEndTurn: mockOnEndTurn,
         currentPlayer: mockPlayer,
         compact: true,
         isYourTurn: true,
+        isEndTurn: false
     };
 
     beforeEach(() => {

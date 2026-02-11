@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { MonopolyBoard } from '../MonopolyBoard';
+import {MonopolyBoard, MonopolyBoardProps} from '../MonopolyBoard';
 import type { BoardSpace, Player } from '@/types/game';
 import {
   mockPlayers,
@@ -34,9 +34,10 @@ const createFullBoard = (): BoardSpace[] => {
 describe('MonopolyBoard', () => {
   const mockOnPropertyClick = jest.fn();
   const mockOnDiceRoll = jest.fn();
+  const mockOnEndTurn = jest.fn();
   const fullBoard = createFullBoard();
 
-  const defaultProps = {
+  const defaultProps: MonopolyBoardProps = {
     onPropertyClick: mockOnPropertyClick,
     players: mockPlayers,
     isYourTurn: true,
@@ -49,6 +50,8 @@ describe('MonopolyBoard', () => {
     logos: mockLogos,
     subTypeColors: mockSubTypeColors,
     cornerColors: mockCornerColors,
+    onEndTurn: mockOnEndTurn,
+    allowedActions: []
   };
 
   beforeEach(() => {
