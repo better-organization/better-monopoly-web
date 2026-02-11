@@ -15,7 +15,7 @@ const CARD_WIDTH = 70;   // Card width in pixels
 // Board size calculation: CORNER + (9 × CARD_WIDTH) + CORNER = 120 + 630 + 120 = 870px
 const BOARD_SIZE = CORNER_SIZE + (9 * CARD_WIDTH) + CORNER_SIZE + 25;  // 870px
 
-interface MonopolyBoardProps {
+export interface MonopolyBoardProps {
   onPropertyClick: (property: BoardSpaceType) => void;
   players: Player[];
   isYourTurn: boolean;
@@ -23,6 +23,8 @@ interface MonopolyBoardProps {
   terms: GameTerms;
   currencySymbol: string;
   onDiceRoll: (total: number, dice1: number, dice2: number) => void;
+  onEndTurn: () => void;
+  allowedActions: string[];
   currentPlayer: number;
   boardSpaces: BoardSpaceType[];
   logos: { [key: string]: string };
@@ -38,6 +40,8 @@ export const MonopolyBoard = memo(function MonopolyBoard({
   terms,
   currencySymbol,
   onDiceRoll,
+  onEndTurn,
+  allowedActions,
   currentPlayer,
   boardSpaces,
   logos,
@@ -204,9 +208,11 @@ export const MonopolyBoard = memo(function MonopolyBoard({
               <div className="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-auto z-20">
                 <DiceRoller
                   onRoll={onDiceRoll}
+                  onEndTurn={onEndTurn}
                   currentPlayer={players[currentPlayer]}
                   compact={true}
                   isYourTurn={isYourTurn}
+                  isEndTurn={isYourTurn ? allowedActions.includes("END_TURN"): false}
                 />
               </div>
             </div>

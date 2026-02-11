@@ -3,24 +3,26 @@ import { Dices } from 'lucide-react';
 import type { Player } from '@/types/game';
 import { gameService } from '@/services/gameService';
 
-interface DiceRollerProps {
+export interface DiceRollerProps {
   onRoll: (total: number, dice1: number, dice2: number) => void;
+  onEndTurn: () => void;
   currentPlayer: Player;
   compact?: boolean;
   isYourTurn: boolean;
+  isEndTurn: boolean;
 }
 
-export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, compact, isYourTurn }: DiceRollerProps) {
+export const DiceRoller = memo(function DiceRoller({ onRoll, onEndTurn, currentPlayer, compact, isYourTurn, isEndTurn }: DiceRollerProps) {
   const [dice1, setDice1] = useState(1);
   const [dice2, setDice2] = useState(1);
-  const [rolling, setRolling] = useState(false);
+  const [fetching, setFetching] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const rollDice = async () => {
-    if (rolling) return;
+    if (fetching) return;
 
-    setRolling(true);
+    setFetching(true);
     setMessage(null);
     setError(null);
 
@@ -67,7 +69,7 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, comp
         onRoll(totalValue, dice1Value, dice2Value);
 
         // Success - exit retry loop
-        setRolling(false);
+        setFetching(false);
         return;
 
       } catch (err) {
@@ -84,7 +86,7 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, comp
 
     // All retries failed - clear animation and show error
     clearInterval(interval);
-    setRolling(false);
+    setFetching(false);
 
     // Show persistent error message
     const errorMessage = `Failed to roll dice after ${maxRetries} attempts. ${lastError?.message || 'Server error'}`;
@@ -95,6 +97,27 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, comp
 
     console.error('All dice roll attempts failed:', lastError);
   };
+
+  const endTurn = async () => {
+    if (fetching) return;
+
+    setFetching(true);
+    setMessage(null);
+    setError(null);
+
+    try {
+      await gameService.endTurn();
+      setMessage('Turn ended successfully!');
+      onEndTurn();
+      // Auto-hide message after 3 seconds
+      setTimeout(() => setMessage(null), 3000);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred';
+      setError(`Failed to end turn. ${errorMessage}`);
+    } finally {
+      setFetching(false);
+    }
+  }
 
   const renderDie = (value: number) => {
     const dots: JSX.Element[] = [];
@@ -144,7 +167,7 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, comp
             width="60"
             height="60"
             viewBox="0 0 100 100"
-            className={`${rolling ? 'animate-spin' : ''} drop-shadow-2xl`}
+            className={`${fetching ? 'animate-spin' : ''} drop-shadow-2xl`}
           >
             <rect
               x="5"
@@ -163,7 +186,7 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, comp
             width="60"
             height="60"
             viewBox="0 0 100 100"
-            className={`${rolling ? 'animate-spin' : ''} drop-shadow-2xl`}
+            className={`${fetching ? 'animate-spin' : ''} drop-shadow-2xl`}
           >
             <rect
               x="5"
@@ -179,14 +202,20 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, comp
           </svg>
         </div>
 
-        <button
+        { (isYourTurn && isEndTurn) ? (<button
+            onClick={endTurn}
+            disabled={fetching || !isYourTurn}
+            className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg flex items-center gap-2 mx-auto text-sm"
+        >
+          {fetching ? 'Ending Turn...' : `End Turn`}
+        </button>) : (<button
           onClick={rollDice}
-          disabled={rolling || !isYourTurn}
+          disabled={fetching || !isYourTurn}
           className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg flex items-center gap-2 mx-auto text-sm"
         >
           <Dices className="w-4 h-4" />
-          {rolling ? 'Rolling...' : `${isYourTurn ? 'Your turn' : 'Opponents turn'}`}
-        </button>
+          {fetching ? 'Rolling...' : `${isYourTurn ? 'Your turn' : 'Opponents turn'}`}
+        </button>)}
       </div>
     );
   }
@@ -203,7 +232,7 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, comp
           width="60"
           height="60"
           viewBox="0 0 100 100"
-          className={`${rolling ? 'animate-spin' : ''}`}
+          className={`${fetching ? 'animate-spin' : ''}`}
         >
           <rect
             x="5"
@@ -222,7 +251,7 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, comp
           width="60"
           height="60"
           viewBox="0 0 100 100"
-          className={`${rolling ? 'animate-spin' : ''}`}
+          className={`${fetching ? 'animate-spin' : ''}`}
         >
           <rect
             x="5"
@@ -258,10 +287,10 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, currentPlayer, comp
 
       <button
         onClick={rollDice}
-        disabled={rolling || !isYourTurn}
+        disabled={fetching || !isYourTurn}
         className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-3 rounded-lg hover:from-green-700 hover:to-green-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
       >
-        {rolling ? 'Rolling...' : `Roll for ${currentPlayer.player_id}`}
+        {fetching ? 'Rolling...' : `Roll for ${currentPlayer.player_id}`}
       </button>
     </div>
   );

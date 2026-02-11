@@ -46,3 +46,22 @@ export interface GameTerms {
   chance: string;
 }
 
+export interface DiceRollResult {
+  dice: [number, number];
+  total: number;
+  double: boolean;
+}
+
+export interface Turn {
+  currentPlayerIndex: number;
+  round: number;
+}
+
+export interface GameState {
+  phase: string;
+  players: Player[];
+  turn: Turn;
+  lastDice: DiceRollResult | undefined;
+  allowedActions: string[];
+}
+

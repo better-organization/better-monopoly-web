@@ -1015,7 +1015,7 @@ exports[`GamePage Snapshots should match snapshot for initial game state 1`] = `
                       >
                         <div
                           class="rounded-full border-2 border-white shadow-lg"
-                          style="width: 22px; height: 22px;"
+                          style="width: 22px; height: 22px; background-color: rgb(255, 0, 255);"
                         />
                       </div>
                     </div>
@@ -4430,7 +4430,7 @@ exports[`GamePage Snapshots should match snapshot with property modal open 1`] =
                       >
                         <div
                           class="rounded-full border-2 border-white shadow-lg"
-                          style="width: 22px; height: 22px;"
+                          style="width: 22px; height: 22px; background-color: rgb(255, 0, 255);"
                         />
                       </div>
                     </div>

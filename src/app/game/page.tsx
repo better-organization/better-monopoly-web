@@ -23,6 +23,7 @@ export default function GamePage() {
   const [players, setPlayers] = useState<Player[]>([]);
   const [isYourTurn, setIsYourTurn] = useState<boolean>(false);
   const [yourOrder, setYourOrder] = useState<number>(-1);
+  const [colors] = useState<string[]>(['#FF0000', '#0000FF', '#00FF00', '#FFFF00', '#FF00FF', '#00FFFF']);
 
   useEffect(() => {
     getStaticGameData().then(setStaticData);
@@ -43,8 +44,8 @@ export default function GamePage() {
     if (isDynamicDataChanged(dynamicGameData)) {
       setDynamicData(dynamicGameData);
       setPlayers(dynamicGameData.players);
-      setCurrentPlayer(dynamicGameData.current_turn);
-      setIsYourTurn(dynamicGameData.players[dynamicGameData.current_turn].player_id === dynamicGameData.you);
+      setCurrentPlayer(dynamicGameData.turn.currentPlayerIndex);
+      setIsYourTurn(dynamicGameData.players[dynamicGameData.turn.currentPlayerIndex].player_id === dynamicGameData.you);
       if (yourOrder === -1) {
         const yourPlayer = dynamicGameData.players.find(p => p.player_id === dynamicGameData.you);
         if (yourPlayer) {
@@ -101,10 +102,12 @@ export default function GamePage() {
               onPropertyClick={handlePropertyClick}
               players={players}
               isYourTurn={isYourTurn}
-              colors = {dynamicData?.colors ?? ['#FF0000', '#0000FF', '#00FF00', '#FFFF00']}
+              colors = {colors}
               terms={staticData.terms}
               currencySymbol={staticData.currency_symbol}
               onDiceRoll={handleDiceRoll}
+              onEndTurn={() => {}}
+              allowedActions={dynamicData?.allowedActions?? []}
               currentPlayer={currentPlayer}
               boardSpaces={staticData.cells}
               logos={staticData.logos}
@@ -119,7 +122,7 @@ export default function GamePage() {
               <PlayerPanel
                 players={players}
                 currentPlayer={currentPlayer}
-                colors = {dynamicData?.colors ?? ['#FF0000', '#0000FF', '#00FF00', '#FFFF00']}
+                colors = {colors}
                 terms={staticData.terms}
                 yourOrder={yourOrder}
               />
