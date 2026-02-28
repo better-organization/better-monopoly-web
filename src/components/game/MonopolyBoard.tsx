@@ -1,19 +1,27 @@
-import { memo, useMemo } from 'react';
+import { memo, useMemo, useEffect, useRef, useState } from 'react';
 import { BoardSpace } from './BoardSpace';
 import { DiceRoller } from './DiceRoller';
+import { PropertyActions } from './PropertyActions';
 import { FieldLines } from './FieldLines';
-import type { Player, BoardSpace as BoardSpaceType, GameTerms } from '@/types/game';
+import type {Player, BoardSpace as BoardSpaceType, GameTerms, DiceRollResult} from '@/types/game';
 import React from 'react';
 
-// Card dimensions in pixels
+// Base card dimensions in pixels (at 1.0 scale)
 // Cards: 70px × 120px (width × height)
 // Corners: 120px × 120px (square, same as card height)
 // Left/Right cards are rotated 90°, so their width (70px) becomes the vertical dimension
-const CORNER_SIZE = 120;  // Corner size in pixels (120×120 square)
-const CARD_WIDTH = 70;   // Card width in pixels
+const BASE_CORNER_SIZE = 120;  // Corner size in pixels (120×120 square)
+const BASE_CARD_WIDTH = 70;   // Card width in pixels
+const BASE_BORDER_WIDTH = 6;  // Border width in pixels
+const BASE_PADDING = 6;       // Internal padding in pixels
 
-// Board size calculation: CORNER + (9 × CARD_WIDTH) + CORNER = 120 + 630 + 120 = 870px
-const BOARD_SIZE = CORNER_SIZE + (9 * CARD_WIDTH) + CORNER_SIZE + 25;  // 870px
+// Board size calculation: CORNER + (9 × CARD_WIDTH) + CORNER + PADDING
+// 120 + 630 + 120 + 25 = 895px
+const BASE_BOARD_SIZE = BASE_CORNER_SIZE + (9 * BASE_CARD_WIDTH) + BASE_CORNER_SIZE + 25;
+
+// Responsive breakpoints for board scaling
+const BOARD_MIN_SIZE = 320;  // Minimum board size (mobile)
+const BOARD_MAX_SIZE = 1200; // Maximum board size (large desktop)
 
 export interface MonopolyBoardProps {
   onPropertyClick: (property: BoardSpaceType) => void;
@@ -24,12 +32,17 @@ export interface MonopolyBoardProps {
   currencySymbol: string;
   onDiceRoll: (total: number, dice1: number, dice2: number) => void;
   onEndTurn: () => void;
+  onBuyProperty: () => void;
+  onSkipProperty: () => void;
   allowedActions: string[];
+  phase: string;
   currentPlayer: number;
+  purchasePromptSpace?: BoardSpaceType;
   boardSpaces: BoardSpaceType[];
   logos: { [key: string]: string };
   subTypeColors: { [key: string]: { primary: string; secondary: string; gradient: string; logo: string | null } };
   cornerColors: { [key: string]: { primary: string; secondary: string; gradient: string; logo: string | null; textColor: string } };
+  lastDice?: DiceRollResult;
 }
 
 export const MonopolyBoard = memo(function MonopolyBoard({
@@ -41,13 +54,66 @@ export const MonopolyBoard = memo(function MonopolyBoard({
   currencySymbol,
   onDiceRoll,
   onEndTurn,
+  onBuyProperty,
+  onSkipProperty,
   allowedActions,
+  phase,
   currentPlayer,
+  purchasePromptSpace,
   boardSpaces,
   logos,
   subTypeColors,
-  cornerColors
+  cornerColors,
+  lastDice
 }: MonopolyBoardProps) {
+  // Responsive scaling state
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
+  // Calculate responsive scale based on container size
+  useEffect(() => {
+    const updateScale = () => {
+      if (!containerRef.current) return;
+
+      const container = containerRef.current;
+      const containerWidth = container.clientWidth;
+      const containerHeight = container.clientHeight;
+
+      // Use the smaller dimension to ensure board fits
+      const availableSize = Math.min(containerWidth, containerHeight);
+
+      // Calculate scale factor
+      let newScale = availableSize / BASE_BOARD_SIZE;
+
+      // Apply min/max constraints
+      const minScale = BOARD_MIN_SIZE / BASE_BOARD_SIZE;
+      const maxScale = BOARD_MAX_SIZE / BASE_BOARD_SIZE;
+      newScale = Math.max(minScale, Math.min(maxScale, newScale));
+
+      setScale(newScale);
+    };
+
+    // Initial scale calculation
+    updateScale();
+
+    // Update on window resize
+    const resizeObserver = new ResizeObserver(updateScale);
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
+
+  // Calculate scaled dimensions
+  const scaledBoardSize = BASE_BOARD_SIZE * scale;
+  const scaledCornerSize = BASE_CORNER_SIZE * scale;
+  const scaledCardWidth = BASE_CARD_WIDTH * scale;
+  const scaledBorderWidth = Math.max(2, BASE_BORDER_WIDTH * scale);
+  const scaledPadding = BASE_PADDING * scale;
+
   // Memoize getPlayersAtPosition function to avoid recreating on every render
   const getPlayersAtPosition = useMemo(() => {
     return (positionIndex: number) => {
@@ -79,17 +145,31 @@ export const MonopolyBoard = memo(function MonopolyBoard({
 
   return (
     <div
-      className="flex items-center justify-center"
+      ref={containerRef}
+      className="flex items-center justify-center w-full h-full aspect-square"
       style={{
-        width: `${BOARD_SIZE}px`,
-        height: `${BOARD_SIZE}px`
+        // CSS custom properties for responsive scaling
+        ['--board-scale' as string]: scale,
+        ['--corner-size' as string]: `${scaledCornerSize}px`,
+        ['--card-width' as string]: `${scaledCardWidth}px`,
+        ['--border-width' as string]: `${scaledBorderWidth}px`,
+        ['--board-padding' as string]: `${scaledPadding}px`,
       }}
     >
-      {/* Fixed Square Board - 870px × 870px */}
-      <div className="w-full h-full bg-gradient-to-br from-green-700 via-green-800 to-green-900 border-[6px] border-amber-500 shadow-2xl rounded-lg">
-        <div className="grid gap-0 w-full h-full p-1.5 relative" style={{
-          gridTemplateColumns: `${CORNER_SIZE}px ${Array(9).fill(`${CARD_WIDTH}px`).join(' ')} ${CORNER_SIZE}px`,
-          gridTemplateRows: `${CORNER_SIZE}px ${Array(9).fill(`${CARD_WIDTH}px`).join(' ')} ${CORNER_SIZE}px`
+      {/* Responsive Square Board - scales based on container */}
+      <div
+        className="bg-gradient-to-br from-green-700 via-green-800 to-green-900 border-amber-500 shadow-2xl rounded-lg"
+        style={{
+          width: `${scaledBoardSize}px`,
+          height: `${scaledBoardSize}px`,
+          borderWidth: `${scaledBorderWidth}px`,
+          transformOrigin: 'center center',
+        }}
+      >
+        <div className="grid gap-0 w-full h-full relative" style={{
+          padding: `${scaledPadding}px`,
+          gridTemplateColumns: `${scaledCornerSize}px ${Array(9).fill(`${scaledCardWidth}px`).join(' ')} ${scaledCornerSize}px`,
+          gridTemplateRows: `${scaledCornerSize}px ${Array(9).fill(`${scaledCardWidth}px`).join(' ')} ${scaledCornerSize}px`
         }}>
           {/* Top Row */}
           <div className="flex items-center justify-center">
@@ -105,6 +185,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
               logos={logos}
               subTypeColors={subTypeColors}
               cornerColors={cornerColors}
+              scale={scale}
             />
           </div>
           {topRow.map((space) => (
@@ -120,6 +201,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
                 logos={logos}
                 subTypeColors={subTypeColors}
                 cornerColors={cornerColors}
+                scale={scale}
               />
             </div>
           ))}
@@ -136,6 +218,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
               logos={logos}
               subTypeColors={subTypeColors}
               cornerColors={cornerColors}
+              scale={scale}
             />
           </div>
 
@@ -155,6 +238,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
                   logos={logos}
                   subTypeColors={subTypeColors}
                   cornerColors={cornerColors}
+                  scale={scale}
                 />
               </div>
 
@@ -176,6 +260,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
                   logos={logos}
                   subTypeColors={subTypeColors}
                   cornerColors={cornerColors}
+                  scale={scale}
                 />
               </div>
             </React.Fragment>
@@ -183,10 +268,10 @@ export const MonopolyBoard = memo(function MonopolyBoard({
 
           {/* Unified Center Field - Absolute positioned to cover the 9x9 grid */}
           <div className="absolute pointer-events-none" style={{
-            top: `calc(6px + ${CORNER_SIZE}px)`,
-            left: `calc(6px + ${CORNER_SIZE}px)`,
-            width: `${9 * CARD_WIDTH}px`,
-            height: `${9 * CARD_WIDTH}px`
+            top: `calc(${scaledPadding}px + ${scaledCornerSize}px)`,
+            left: `calc(${scaledPadding}px + ${scaledCornerSize}px)`,
+            width: `${9 * scaledCardWidth}px`,
+            height: `${9 * scaledCardWidth}px`
           }}>
             <div className="relative w-full h-full bg-emerald-700 overflow-hidden rounded-sm shadow-inner">
               {/* High-quality grass texture overlay - vertically oriented */}
@@ -204,19 +289,42 @@ export const MonopolyBoard = memo(function MonopolyBoard({
               {/* Field Lines Component */}
               <FieldLines />
 
-              {/* Dice Roller - positioned in lower center */}
-              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-auto z-20">
-                <DiceRoller
-                  onRoll={onDiceRoll}
-                  onEndTurn={onEndTurn}
-                  currentPlayer={players[currentPlayer]}
-                  compact={true}
-                  isYourTurn={isYourTurn}
-                  isEndTurn={isYourTurn ? allowedActions.includes("END_TURN"): false}
-                />
-              </div>
+              {/* Dice Roller - positioned in lower center, hidden when purchase prompt is active */}
+              {(
+                <div
+                  className="absolute left-1/2 -translate-x-1/2 pointer-events-auto z-20"
+                  style={{
+                    bottom: `${Math.max(8, 32 * scale)}px`
+                  }}
+                >
+                  <DiceRoller
+                    onRoll={onDiceRoll}
+                    onEndTurn={onEndTurn}
+                    currentPlayer={players[currentPlayer]}
+                    compact={true}
+                    isYourTurn={isYourTurn}
+                    isEndTurn={isYourTurn ? allowedActions.includes("END_TURN"): false}
+                    lastDice={lastDice}
+                    scale={scale}
+                  />
+                </div>
+              )}
             </div>
           </div>
+
+          {/* Property Actions Modal - Rendered outside the board */}
+          <PropertyActions
+            boardSpace={purchasePromptSpace}
+            phase={phase}
+            isYourTurn={isYourTurn}
+            currencySymbol={currencySymbol}
+            players={players}
+            currentPlayerIndex={currentPlayer}
+            boardSpaces={boardSpaces}
+            terms={terms}
+            onBuy={onBuyProperty}
+            onSkip={onSkipProperty}
+          />
 
           {/* Bottom Row */}
           <div className="flex items-center justify-center">
@@ -232,6 +340,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
               logos={logos}
               subTypeColors={subTypeColors}
               cornerColors={cornerColors}
+              scale={scale}
             />
           </div>
           {bottomRow.map((space) => (
@@ -247,6 +356,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
                 logos={logos}
                 subTypeColors={subTypeColors}
                 cornerColors={cornerColors}
+                scale={scale}
               />
             </div>
           ))}
@@ -263,6 +373,7 @@ export const MonopolyBoard = memo(function MonopolyBoard({
               logos={logos}
               subTypeColors={subTypeColors}
               cornerColors={cornerColors}
+              scale={scale}
             />
           </div>
         </div>

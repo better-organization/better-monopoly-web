@@ -15,6 +15,7 @@ interface BoardSpaceProps {
   logos?: { [key: string]: string };
   subTypeColors?: { [key: string]: { primary: string; secondary: string; gradient: string; logo: string | null } };
   cornerColors?: { [key: string]: { primary: string; secondary: string; gradient: string; logo: string | null; textColor: string } };
+  scale?: number;
 }
 
 // Static card component - only renders the space itself, not players
@@ -27,7 +28,8 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
   currencySymbol,
   logos = {},
   subTypeColors = {},
-  cornerColors = {}
+  cornerColors = {},
+  scale = 1
 }: {
   space: BoardSpaceType;
   onClick: () => void;
@@ -37,13 +39,21 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
   logos?: { [key: string]: string };
   subTypeColors?: { [key: string]: { primary: string; secondary: string; gradient: string; logo: string | null } };
   cornerColors?: { [key: string]: { primary: string; secondary: string; gradient: string; logo: string | null; textColor: string } };
+  scale?: number;
 }) {
+  // Get appropriate icon for the space
   const getIcon = () => {
+    // Calculate icon size based on scale - allow scaling down to 12px minimum
+    // At scale 1.0: iconSize=32px
+    // At scale 0.5: iconSize=16px
+    // At scale 0.3: iconSize=9.6px -> min 12px
+    const iconSize = Math.max(12, Math.round(32 * scale));
+
     return getSpaceIcon({
       space,
       logos,
       subTypeColors,
-      size: 32,
+      size: iconSize,
       invertColor: !isCorner && space.cell_type !== 'property'
     });
   };
@@ -70,14 +80,29 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
     // Get individual corner configuration
     const cornerTheme = cornerColors[space.name];
 
+    // Calculate scaled dimensions
+    const cornerSize = 120 * scale;
+    const borderWidth = Math.max(1, 2 * scale);
+    const padding = 8 * scale;
+
+    // Allow corner text to scale down proportionally
+    // At scale 1.0: fontSize=11px, smallFontSize=8px
+    // At scale 0.5: fontSize=5.5px, smallFontSize=4px
+    const fontSize = Math.max(5, 11 * scale);
+    const smallFontSize = Math.max(4, 8 * scale);
+
+    const marginBottom = 8 * scale;
+    const marginTop = 4 * scale;
+
     return (
       <div
         onClick={onClick}
         className="border-2 cursor-pointer hover:shadow-xl transition-all duration-150 flex items-center justify-center relative overflow-hidden rounded-sm"
         style={{
-          width: '120px',
-          height: '120px',
-          padding: '8px',
+          width: `${cornerSize}px`,
+          height: `${cornerSize}px`,
+          padding: `${padding}px`,
+          borderWidth: `${borderWidth}px`,
           background: cornerTheme
             ? `linear-gradient(to bottom right, ${cornerTheme.primary}, ${cornerTheme.secondary})`
             : 'linear-gradient(to bottom right, rgb(251, 191, 36), rgb(217, 119, 6))',
@@ -88,22 +113,23 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
 
         <div className="relative z-10 text-center w-full">
-          <div className="flex justify-center" style={{ marginBottom: '8px', color: cornerTheme?.textColor || '#78350F' }}>
+          <div className="flex justify-center" style={{ marginBottom: `${marginBottom}px`, color: cornerTheme?.textColor || '#78350F' }}>
             {getIcon()}
           </div>
           <div
-            className="uppercase tracking-tight leading-tight text-[11px]"
+            className="uppercase tracking-tight leading-tight"
             style={{
-              paddingLeft: '4px',
-              paddingRight: '4px',
+              paddingLeft: `${4 * scale}px`,
+              paddingRight: `${4 * scale}px`,
               color: cornerTheme?.textColor || '#78350F',
-              fontWeight: '700'
+              fontWeight: '700',
+              fontSize: `${fontSize}px`
             }}
           >
             {space.name}
           </div>
           {space.action_details && (
-            <div className="text-[8px] leading-tight" style={{ marginTop: '4px', color: cornerTheme?.textColor || '#78350F', opacity: 0.9 }}>
+            <div className="leading-tight" style={{ marginTop: `${marginTop}px`, color: cornerTheme?.textColor || '#78350F', opacity: 0.9, fontSize: `${smallFontSize}px` }}>
               {space.action_details}
             </div>
           )}
@@ -126,10 +152,30 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
     position === 'top' ? 'rotate-180' :
     ''; // bottom has no counter-rotation
 
+  // Calculate scaled dimensions
+  const cardWidth = 70 * scale;
+  const cardHeight = 120 * scale;
+  const borderWidth = Math.max(1, 2 * scale);
+  const headerHeight = `${35}%`; // Keep percentage-based
+  const padding = 8 * scale;
+  const paddingSmall = 6 * scale;
+  const paddingVerySmall = 4 * scale;
+
+  // Font sizes - allow scaling down but with reasonable minimums for very small scales
+  // At scale 1.0: price=11px, name=9px
+  // At scale 0.5: price=5.5px, name=4.5px (readable on small screens)
+  // At scale 0.3: price=3.3px -> min 5px, name=2.7px -> min 4px
+  const priceFontSize = Math.max(5, 11 * scale);
+  const nameFontSize = Math.max(4, 9 * scale);
+
+  const logoHeight = 48 * scale;
+  const marginBottom = 4 * scale;
+  const marginTop = 4 * scale;
+
   // For left/right cards, swap width and height so after rotation they fit correctly
   // Normal cards (top/bottom): 70px wide × 120px tall
   // Left/right cards before rotation: 120px wide × 70px tall → after rotation: 70px wide × 120px tall
-  const dimensionStyle = { width: '70px', height: '120px' };
+  const dimensionStyle = { width: `${cardWidth}px`, height: `${cardHeight}px` };
 
   // Property tiles with club logos and team colors
   if (isProperty && countryTheme) {
@@ -137,32 +183,48 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
       <div className={rotationClass} style={dimensionStyle}>
         <div
           onClick={onClick}
-          className="w-full h-full bg-gradient-to-b from-white to-gray-50 border-2 cursor-pointer hover:shadow-xl transition-all duration-200 flex flex-col relative overflow-hidden rounded-sm"
+          className="w-full h-full bg-gradient-to-b from-white to-gray-50 cursor-pointer hover:shadow-xl transition-all duration-200 flex flex-col relative overflow-hidden rounded-sm"
           style={{
+            borderWidth: `${borderWidth}px`,
+            borderStyle: 'solid',
             borderColor: countryTheme.secondary
           }}
         >
           {/* Team color header with subtle gradient - increased height for larger logo */}
           <div
-            className={`w-full h-[35%] flex items-center justify-center relative overflow-hidden`}
+            className={`w-full flex items-center justify-center relative overflow-hidden`}
             style={{
+              height: headerHeight,
               background: countryTheme
                 ? `linear-gradient(to bottom right, ${countryTheme.primary}, ${countryTheme.secondary})`
                 : 'linear-gradient(to bottom right, rgb(31, 41, 55), rgb(55, 65, 81))',
-              borderBottom: `2px solid ${countryTheme.secondary}`
+              borderBottom: `${borderWidth}px solid ${countryTheme.secondary}`
             }}
           >
             {/* Subtle pattern overlay */}
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),transparent)]"></div>
 
             {/* Club Logo - height-priority with auto width and vertical padding */}
-            <div className={`relative z-10 flex items-center justify-center ${contentRotationClass}`} style={{ height: '48px', paddingTop: '4px', paddingBottom: '4px' }}>
+            <div
+              className={`relative z-10 flex items-center justify-center ${contentRotationClass}`}
+              style={{
+                height: `${logoHeight}px`,
+                paddingTop: `${paddingVerySmall}px`,
+                paddingBottom: `${paddingVerySmall}px`
+              }}
+            >
               <ClubLogo clubName={space.name} position={position} style={{ height: '100%', width: 'auto' }} logos={logos} />
             </div>
           </div>
 
           {/* Content area with high contrast */}
-          <div className={`flex-1 flex flex-col items-center justify-between bg-white ${contentRotationClass}`} style={{ padding: '8px', paddingTop: '6px' }}>
+          <div
+            className={`flex-1 flex flex-col items-center justify-between bg-white ${contentRotationClass}`}
+            style={{
+              padding: `${padding}px`,
+              paddingTop: `${paddingSmall}px`
+            }}
+          >
             {position === 'top' ? (
               <>
                 {/* Price at top for top row */}
@@ -171,9 +233,9 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
                     style={{
                       fontFamily: 'system-ui, -apple-system, sans-serif',
                       fontWeight: '700',
-                      fontSize: '11px',
+                      fontSize: `${priceFontSize}px`,
                       color: '#000000',
-                      marginBottom: '4px'
+                      marginBottom: `${marginBottom}px`
                     }}
                   >
                     {currencySymbol}{price}
@@ -187,10 +249,10 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
                     style={{
                       fontFamily: 'system-ui, -apple-system, sans-serif',
                       fontWeight: '700',
-                      fontSize: '9px',
+                      fontSize: `${nameFontSize}px`,
                       color: '#111827',
-                      paddingLeft: '4px',
-                      paddingRight: '4px'
+                      paddingLeft: `${paddingVerySmall}px`,
+                      paddingRight: `${paddingVerySmall}px`
                     }}
                   >
                     {space.name}
@@ -206,10 +268,10 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
                     style={{
                       fontFamily: 'system-ui, -apple-system, sans-serif',
                       fontWeight: '700',
-                      fontSize: '9px',
+                      fontSize: `${nameFontSize}px`,
                       color: '#111827',
-                      paddingLeft: '4px',
-                      paddingRight: '4px'
+                      paddingLeft: `${paddingVerySmall}px`,
+                      paddingRight: `${paddingVerySmall}px`
                     }}
                   >
                     {space.name}
@@ -221,9 +283,9 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
                     style={{
                       fontFamily: 'system-ui, -apple-system, sans-serif',
                       fontWeight: '700',
-                      fontSize: '11px',
+                      fontSize: `${priceFontSize}px`,
                       color: '#000000',
-                      marginTop: '4px'
+                      marginTop: `${marginTop}px`
                     }}
                   >
                     {currencySymbol}{price}
@@ -245,19 +307,22 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
     <div className={rotationClass} style={dimensionStyle}>
       <div
         onClick={onClick}
-        className="w-full h-full bg-gradient-to-b from-gray-50 to-white border-2 cursor-pointer hover:shadow-lg transition-all duration-150 flex flex-col relative overflow-hidden rounded-sm"
+        className="w-full h-full bg-gradient-to-b from-gray-50 to-white cursor-pointer hover:shadow-lg transition-all duration-150 flex flex-col relative overflow-hidden rounded-sm"
         style={{
+          borderWidth: `${borderWidth}px`,
+          borderStyle: 'solid',
           borderColor: nonPropertyTheme ? nonPropertyTheme.secondary : 'rgb(156, 163, 175)'
         }}
       >
         {/* Icon header section - uses subTypeColors if available */}
         <div
-          className={`w-full h-[35%] flex-shrink-0 flex items-center justify-center border-b-2 ${contentRotationClass}`}
+          className={`w-full flex-shrink-0 flex items-center justify-center ${contentRotationClass}`}
           style={{
+            height: headerHeight,
             background: nonPropertyTheme
               ? `linear-gradient(to bottom right, ${nonPropertyTheme.primary}, ${nonPropertyTheme.secondary})`
               : 'linear-gradient(to bottom right, rgb(51, 65, 85), rgb(71, 85, 105))',
-            borderColor: nonPropertyTheme ? nonPropertyTheme.secondary : 'rgb(156, 163, 175)'
+            borderBottom: `${borderWidth}px solid ${nonPropertyTheme ? nonPropertyTheme.secondary : 'rgb(156, 163, 175)'}`
           }}
         >
           <div className="text-white">
@@ -266,7 +331,13 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
         </div>
 
         {/* Content area */}
-        <div className={`flex-1 flex flex-col items-center justify-between ${contentRotationClass}`} style={{ padding: '6px', paddingTop: '4px' }}>
+        <div
+          className={`flex-1 flex flex-col items-center justify-between ${contentRotationClass}`}
+          style={{
+            padding: `${paddingSmall}px`,
+            paddingTop: `${paddingVerySmall}px`
+          }}
+        >
           {position === 'top' ? (
             <>
               {/* Price at top for top row */}
@@ -275,9 +346,9 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
                   style={{
                     fontFamily: 'system-ui, -apple-system, sans-serif',
                     fontWeight: '700',
-                    fontSize: '11px',
+                    fontSize: `${priceFontSize}px`,
                     color: '#000000',
-                    marginBottom: '4px'
+                    marginBottom: `${marginBottom}px`
                   }}
                 >
                   {currencySymbol}{price}
@@ -286,7 +357,14 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
 
               {/* Space name in middle */}
               <div className="flex-1 flex flex-col items-center justify-center w-full">
-                <div className="text-center uppercase tracking-tighter leading-tight text-[9px] text-gray-900" style={{ paddingLeft: '2px', paddingRight: '2px' }}>
+                <div
+                  className="text-center uppercase tracking-tighter leading-tight text-gray-900"
+                  style={{
+                    paddingLeft: `${2 * scale}px`,
+                    paddingRight: `${2 * scale}px`,
+                    fontSize: `${nameFontSize}px`
+                  }}
+                >
                   {space.name}
                 </div>
               </div>
@@ -295,7 +373,14 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
             <>
               {/* Normal order for other positions: name, price, players */}
               <div className="flex-1 flex flex-col items-center justify-center w-full">
-                <div className="text-center uppercase tracking-tighter leading-tight text-[9px] text-gray-900" style={{ paddingLeft: '2px', paddingRight: '2px' }}>
+                <div
+                  className="text-center uppercase tracking-tighter leading-tight text-gray-900"
+                  style={{
+                    paddingLeft: `${2 * scale}px`,
+                    paddingRight: `${2 * scale}px`,
+                    fontSize: `${nameFontSize}px`
+                  }}
+                >
                   {space.name}
                 </div>
               </div>
@@ -305,9 +390,9 @@ export const BoardSpaceCard = memo(function BoardSpaceCard({
                   style={{
                     fontFamily: 'system-ui, -apple-system, sans-serif',
                     fontWeight: '700',
-                    fontSize: '11px',
+                    fontSize: `${priceFontSize}px`,
                     color: '#000000',
-                    marginTop: '4px'
+                    marginTop: `${marginTop}px`
                   }}
                 >
                   {currencySymbol}{price}
@@ -326,12 +411,14 @@ export function PlayerOverlay({
   players,
   colors,
   position = 'top',
-  isCorner = false
+  isCorner = false,
+  scale = 1
 }: {
   players: Player[];
   colors: string[]
   position?: 'top' | 'right' | 'bottom' | 'left';
   isCorner?: boolean;
+  scale?: number;
 }) {
   if (players.length === 0) return null;
 
@@ -342,9 +429,12 @@ export function PlayerOverlay({
     position === 'right' ? 'rotate-90' :
     '';
 
-  // Bigger player tokens - increased for better visibility
-  const playerSize = isCorner ? { width: '28px', height: '28px' } : { width: '22px', height: '22px' };
-  const gap = isCorner ? '8px' : '6px';
+  // Responsive player tokens - scale based on board size
+  const baseSize = isCorner ? 28 : 22;
+  const tokenSize = Math.max(16, baseSize * scale); // Min 16px for touch targets
+  const playerSize = { width: `${tokenSize}px`, height: `${tokenSize}px` };
+  const gap = `${Math.max(4, (isCorner ? 8 : 6) * scale)}px`;
+  const borderWidth = Math.max(1, 2 * scale);
 
   return (
     <div
@@ -354,8 +444,13 @@ export function PlayerOverlay({
         {players.map((player) => (
           <div
             key={player.player_id}
-            className="rounded-full border-2 border-white shadow-lg"
-            style={{ ...playerSize, backgroundColor: colors[player.player_turn] }}
+            className="rounded-full border-white shadow-lg"
+            style={{
+              ...playerSize,
+              backgroundColor: colors[player.player_turn],
+              borderWidth: `${borderWidth}px`,
+              borderStyle: 'solid'
+            }}
           />
         ))}
       </div>
@@ -375,7 +470,8 @@ export function BoardSpace({
   currencySymbol,
   logos = {},
   subTypeColors = {},
-  cornerColors = {}
+  cornerColors = {},
+  scale = 1
 }: BoardSpaceProps) {
   return (
     <div className="relative" id={`board-space-${space.index}`}>
@@ -389,6 +485,7 @@ export function BoardSpace({
         logos={logos}
         subTypeColors={subTypeColors}
         cornerColors={cornerColors}
+        scale={scale}
       />
 
       {/* Dynamic layer - player positions */}
@@ -397,6 +494,7 @@ export function BoardSpace({
         colors={colors}
         position={position}
         isCorner={isCorner}
+        scale={scale}
       />
     </div>
   );

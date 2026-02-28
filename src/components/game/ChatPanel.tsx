@@ -6,7 +6,7 @@ export const ChatPanel = memo(function ChatPanel() {
   const [message, setMessage] = useState('');
 
   return (
-    <div className="bg-slate-800 rounded-lg border-2 border-slate-700 h-[calc(100vh-2rem)] flex flex-col">
+    <div className="bg-slate-800 rounded-lg border-2 border-slate-700 flex-1 flex flex-col min-h-0">
       <div className="p-3 border-b border-slate-700 flex items-center gap-2">
         <MessageCircle className="w-5 h-5 text-blue-400" />
         <h3 className="text-slate-200 text-sm">Chat</h3>

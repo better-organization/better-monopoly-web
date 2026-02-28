@@ -79,4 +79,20 @@ export const gameService = {
   }> => {
     return apiClient.post(`/api/game/roll-dice`);
   },
+
+  // Buy property
+  buyProperty: async (): Promise<{
+    success: boolean;
+    message: string;
+  }> => {
+    return apiClient.post(`/api/game/buy`);
+  },
+
+  // Skip property purchase
+  skipProperty: async (): Promise<{
+    success: boolean;
+    message: string;
+  }> => {
+    return apiClient.post(`/api/game/pass`);
+  },
 };

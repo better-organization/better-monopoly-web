@@ -1,6 +1,6 @@
-import { memo, useState } from 'react';
+import { memo, useState, useEffect } from 'react';
 import { Dices } from 'lucide-react';
-import type { Player } from '@/types/game';
+import type { Player, DiceRollResult } from '@/types/game';
 import { gameService } from '@/services/gameService';
 
 export interface DiceRollerProps {
@@ -10,14 +10,24 @@ export interface DiceRollerProps {
   compact?: boolean;
   isYourTurn: boolean;
   isEndTurn: boolean;
+  lastDice?: DiceRollResult;
+  scale?: number;
 }
 
-export const DiceRoller = memo(function DiceRoller({ onRoll, onEndTurn, currentPlayer, compact, isYourTurn, isEndTurn }: DiceRollerProps) {
-  const [dice1, setDice1] = useState(1);
-  const [dice2, setDice2] = useState(1);
+export const DiceRoller = memo(function DiceRoller({ onRoll, onEndTurn, currentPlayer, compact, isYourTurn, isEndTurn, lastDice, scale = 1 }: DiceRollerProps) {
+  const [dice1, setDice1] = useState(lastDice?.dice[0] || 1);
+  const [dice2, setDice2] = useState(lastDice?.dice[1] || 1);
   const [fetching, setFetching] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  // Update dice display when lastDice changes (from game state polling)
+  useEffect(() => {
+    if (lastDice && !fetching) {
+      setDice1(lastDice.dice[0]);
+      setDice2(lastDice.dice[1]);
+    }
+  }, [lastDice, fetching]);
 
   const rollDice = async () => {
     if (fetching) return;
@@ -146,26 +156,40 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, onEndTurn, currentP
   };
 
   if (compact) {
+    // Calculate responsive sizes based on scale
+    const diceSize = Math.max(40, Math.round(60 * scale));
+    const gap = Math.max(8, Math.round(12 * scale));
+    const messageFontSize = Math.max(10, Math.round(12 * scale));
+    const buttonPaddingX = Math.max(16, Math.round(24 * scale));
+    const buttonPaddingY = Math.max(8, Math.round(10 * scale));
+    const buttonFontSize = Math.max(11, Math.round(14 * scale));
+
     return (
       <div className="text-center bg-transparent">
         {/* Success Message */}
         {message && (
-          <div className="mb-3 px-3 py-1.5 bg-green-600 text-white text-xs rounded-md shadow-lg animate-pulse">
+          <div
+            className="mb-3 px-3 py-1.5 bg-green-600 text-white rounded-md shadow-lg animate-pulse"
+            style={{ fontSize: `${messageFontSize}px` }}
+          >
             {message}
           </div>
         )}
 
         {/* Error Message */}
         {error && (
-          <div className="mb-3 px-3 py-1.5 bg-red-600 text-white text-xs rounded-md shadow-lg">
+          <div
+            className="mb-3 px-3 py-1.5 bg-red-600 text-white rounded-md shadow-lg"
+            style={{ fontSize: `${messageFontSize}px` }}
+          >
             {error}
           </div>
         )}
 
-        <div className="flex gap-3 justify-center mb-3">
+        <div className="flex justify-center mb-3" style={{ gap: `${gap}px` }}>
           <svg
-            width="60"
-            height="60"
+            width={diceSize}
+            height={diceSize}
             viewBox="0 0 100 100"
             className={`${fetching ? 'animate-spin' : ''} drop-shadow-2xl`}
           >
@@ -183,8 +207,8 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, onEndTurn, currentP
           </svg>
 
           <svg
-            width="60"
-            height="60"
+            width={diceSize}
+            height={diceSize}
             viewBox="0 0 100 100"
             className={`${fetching ? 'animate-spin' : ''} drop-shadow-2xl`}
           >
@@ -205,13 +229,27 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, onEndTurn, currentP
         { (isYourTurn && isEndTurn) ? (<button
             onClick={endTurn}
             disabled={fetching || !isYourTurn}
-            className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg flex items-center gap-2 mx-auto text-sm"
+            className="bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg flex items-center gap-2 mx-auto"
+            style={{
+              paddingLeft: `${buttonPaddingX}px`,
+              paddingRight: `${buttonPaddingX}px`,
+              paddingTop: `${buttonPaddingY}px`,
+              paddingBottom: `${buttonPaddingY}px`,
+              fontSize: `${buttonFontSize}px`
+            }}
         >
           {fetching ? 'Ending Turn...' : `End Turn`}
         </button>) : (<button
           onClick={rollDice}
           disabled={fetching || !isYourTurn}
-          className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg flex items-center gap-2 mx-auto text-sm"
+          className="bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg flex items-center gap-2 mx-auto"
+          style={{
+            paddingLeft: `${buttonPaddingX}px`,
+            paddingRight: `${buttonPaddingX}px`,
+            paddingTop: `${buttonPaddingY}px`,
+            paddingBottom: `${buttonPaddingY}px`,
+            fontSize: `${buttonFontSize}px`
+          }}
         >
           <Dices className="w-4 h-4" />
           {fetching ? 'Rolling...' : `${isYourTurn ? 'Your turn' : 'Opponents turn'}`}

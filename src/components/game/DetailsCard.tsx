@@ -32,7 +32,8 @@ export const DetailsCard = memo(function DetailsCard({
   const cornerTheme = property.cell_sub_type === 'Corner' ? cornerColors[property.name] : null;
 
   return (
-    <div className="bg-white rounded-xl shadow-2xl border-4 border-amber-500 overflow-hidden" style={{ width: '300px' }}>
+    <div className="bg-white rounded-xl shadow-2xl border-2 sm:border-4 border-amber-500 overflow-hidden
+                    w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[360px] md:max-w-[400px] lg:max-w-[440px]">
       <div className="relative">
         {property.cell_type === 'property' && (
           <div
@@ -47,7 +48,7 @@ export const DetailsCard = memo(function DetailsCard({
             }}
           >
             {/* Logo Section - consistent 80x80 for all card types */}
-            <div style={{ width: '80px', height: '80px', marginBottom: '12px' }}>
+            <div className="w-16 h-16 sm:w-20 sm:h-20 mb-3">
               <ClubLogo clubName={property.name} className="w-full h-full" logos={logos} />
             </div>
             {/* Country Name with Flag Logo */}
@@ -69,7 +70,7 @@ export const DetailsCard = memo(function DetailsCard({
             }}
           >
             {/* Logo Section - consistent 80x80 for all card types */}
-            <div style={{ width: '80px', height: '80px', marginBottom: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="w-16 h-16 sm:w-20 sm:h-20 mb-3 flex items-center justify-center">
               {getSpaceIcon({ space: property, logos, subTypeColors, size: 80})}
             </div>
           </div>
@@ -87,7 +88,7 @@ export const DetailsCard = memo(function DetailsCard({
             }}
           >
             {/* Logo Section - consistent 80x80 for all card types */}
-            <div style={{ width: '80px', height: '80px', marginBottom: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="w-16 h-16 sm:w-20 sm:h-20 mb-3 flex items-center justify-center">
               {getSpaceIcon({ space: property, logos, subTypeColors, size: 80 })}
             </div>
           </div>
@@ -105,7 +106,7 @@ export const DetailsCard = memo(function DetailsCard({
             }}
           >
             {/* Logo Section - consistent 80x80 for all card types */}
-            <div style={{ width: '80px', height: '80px', marginBottom: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="w-16 h-16 sm:w-20 sm:h-20 mb-3 flex items-center justify-center">
               {getSpaceIcon({ space: property, logos, subTypeColors, size: 80})}
             </div>
           </div>
@@ -123,7 +124,7 @@ export const DetailsCard = memo(function DetailsCard({
             }}
           >
             {/* Logo Section - consistent 80x80 for all card types */}
-            <div style={{ width: '80px', height: '80px', marginBottom: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="w-16 h-16 sm:w-20 sm:h-20 mb-3 flex items-center justify-center">
               {getSpaceIcon({ space: property, logos, subTypeColors, size: 80})}
             </div>
           </div>
