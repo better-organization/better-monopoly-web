@@ -39,27 +39,29 @@ export function getSpaceIcon({
     );
   }
 
-  // Fallback to lucide icons
-  const iconClass = className || "w-8 h-8";
+  // Fallback to lucide icons - use size parameter for responsive scaling
+  const iconStyle = {
+    width: `${size}px`,
+    height: `${size}px`
+  };
 
   switch (space.cell_type) {
     case 'transport':
-      return <Trophy className={iconClass} />;
+      return <Trophy className={className} style={iconStyle} />;
     case 'utility':
-      return <Zap className={iconClass} />;
+      return <Zap className={className} style={iconStyle} />;
     case 'special':
       if (space.cell_sub_type === 'Community Chest') {
-        return <Gift className={iconClass} />;
+        return <Gift className={className} style={iconStyle} />;
       }
       if (space.cell_sub_type === 'Chance') {
-        return <Heart className={iconClass} />;
+        return <Heart className={className} style={iconStyle} />;
       }
       if (space.action_keyword === 'tax') {
-        return <DollarSign className={iconClass} />;
+        return <DollarSign className={className} style={iconStyle} />;
       }
-      return <Ban className={iconClass} />;
+      return <Ban className={className} style={iconStyle} />;
     default:
       return null;
   }
 }
-

@@ -11,8 +11,9 @@ interface PlayerPanelProps {
 }
 
 export const PlayerPanel = memo(function PlayerPanel({ players, currentPlayer, terms, colors, yourOrder }: PlayerPanelProps) {
+    // Fixed height for 6 players: each player card ~60px + gap, total ~432px
     return (
-    <div className="bg-slate-800 rounded-lg border-2 border-slate-700 p-3">
+    <div className="bg-slate-800 rounded-lg border-2 border-slate-700 p-3 h-[432px]">
       <div className="flex items-center gap-2 mb-3">
         <User className="w-5 h-5 text-blue-400" />
         <h3 className="text-slate-200 text-sm">{terms.player}s</h3>
@@ -56,6 +57,7 @@ export const PlayerPanel = memo(function PlayerPanel({ players, currentPlayer, t
             </div>
           </div>
         ))}
+        {/* Empty space reserved for remaining player slots (up to 6 total) */}
       </div>
     </div>
   );

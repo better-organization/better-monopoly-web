@@ -74,6 +74,7 @@ export async function getDynamicGameData(): Promise<DynamicGameData> {
     return dynamicGameDataResponse.data;
   } catch {
     return {
+      you: 'Manager 1', // Default to first player for development
       phase: 'waiting_for_roll',
       players: getInitialPlayers(),
       turn: {
@@ -90,9 +91,9 @@ export function getInitialPlayers(): Player[] {
   return [
     {
       player_turn: 1, player_id: 'Manager 1', position: 1, player_money: 1500,
-      property_owns: [],
-      utility_owns: [],
-      transport_owns: []
+      property_owns: [5, 6],
+      utility_owns: [3, 7],
+      transport_owns: [1, 2]
     },
     {
       player_turn: 2, player_id: 'Manager 2', position: 1, player_money: 1500,

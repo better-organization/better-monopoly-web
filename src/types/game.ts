@@ -3,9 +3,9 @@ export interface Player {
   player_turn: number;
   position: number;
   player_money: number;
-  property_owns: string[];
-  utility_owns: string[];
-  transport_owns: string[];
+  property_owns: number[];
+  utility_owns: number[];
+  transport_owns: number[];
 }
 
 export interface BoardSpace {
@@ -57,10 +57,21 @@ export interface Turn {
   round: number;
 }
 
+export interface TileInfo {
+  index: number;
+  type: string;
+  isOwned: boolean;
+  ownerId?: string;
+  isOwnerCurrentPlayer?: boolean;
+  price?: number;
+  rent?: number;
+}
+
 export interface GameState {
   phase: string;
   players: Player[];
   turn: Turn;
+  currentTile?: TileInfo;
   lastDice: DiceRollResult | undefined;
   allowedActions: string[];
 }
