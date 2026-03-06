@@ -52,6 +52,13 @@ export interface DiceRollResult {
   double: boolean;
 }
 
+export interface RentEvent {
+  payerId: string;
+  ownerId: string;
+  amount: number;
+  tileName?: string;
+}
+
 export interface Turn {
   currentPlayerIndex: number;
   round: number;

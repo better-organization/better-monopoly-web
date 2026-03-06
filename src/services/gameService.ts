@@ -1,5 +1,5 @@
 import { apiClient } from './api';
-import type {DynamicGameData, DynamicGameDataResponse, StaticGameDataResponse} from '@/utils/gameConfig';
+import type { DynamicGameData, DynamicGameDataResponse, StaticGameDataResponse } from '@/utils/gameConfig';
 
 // Game related types
 export interface Game {
@@ -74,7 +74,13 @@ export const gameService = {
       dice: [number, number];
       total: number;
       timestamp: string;
-      double: boolean;
+      newPosition: number;
+      rentEvent?: {
+        payerId: string;
+        ownerId: string;
+        amount: number;
+        tileName?: string;
+      };
     };
   }> => {
     return apiClient.post(`/api/game/roll-dice`);

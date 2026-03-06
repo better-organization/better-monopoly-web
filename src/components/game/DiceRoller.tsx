@@ -1,6 +1,6 @@
 import { memo, useState, useEffect } from 'react';
 import { Dices } from 'lucide-react';
-import type { Player, DiceRollResult } from '@/types/game';
+import type { Player, DiceRollResult, RentEvent } from '@/types/game';
 import { gameService } from '@/services/gameService';
 
 export interface DiceRollerProps {
@@ -12,14 +12,16 @@ export interface DiceRollerProps {
   isEndTurn: boolean;
   lastDice?: DiceRollResult;
   scale?: number;
+  currencySymbol?: string;
 }
 
-export const DiceRoller = memo(function DiceRoller({ onRoll, onEndTurn, currentPlayer, compact, isYourTurn, isEndTurn, lastDice, scale = 1 }: DiceRollerProps) {
+export const DiceRoller = memo(function DiceRoller({ onRoll, onEndTurn, currentPlayer, compact, isYourTurn, isEndTurn, lastDice, scale = 1, currencySymbol = '€' }: DiceRollerProps) {
   const [dice1, setDice1] = useState(lastDice?.dice[0] || 1);
   const [dice2, setDice2] = useState(lastDice?.dice[1] || 1);
   const [fetching, setFetching] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [rentToast, setRentToast] = useState<RentEvent | null>(null);
 
   // Update dice display when lastDice changes (from game state polling)
   useEffect(() => {
@@ -68,6 +70,12 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, onEndTurn, currentP
         // Set the actual dice values from backend
         setDice1(dice1Value);
         setDice2(dice2Value);
+
+        // Show rent toast if rent was collected
+        if (response.data.rentEvent) {
+          setRentToast(response.data.rentEvent);
+          setTimeout(() => setRentToast(null), 4000);
+        }
 
         // Show success message
         const successMessage = `Rolled ${dice1Value} and ${dice2Value} = ${totalValue}!`;
@@ -166,7 +174,22 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, onEndTurn, currentP
 
     return (
       <div className="text-center bg-transparent">
-        {/* Success Message */}
+        {/* Rent Toast — above dice result, same style */}
+        {rentToast && (
+          <div
+            className="mb-3 px-3 py-2 bg-amber-600 text-white rounded-md shadow-lg animate-pulse"
+            style={{ fontSize: `${messageFontSize}px` }}
+          >
+            🏠 <span className="font-bold">{rentToast.payerId}</span>
+            {' paid '}
+            <span className="font-bold">{currencySymbol}{rentToast.amount}</span>
+            {' to '}
+            <span className="font-bold">{rentToast.ownerId}</span>
+            {rentToast.tileName && ` · ${rentToast.tileName}`}
+          </div>
+        )}
+
+        {/* Dice result / turn-ended message */}
         {message && (
           <div
             className="mb-3 px-3 py-1.5 bg-green-600 text-white rounded-md shadow-lg animate-pulse"
@@ -226,17 +249,17 @@ export const DiceRoller = memo(function DiceRoller({ onRoll, onEndTurn, currentP
           </svg>
         </div>
 
-        { (isYourTurn && isEndTurn) ? (<button
-            onClick={endTurn}
-            disabled={fetching || !isYourTurn}
-            className="bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg flex items-center gap-2 mx-auto"
-            style={{
-              paddingLeft: `${buttonPaddingX}px`,
-              paddingRight: `${buttonPaddingX}px`,
-              paddingTop: `${buttonPaddingY}px`,
-              paddingBottom: `${buttonPaddingY}px`,
-              fontSize: `${buttonFontSize}px`
-            }}
+        {(isYourTurn && isEndTurn) ? (<button
+          onClick={endTurn}
+          disabled={fetching || !isYourTurn}
+          className="bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg flex items-center gap-2 mx-auto"
+          style={{
+            paddingLeft: `${buttonPaddingX}px`,
+            paddingRight: `${buttonPaddingX}px`,
+            paddingTop: `${buttonPaddingY}px`,
+            paddingBottom: `${buttonPaddingY}px`,
+            fontSize: `${buttonFontSize}px`
+          }}
         >
           {fetching ? 'Ending Turn...' : `End Turn`}
         </button>) : (<button
